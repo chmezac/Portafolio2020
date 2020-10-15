@@ -1,0 +1,56 @@
+﻿@model RestauranteDatos.CLIENTE
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<p>PESTAÑA DE CREACION DE CLINENTE EJEMPLO</p>
+
+
+
+@using (Html.BeginForm())
+
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal" style="background: rgba(0,0,0,0.6); width: 70rem">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+
+
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" style="color: #fff">Nombre</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PNOMBRE_CLIENTE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PNOMBRE_CLIENTE, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Agregar" class="btn btn-success" />
+
+            <p>
+                <a href='@Url.Action("Index", "Home")'
+                   class="btn btn-info">
+                    <i class="fa fa-plus"></i>
+                    Volver
+                </a>
+            </p>
+
+        </div>
+    </div>
+
+
+    <br />
+</div>
+}
+
+
+

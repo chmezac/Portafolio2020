@@ -1,0 +1,53 @@
+﻿@model IEnumerable<RestauranteDatos.CLIENTE>
+
+
+@{
+                /**/
+                ViewBag.Title = "Index";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.18/datatables.min.css" />
+
+
+<h2>Index</h2>
+
+<p>
+    <a href='@Url.Action("Create", "Cliente")'
+       class="btn btn-info">
+        <i class="fa fa-plus"></i>
+        Agregar Cliente
+    </a>
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Clientes</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped" id="MyTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th>
+                                Nombre
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PNOMBRE_CLIENTE)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
