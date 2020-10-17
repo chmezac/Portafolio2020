@@ -1,0 +1,30 @@
+﻿@model RestauranteNegocio.Cliente
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Iniciar sesión</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(c => c.Rut, "Ingrese Rut")
+    @Html.TextBoxFor(c => c.Rut)
+
+    @Html.LabelFor(c => c.Dv, "Ingrese DV")
+    @Html.TextBoxFor(c => c.Dv)
+    <br />
+    @Html.LabelFor(c => c.Pass, "Contraseña")
+    @Html.PasswordFor(c => c.Pass)
+    <br />
+
+    <button>Ingresar</button>
+
+}
+
+<br />
+
+@TempData["mensaje"]

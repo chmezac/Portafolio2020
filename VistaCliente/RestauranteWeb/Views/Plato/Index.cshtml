@@ -1,0 +1,37 @@
+﻿@using RestauranteNegocio;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de platos</h2>
+
+@{ List<Plato> platos = (List<Plato>)ViewBag.platos;}
+
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Descripcion</th>
+        <!--<th>Categoria</th>-->
+    </tr>
+
+    @foreach (var plato in platos)
+    {
+        <tr>
+            <td>@plato.Nombre</td>
+            <td>@plato.Precio</td>
+            <td>@plato.Descripcion</td>
+            <!--arroba platos.Categoria.Nombre-->
+        </tr>
+    }
+
+</table>
+
+
+<a href='@Url.Action("Index", "Home")'
+   class="btn btn-info">
+    <i class="fa fa-plus"></i>
+    Volver
+</a>

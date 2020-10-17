@@ -1,0 +1,10 @@
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\bin\Debug\RestauranteDatos.dll.config
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\bin\Debug\RestauranteDatos.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\bin\Debug\RestauranteDatos.pdb
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\bin\Debug\EntityFramework.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\bin\Debug\EntityFramework.xml
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\obj\Debug\RestauranteDatos.csprojAssemblyReference.cache
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\obj\Debug\RestauranteDatos.csproj.CoreCompileInputs.cache
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\obj\Debug\RestauranteDatos.csproj.CopyComplete
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\obj\Debug\RestauranteDatos.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteDatos\obj\Debug\RestauranteDatos.pdb
