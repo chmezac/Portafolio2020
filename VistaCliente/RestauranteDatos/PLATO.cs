@@ -16,18 +16,19 @@ namespace RestauranteDatos
     {
         public PLATO()
         {
-            this.PEDIDO = new HashSet<PEDIDO>();
+            this.PEDIDO_PLATOS = new HashSet<PEDIDO_PLATOS>();
+            this.RECETA = new HashSet<RECETA>();
         }
     
         public short ID_PLATO { get; set; }
-        public string NOM_PLATO { get; set; }
+        public string NOMBRE_PLATO { get; set; }
         public int PRECIO_PLATO { get; set; }
-        public string DECRIP_PLATO { get; set; }
-        public string CATEGORIA_ID_CATEG { get; set; }
-        public int RECETA_ID_RECETA { get; set; }
+        public string DESCRIPCION_PLATO { get; set; }
+        public Nullable<short> TIEMPO_PREPARACION { get; set; }
+        public short TIPO_PLATO_ID_TIPO_PLATO { get; set; }
     
-        public virtual CATEGORIA CATEGORIA { get; set; }
-        public virtual ICollection<PEDIDO> PEDIDO { get; set; }
-        public virtual RECETA RECETA { get; set; }
+        public virtual ICollection<PEDIDO_PLATOS> PEDIDO_PLATOS { get; set; }
+        public virtual TIPO_PLATO TIPO_PLATO { get; set; }
+        public virtual ICollection<RECETA> RECETA { get; set; }
     }
 }

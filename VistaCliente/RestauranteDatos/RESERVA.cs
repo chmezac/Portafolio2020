@@ -16,9 +16,9 @@ namespace RestauranteDatos
     {
         public int ID_RESERVA { get; set; }
         public System.DateTime FECHA_RESERVA { get; set; }
-        public System.DateTime FECHA_INICIO_RESERVA { get; set; }
-        public short CLIENTE_ID_CLIENTE { get; set; }
+        public short ESTADO_RESERVA { get; set; }
+        public short MESA_NUM_MESA { get; set; }
     
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual MESA MESA { get; set; }
     }
 }

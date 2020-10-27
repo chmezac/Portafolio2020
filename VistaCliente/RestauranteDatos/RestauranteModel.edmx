@@ -5,280 +5,84 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ADMINISTRADOR">
-          <Key>
-            <PropertyRef Name="ID_ADMIN" />
-          </Key>
-          <Property Name="ID_ADMIN" Type="varchar2" MaxLength="5" Nullable="false" />
-          <Property Name="RUT_ADMIN" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="DV_ADMIN" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="PNOMBRE_ADMIN" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SNOMBRE_ADMIN" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APPATERNO_ADMIN" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APMATERNO_ADMIN" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SEXO_ADMIN" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="USUARIO_ADMIN" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="PASSWD_ADMIN" Type="varchar2" MaxLength="16" Nullable="false" />
-          <Property Name="DIRECC_ADMIN" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NRO_DIRECC_ADMIN" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="TELEFONO_ADMIN" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FECHA_NAC_ADMIN" Type="date" Nullable="false" />
-          <Property Name="CORREO_ADMIN" Type="varchar2" MaxLength="40" Nullable="false" />
-          <Property Name="LOCAL_ID_LOCAL" Type="varchar2" MaxLength="5" Nullable="false" />
-        </EntityType>
-        <EntityType Name="BANCO">
-          <Key>
-            <PropertyRef Name="ID_BANCO" />
-          </Key>
-          <Property Name="ID_BANCO" Type="varchar2" MaxLength="4" Nullable="false" />
-          <Property Name="NOM_BANCO" Type="varchar2" MaxLength="30" Nullable="false" />
-        </EntityType>
-        <EntityType Name="BODEGA">
-          <Key>
-            <PropertyRef Name="ID_BODEGA" />
-          </Key>
-          <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="NOM_BODEGA" Type="varchar2" MaxLength="18" Nullable="false" />
-          <Property Name="CAPACIDAD" Type="number" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="LOCAL_ID_LOCAL" Type="varchar2" MaxLength="5" Nullable="false" />
-          <Property Name="ID_BODEG" Type="number" Precision="4" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="BODEGUERO">
-          <Key>
-            <PropertyRef Name="ID_BODEG" />
-          </Key>
-          <Property Name="ID_BODEG" Type="number" Precision="4" Scale="0" Nullable="false" />
-          <Property Name="RUT_BODEG" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="DV_BODEG" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="PNOMBRE_BODEG" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SNOMBRE_BODEG" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APPATERNO_BODEG" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APMATERNO_BODEG" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SEXO_BODEG" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="USUARIO_BODEG" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="PASSWD_BODEG" Type="varchar2" MaxLength="16" Nullable="false" />
-          <Property Name="DIRECC_BODEG" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NRO_DIRECC_BODEG" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="TELEFONO_BODEG" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FECHA_NAC_BODEG" Type="date" Nullable="false" />
-          <Property Name="CORREO_BODEG" Type="varchar2" MaxLength="40" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CAJA">
-          <Key>
-            <PropertyRef Name="ID_CAJA" />
-          </Key>
-          <Property Name="ID_CAJA" Type="number" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="NOM_CAJA" Type="varchar2" MaxLength="6" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CAJERO">
-          <Key>
-            <PropertyRef Name="ID_CAJERO" />
-          </Key>
-          <Property Name="ID_CAJERO" Type="number" Precision="4" Scale="0" Nullable="false" />
-          <Property Name="RUT_CAJE" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="DV_CAJE" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="PNOMBRE_CAJE" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SNOMBRE_CAJE" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APPATERNO_CAJE" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APMATERNO_CAJE" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SEXO_CAJE" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="USUARIO_CAJE" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="PASSWD_CAJE" Type="varchar2" MaxLength="16" Nullable="false" />
-          <Property Name="DIRECC_CAJE" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NRO_DIRECC_CAJE" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="TELEFONO_CAJE" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FECHA_NAC_CAJE" Type="date" Nullable="false" />
-          <Property Name="CORREO_CAJE" Type="varchar2" MaxLength="40" Nullable="false" />
-          <Property Name="ID_CAJA" Type="number" Precision="2" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CATEGORIA">
-          <Key>
-            <PropertyRef Name="ID_CATEG" />
-          </Key>
-          <Property Name="ID_CATEG" Type="varchar2" MaxLength="5" Nullable="false" />
-          <Property Name="DESCRIP_CATEG" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NOM_CATEG" Type="varchar2" MaxLength="20" Nullable="false" />
-        </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
             <PropertyRef Name="ID_CLIENTE" />
           </Key>
-          <Property Name="ID_CLIENTE" Type="number" Precision="4" Scale="0" Nullable="false" />
-          <Property Name="RUT_CLIENTE" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="DV_CLIENTE" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="PASSWD_CLIENTE" Type="varchar2" MaxLength="16" Nullable="false" />
-          <Property Name="PNOMBRE_CLIENTE" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SNOMBRE_CLIENTE" Type="varchar2" MaxLength="15" />
-          <Property Name="APPATERNO_CLIENTE" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APMATERNO_CLIENTE" Type="varchar2" MaxLength="15" />
-          <Property Name="SEXO_CLIENTE" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="DIRECC_ADMIN" Type="varchar2" MaxLength="30" />
-          <Property Name="NRO_DIRECC_CLIENTE" Type="number" Precision="5" Scale="0" />
-          <Property Name="TELEFONO_CLIENTE" Type="number" Precision="9" Scale="0" />
-          <Property Name="FECHA_NAC_CLIENTE" Type="date" />
+          <Property Name="ID_CLIENTE" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="9" Nullable="false" />
+          <Property Name="PASSWORD_CLIENTE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NOMBRE_CLIENTE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="APELLIDO_CLIENTE" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="CORREO_CLIENTE" Type="varchar2" MaxLength="40" />
-          <Property Name="MESA_ID_MESA" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO_CLIENTE" Type="number" Precision="9" Scale="0" />
         </EntityType>
-        <EntityType Name="COCINERO">
+        <EntityType Name="INSUMO">
           <Key>
-            <PropertyRef Name="ID_COCINERO" />
+            <PropertyRef Name="ID_INSUMO" />
           </Key>
-          <Property Name="ID_COCINERO" Type="number" Precision="4" Scale="0" Nullable="false" />
-          <Property Name="RUT_COCINERO" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="DV_COCINERO" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="PNOMBRE_COCINERO" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SNOMBRE_COCINERO" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APPATERNO_COCINERO" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APMATERNO_COCINERO" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SEXO_COCINERO" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="USUARIO_COCINERO" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="PASSWD_COCINERO" Type="varchar2" MaxLength="16" Nullable="false" />
-          <Property Name="DIRECC_COCINERO" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NRO_DIRECC_COCINERO" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="TELEFONO_COCINERO" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FECHA_NAC_COCINERO" Type="date" Nullable="false" />
-          <Property Name="CORREO_COCINERO" Type="varchar2" MaxLength="40" Nullable="false" />
-        </EntityType>
-        <EntityType Name="COMUNA">
-          <Key>
-            <PropertyRef Name="ID_COMUNA" />
-          </Key>
-          <Property Name="ID_COMUNA" Type="varchar2" MaxLength="4" Nullable="false" />
-          <Property Name="NOM_COMUNA" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="REGION_ID_REGION" Type="varchar2" MaxLength="4" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CUENTA">
-          <Key>
-            <PropertyRef Name="CODIGO_CUENTA" />
-          </Key>
-          <Property Name="CODIGO_CUENTA" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FECHA_CUENTA" Type="date" Nullable="false" />
-          <Property Name="METODO_PAGO_CUENTA" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="MONTO_PAGAR_CUENTA" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="IVA_CUENTA" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="MONTO_TOTAL_CUENTA" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="PEDIDO_ID_PEDIDO" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="ID_CAJERO" Type="number" Precision="4" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ENCARGO">
-          <Key>
-            <PropertyRef Name="COD_ENCARGO" />
-          </Key>
-          <Property Name="COD_ENCARGO" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="FECHA_ENCARGO" Type="date" Nullable="false" />
-          <Property Name="DESCRIP_ENCARGO" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="PROVEEDOR_RUT_PROVEEDOR" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="ADMINISTRADOR_ID_ADMIN" Type="varchar2" MaxLength="5" Nullable="false" />
-          <Property Name="PRODUCTO_ID_PRODUCTO" Type="number" Precision="5" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="GARZON">
-          <Key>
-            <PropertyRef Name="ID_GARZON" />
-          </Key>
-          <Property Name="ID_GARZON" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="RUT_GARZON" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="DV_GARZON" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="PNOMBRE_GARZON" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SNOMBRE_GARZON" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APPATERNO_GARZON" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="APMATERNO_GARZON" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="SEXO_GARZON" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="DIRECC_GARZON" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NRO_DIRECC_GARZON" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="TELEFONO_GARZON" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FECHA_NAC_GARZON" Type="date" Nullable="false" />
-          <Property Name="CORREO_GARZON" Type="varchar2" MaxLength="40" Nullable="false" />
-        </EntityType>
-        <EntityType Name="LOCAL">
-          <Key>
-            <PropertyRef Name="ID_LOCAL" />
-          </Key>
-          <Property Name="ID_LOCAL" Type="varchar2" MaxLength="5" Nullable="false" />
-          <Property Name="NOM_LOCAL" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="DIRECC_LOCAL" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NRO_DIRECC" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="TELEFONO_LOCAL" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="CAPACIDAD_LOCAL" Type="number" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="COMUNA_ID_COMUNA" Type="varchar2" MaxLength="4" Nullable="false" />
+          <Property Name="ID_INSUMO" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_INSUMO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="STOCK_INSUMO" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="UNIDAD_MEDIDA_INSUMO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="PRECIO_INSUMO" Type="number" Precision="6" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="MESA">
           <Key>
-            <PropertyRef Name="ID_MESA" />
+            <PropertyRef Name="NUM_MESA" />
           </Key>
-          <Property Name="ID_MESA" Type="number" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="CAPACIDAD_MESA" Type="number" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="LOCAL_ID_LOCAL" Type="varchar2" MaxLength="5" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PAIS">
-          <Key>
-            <PropertyRef Name="ID_PAIS" />
-          </Key>
-          <Property Name="ID_PAIS" Type="varchar2" MaxLength="4" Nullable="false" />
-          <Property Name="NOM_PAIS" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NUM_MESA" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_MESA" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="CANT_PERSONAS" Type="number" Precision="2" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="PEDIDO">
           <Key>
             <PropertyRef Name="ID_PEDIDO" />
           </Key>
-          <Property Name="ID_PEDIDO" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="FECHA_PEDIDO" Type="date" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="PLATO_ID_PLATO" Type="number" Precision="4" Scale="0" Nullable="false" />
-          <Property Name="GARZON_ID_GARZON" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="ID_CLIENTE" Type="number" Precision="4" Scale="0" Nullable="false" />
-          <Property Name="ID_COCINERO" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_PEDIDO" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="MESA_NUM_MESA" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_ID_CLIENTE" Type="number" Precision="7" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PEDIDO_INSUMO">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO_INSUMO" />
+          </Key>
+          <Property Name="ID_PEDIDO_INSUMO" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD_PEDIDO_INSUMO" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="UNIDAD" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="INSUMO_ID_INSUMO" Type="number" Precision="5" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PEDIDO_PLATOS">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO_PLATOS" />
+          </Key>
+          <Property Name="ID_PEDIDO_PLATOS" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="PLATO_ID_PLATO" Type="number" Precision="5" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="PLATO">
           <Key>
             <PropertyRef Name="ID_PLATO" />
           </Key>
-          <Property Name="ID_PLATO" Type="number" Precision="4" Scale="0" Nullable="false" />
-          <Property Name="NOM_PLATO" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="ID_PLATO" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_PLATO" Type="varchar2" MaxLength="35" Nullable="false" />
           <Property Name="PRECIO_PLATO" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="DECRIP_PLATO" Type="varchar2" MaxLength="40" Nullable="false" />
-          <Property Name="CATEGORIA_ID_CATEG" Type="varchar2" MaxLength="5" Nullable="false" />
-          <Property Name="RECETA_ID_RECETA" Type="number" Precision="6" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PRODUCTO">
-          <Key>
-            <PropertyRef Name="ID_PRODUCTO" />
-          </Key>
-          <Property Name="ID_PRODUCTO" Type="number" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="NOM_PRODUCTO" Type="varchar2" MaxLength="20" Nullable="false" />
-          <Property Name="CANT_PRODUCTO" Type="number" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="TIPO_PRODUCTO" Type="varchar2" MaxLength="20" Nullable="false" />
-          <Property Name="BODEGA_ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="PROVEEDOR_RUT_PROVEEDOR" Type="number" Precision="8" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PROVEEDOR">
-          <Key>
-            <PropertyRef Name="RUT_PROVEEDOR" />
-          </Key>
-          <Property Name="RUT_PROVEEDOR" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="DV_PROVEEDOR" Type="varchar2" MaxLength="1" Nullable="false" />
-          <Property Name="NOM_PROVEEDOR" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="DIRECC_PROVEEDOR" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="NRO_DIRECC_PROVEEDOR" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="TELEFONO_PROVEEDOR" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="CORREO_PROVEEDOR" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="DESCRIPCION_PLATO" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="TIEMPO_PREPARACION" Type="number" Precision="3" Scale="0" />
+          <Property Name="TIPO_PLATO_ID_TIPO_PLATO" Type="number" Precision="3" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="RECETA">
           <Key>
             <PropertyRef Name="ID_RECETA" />
           </Key>
-          <Property Name="ID_RECETA" Type="number" Precision="6" Scale="0" Nullable="false" />
-          <Property Name="NOM_RECETA" Type="varchar2" MaxLength="25" Nullable="false" />
-          <Property Name="DESCRIP_RECETA" Type="varchar2" MaxLength="30" Nullable="false" />
-          <Property Name="PRODUCTO_ID_PRODUCTO" Type="number" Precision="5" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="REGION">
-          <Key>
-            <PropertyRef Name="ID_REGION" />
-          </Key>
-          <Property Name="ID_REGION" Type="varchar2" MaxLength="4" Nullable="false" />
-          <Property Name="NOM_REGION" Type="varchar2" MaxLength="50" Nullable="false" />
-          <Property Name="ORDINAL_REGION" Type="varchar2" MaxLength="4" Nullable="false" />
-          <Property Name="PAIS_ID_PAIS" Type="varchar2" MaxLength="4" Nullable="false" />
+          <Property Name="ID_RECETA" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD_UTILIZAR" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_RECETA" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="INSUMO_ID_INSUMO" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="PLATO_ID_PLATO" Type="number" Precision="5" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="RESERVA">
           <Key>
@@ -286,177 +90,49 @@
           </Key>
           <Property Name="ID_RESERVA" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="FECHA_RESERVA" Type="date" Nullable="false" />
-          <Property Name="FECHA_INICIO_RESERVA" Type="date" Nullable="false" />
-          <Property Name="CLIENTE_ID_CLIENTE" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_RESERVA" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="MESA_NUM_MESA" Type="number" Precision="3" Scale="0" Nullable="false" />
         </EntityType>
-        <EntityType Name="TARJETA">
+        <EntityType Name="ROL">
           <Key>
-            <PropertyRef Name="NRO_TARJETA" />
+            <PropertyRef Name="ID_ROL" />
           </Key>
-          <Property Name="NRO_TARJETA" Type="number" Precision="16" Scale="0" Nullable="false" />
-          <Property Name="TIPO_TARJETA" Type="varchar2" MaxLength="12" Nullable="false" />
-          <Property Name="SALDO_TARJETA" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="FECHA_EXP_TARJETA" Type="varchar2" MaxLength="5" />
-          <Property Name="CODIGO_TARJETA" Type="number" Precision="3" Scale="0" />
-          <Property Name="BANCO_ID_BANCO" Type="varchar2" MaxLength="4" Nullable="false" />
-          <Property Name="CLIENTE_ID_CLIENTE" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ID_ROL" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_ROL" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="DESCRIPCION_ROL" Type="varchar2" MaxLength="30" Nullable="false" />
         </EntityType>
-        <Association Name="ADMINISTRADOR_LOCAL_FK">
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="1" />
-          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCAL">
-              <PropertyRef Name="ID_LOCAL" />
-            </Principal>
-            <Dependent Role="ADMINISTRADOR">
-              <PropertyRef Name="LOCAL_ID_LOCAL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BODEGA_BODEGUERO_FK">
-          <End Role="BODEGUERO" Type="Self.BODEGUERO" Multiplicity="1" />
-          <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BODEGUERO">
-              <PropertyRef Name="ID_BODEG" />
-            </Principal>
-            <Dependent Role="BODEGA">
-              <PropertyRef Name="ID_BODEG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BODEGA_LOCAL_FK">
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="1" />
-          <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCAL">
-              <PropertyRef Name="ID_LOCAL" />
-            </Principal>
-            <Dependent Role="BODEGA">
-              <PropertyRef Name="LOCAL_ID_LOCAL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CAJERO_CAJA_FK">
-          <End Role="CAJA" Type="Self.CAJA" Multiplicity="1" />
-          <End Role="CAJERO" Type="Self.CAJERO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAJA">
-              <PropertyRef Name="ID_CAJA" />
-            </Principal>
-            <Dependent Role="CAJERO">
-              <PropertyRef Name="ID_CAJA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CLIENTE_MESA_FK">
-          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MESA">
-              <PropertyRef Name="ID_MESA" />
-            </Principal>
-            <Dependent Role="CLIENTE">
-              <PropertyRef Name="MESA_ID_MESA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="COMUNA_REGION_FK">
-          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
-          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="REGION">
-              <PropertyRef Name="ID_REGION" />
-            </Principal>
-            <Dependent Role="COMUNA">
-              <PropertyRef Name="REGION_ID_REGION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CUENTA_CAJERO_FK">
-          <End Role="CAJERO" Type="Self.CAJERO" Multiplicity="1" />
-          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAJERO">
-              <PropertyRef Name="ID_CAJERO" />
-            </Principal>
-            <Dependent Role="CUENTA">
-              <PropertyRef Name="ID_CAJERO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CUENTA_PEDIDO_FK">
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
-          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PEDIDO">
-              <PropertyRef Name="ID_PEDIDO" />
-            </Principal>
-            <Dependent Role="CUENTA">
-              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ENCARGO_ADMINISTRADOR_FK">
-          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="1" />
-          <End Role="ENCARGO" Type="Self.ENCARGO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ADMINISTRADOR">
-              <PropertyRef Name="ID_ADMIN" />
-            </Principal>
-            <Dependent Role="ENCARGO">
-              <PropertyRef Name="ADMINISTRADOR_ID_ADMIN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ENCARGO_PRODUCTO_FK">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
-          <End Role="ENCARGO" Type="Self.ENCARGO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="ID_PRODUCTO" />
-            </Principal>
-            <Dependent Role="ENCARGO">
-              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ENCARGO_PROVEEDOR_FK">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
-          <End Role="ENCARGO" Type="Self.ENCARGO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROVEEDOR">
-              <PropertyRef Name="RUT_PROVEEDOR" />
-            </Principal>
-            <Dependent Role="ENCARGO">
-              <PropertyRef Name="PROVEEDOR_RUT_PROVEEDOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="LOCAL_COMUNA_FK">
-          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMUNA">
-              <PropertyRef Name="ID_COMUNA" />
-            </Principal>
-            <Dependent Role="LOCAL">
-              <PropertyRef Name="COMUNA_ID_COMUNA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="MESA_LOCAL_FK">
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="1" />
-          <End Role="MESA" Type="Self.MESA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCAL">
-              <PropertyRef Name="ID_LOCAL" />
-            </Principal>
-            <Dependent Role="MESA">
-              <PropertyRef Name="LOCAL_ID_LOCAL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="TIPO_PLATO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PLATO" />
+          </Key>
+          <Property Name="ID_TIPO_PLATO" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_TIPO_PLATO" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="9" Nullable="false" />
+          <Property Name="NOMBRE_USUARIO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="APELLIDO_USUARIO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="EMAIL_USUARIO" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PASSWORD_USUARIO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="ROL_ID_ROL" Type="number" Precision="2" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="ID_VENTA" />
+          </Key>
+          <Property Name="ID_VENTA" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="SUBTOTAL_VENTA" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="IVA_VENTA" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="PROPINA_VENTA" Type="number" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="TOTAL_VENTA" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="FECHA_VENTA" Type="date" Nullable="false" />
+          <Property Name="TIPO_PAGO" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="number" Precision="8" Scale="0" Nullable="false" />
+        </EntityType>
         <Association Name="PEDIDO_CLIENTE_FK">
           <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
@@ -465,282 +141,262 @@
               <PropertyRef Name="ID_CLIENTE" />
             </Principal>
             <Dependent Role="PEDIDO">
-              <PropertyRef Name="ID_CLIENTE" />
+              <PropertyRef Name="CLIENTE_ID_CLIENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PEDIDO_COCINERO_FK">
-          <End Role="COCINERO" Type="Self.COCINERO" Multiplicity="1" />
+        <Association Name="PEDIDO_INSUMO_INSUMO_FK">
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="1" />
+          <End Role="PEDIDO_INSUMO" Type="Self.PEDIDO_INSUMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
+            </Principal>
+            <Dependent Role="PEDIDO_INSUMO">
+              <PropertyRef Name="INSUMO_ID_INSUMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="COCINERO">
-              <PropertyRef Name="ID_COCINERO" />
+            <Principal Role="MESA">
+              <PropertyRef Name="NUM_MESA" />
             </Principal>
             <Dependent Role="PEDIDO">
-              <PropertyRef Name="ID_COCINERO" />
+              <PropertyRef Name="MESA_NUM_MESA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PEDIDO_GARZON_FK">
-          <End Role="GARZON" Type="Self.GARZON" Multiplicity="1" />
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+        <Association Name="PEDIDO_PLATOS_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="PEDIDO_PLATOS" Type="Self.PEDIDO_PLATOS" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="GARZON">
-              <PropertyRef Name="ID_GARZON" />
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
             </Principal>
-            <Dependent Role="PEDIDO">
-              <PropertyRef Name="GARZON_ID_GARZON" />
+            <Dependent Role="PEDIDO_PLATOS">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PEDIDO_PLATO_FK">
+        <Association Name="PEDIDO_PLATOS_PLATO_FK">
           <End Role="PLATO" Type="Self.PLATO" Multiplicity="1" />
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <End Role="PEDIDO_PLATOS" Type="Self.PEDIDO_PLATOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PLATO">
               <PropertyRef Name="ID_PLATO" />
             </Principal>
-            <Dependent Role="PEDIDO">
+            <Dependent Role="PEDIDO_PLATOS">
               <PropertyRef Name="PLATO_ID_PLATO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PLATO_CATEGORIA_FK">
-          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+        <Association Name="PLATO_TIPO_PLATO_FK">
+          <End Role="TIPO_PLATO" Type="Self.TIPO_PLATO" Multiplicity="1" />
           <End Role="PLATO" Type="Self.PLATO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CATEGORIA">
-              <PropertyRef Name="ID_CATEG" />
+            <Principal Role="TIPO_PLATO">
+              <PropertyRef Name="ID_TIPO_PLATO" />
             </Principal>
             <Dependent Role="PLATO">
-              <PropertyRef Name="CATEGORIA_ID_CATEG" />
+              <PropertyRef Name="TIPO_PLATO_ID_TIPO_PLATO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PLATO_RECETA_FK">
-          <End Role="RECETA" Type="Self.RECETA" Multiplicity="1" />
-          <End Role="PLATO" Type="Self.PLATO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RECETA">
-              <PropertyRef Name="ID_RECETA" />
-            </Principal>
-            <Dependent Role="PLATO">
-              <PropertyRef Name="RECETA_ID_RECETA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PRODUCTO_BODEGA_FK">
-          <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="1" />
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BODEGA">
-              <PropertyRef Name="ID_BODEGA" />
-            </Principal>
-            <Dependent Role="PRODUCTO">
-              <PropertyRef Name="BODEGA_ID_BODEGA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PRODUCTO_PROVEEDOR_FK">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROVEEDOR">
-              <PropertyRef Name="RUT_PROVEEDOR" />
-            </Principal>
-            <Dependent Role="PRODUCTO">
-              <PropertyRef Name="PROVEEDOR_RUT_PROVEEDOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="RECETA_PRODUCTO_FK">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+        <Association Name="RECETA_INSUMO_FK">
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="1" />
           <End Role="RECETA" Type="Self.RECETA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="ID_PRODUCTO" />
+            <Principal Role="INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
             </Principal>
             <Dependent Role="RECETA">
-              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+              <PropertyRef Name="INSUMO_ID_INSUMO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="REGION_PAIS_FK">
-          <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
-          <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
+        <Association Name="RECETA_PLATO_FK">
+          <End Role="PLATO" Type="Self.PLATO" Multiplicity="1" />
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PAIS">
-              <PropertyRef Name="ID_PAIS" />
+            <Principal Role="PLATO">
+              <PropertyRef Name="ID_PLATO" />
             </Principal>
-            <Dependent Role="REGION">
-              <PropertyRef Name="PAIS_ID_PAIS" />
+            <Dependent Role="RECETA">
+              <PropertyRef Name="PLATO_ID_PLATO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="RESERVA_CLIENTE_FK">
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+        <Association Name="RESERVA_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
           <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="ID_CLIENTE" />
+            <Principal Role="MESA">
+              <PropertyRef Name="NUM_MESA" />
             </Principal>
             <Dependent Role="RESERVA">
-              <PropertyRef Name="CLIENTE_ID_CLIENTE" />
+              <PropertyRef Name="MESA_NUM_MESA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TARJETA_BANCO_FK">
-          <End Role="BANCO" Type="Self.BANCO" Multiplicity="1" />
-          <End Role="TARJETA" Type="Self.TARJETA" Multiplicity="*" />
+        <Association Name="USUARIO_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="BANCO">
-              <PropertyRef Name="ID_BANCO" />
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
             </Principal>
-            <Dependent Role="TARJETA">
-              <PropertyRef Name="BANCO_ID_BANCO" />
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROL_ID_ROL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TARJETA_CLIENTE_FK">
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-          <End Role="TARJETA" Type="Self.TARJETA" Multiplicity="*" />
+        <Association Name="VENTA_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="ID_CLIENTE" />
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
             </Principal>
-            <Dependent Role="TARJETA">
-              <PropertyRef Name="CLIENTE_ID_CLIENTE" />
+            <Dependent Role="VENTA">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="INSERTCLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_RUT_CLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PASSWORD_CLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE_CLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO_CLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CORREO_CLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TELEFONO_CLIENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTINSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_NOMBRE_INSUMO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_STOCK_INSUMO" Type="number" Mode="In" />
+          <Parameter Name="P_UNIDAD_MEDIDA_INSUMO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PRECIO_INSUMO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTMESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_NUM_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_ESTADO_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_CANT_PERSONAS" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTPEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_FECHA_PEDIDO" Type="date" Mode="In" />
+          <Parameter Name="P_ESTADO_PEDIDO" Type="number" Mode="In" />
+          <Parameter Name="P_MESA_NUM_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_CLIENTE_ID_CLIENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTPEDIDOINSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_CANTIDAD_PEDIDO_INSUMO" Type="number" Mode="In" />
+          <Parameter Name="P_UNIDAD" Type="varchar2" Mode="In" />
+          <Parameter Name="P_INSUMO_ID_INSUMO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTPEDIDOPLATOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_CANTIDAD" Type="number" Mode="In" />
+          <Parameter Name="P_PEDIDO_ID_PLATO" Type="number" Mode="In" />
+          <Parameter Name="P_PLATO_ID_PLATO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTPLATO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_NOMBRE_PLATO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PRECIO_PLATO" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION_PLATO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TIEMPO_PREPARACION" Type="number" Mode="In" />
+          <Parameter Name="P_TIPO_PLATO_ID_TIPO_PLATO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTRECETA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_CANTIDAD_UTILIZAR" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION_RECETA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_INSUMO_ID_INSUMO" Type="number" Mode="In" />
+          <Parameter Name="P_PLATO_ID_PLATO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTRESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_FECHA_RESERVA" Type="date" Mode="In" />
+          <Parameter Name="P_ESTADO_RESERVA" Type="number" Mode="In" />
+          <Parameter Name="P_MESA_NUM_MESA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTROL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_ID_ROL" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE_ROL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DESCRIPCION_ROL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="INSERTUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_RUT_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PASSWORD_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ROL_ID_ROL" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTVENTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTEBD">
+          <Parameter Name="P_SUBTOTAL_VENTA" Type="number" Mode="In" />
+          <Parameter Name="P_IVA_VENTA" Type="number" Mode="In" />
+          <Parameter Name="P_PROPINA_VENTA" Type="number" Mode="In" />
+          <Parameter Name="P_TOTAL_VENTA" Type="number" Mode="In" />
+          <Parameter Name="P_FECHA_VENTA" Type="date" Mode="In" />
+          <Parameter Name="P_TIPO_PAGO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PEDIDO_ID_PEDIDO" Type="number" Mode="In" />
+        </Function>
         <EntityContainer Name="ModelStoreContainer">
-          <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="BANCO" EntityType="Self.BANCO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="BODEGA" EntityType="Self.BODEGA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="BODEGUERO" EntityType="Self.BODEGUERO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="CAJA" EntityType="Self.CAJA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="CAJERO" EntityType="Self.CAJERO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="COCINERO" EntityType="Self.COCINERO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="CUENTA" EntityType="Self.CUENTA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="ENCARGO" EntityType="Self.ENCARGO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="GARZON" EntityType="Self.GARZON" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="LOCAL" EntityType="Self.LOCAL" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="MESA" EntityType="Self.MESA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="PAIS" EntityType="Self.PAIS" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="PLATO" EntityType="Self.PLATO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="RECETA" EntityType="Self.RECETA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="RESTAURANTE" store:Type="Tables" />
-          <EntitySet Name="TARJETA" EntityType="Self.TARJETA" Schema="RESTAURANTE" store:Type="Tables" />
-          <AssociationSet Name="ADMINISTRADOR_LOCAL_FK" Association="Self.ADMINISTRADOR_LOCAL_FK">
-            <End Role="LOCAL" EntitySet="LOCAL" />
-            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
-          </AssociationSet>
-          <AssociationSet Name="BODEGA_BODEGUERO_FK" Association="Self.BODEGA_BODEGUERO_FK">
-            <End Role="BODEGUERO" EntitySet="BODEGUERO" />
-            <End Role="BODEGA" EntitySet="BODEGA" />
-          </AssociationSet>
-          <AssociationSet Name="BODEGA_LOCAL_FK" Association="Self.BODEGA_LOCAL_FK">
-            <End Role="LOCAL" EntitySet="LOCAL" />
-            <End Role="BODEGA" EntitySet="BODEGA" />
-          </AssociationSet>
-          <AssociationSet Name="CAJERO_CAJA_FK" Association="Self.CAJERO_CAJA_FK">
-            <End Role="CAJA" EntitySet="CAJA" />
-            <End Role="CAJERO" EntitySet="CAJERO" />
-          </AssociationSet>
-          <AssociationSet Name="CLIENTE_MESA_FK" Association="Self.CLIENTE_MESA_FK">
-            <End Role="MESA" EntitySet="MESA" />
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-          </AssociationSet>
-          <AssociationSet Name="COMUNA_REGION_FK" Association="Self.COMUNA_REGION_FK">
-            <End Role="REGION" EntitySet="REGION" />
-            <End Role="COMUNA" EntitySet="COMUNA" />
-          </AssociationSet>
-          <AssociationSet Name="CUENTA_CAJERO_FK" Association="Self.CUENTA_CAJERO_FK">
-            <End Role="CAJERO" EntitySet="CAJERO" />
-            <End Role="CUENTA" EntitySet="CUENTA" />
-          </AssociationSet>
-          <AssociationSet Name="CUENTA_PEDIDO_FK" Association="Self.CUENTA_PEDIDO_FK">
-            <End Role="PEDIDO" EntitySet="PEDIDO" />
-            <End Role="CUENTA" EntitySet="CUENTA" />
-          </AssociationSet>
-          <AssociationSet Name="ENCARGO_ADMINISTRADOR_FK" Association="Self.ENCARGO_ADMINISTRADOR_FK">
-            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
-            <End Role="ENCARGO" EntitySet="ENCARGO" />
-          </AssociationSet>
-          <AssociationSet Name="ENCARGO_PRODUCTO_FK" Association="Self.ENCARGO_PRODUCTO_FK">
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-            <End Role="ENCARGO" EntitySet="ENCARGO" />
-          </AssociationSet>
-          <AssociationSet Name="ENCARGO_PROVEEDOR_FK" Association="Self.ENCARGO_PROVEEDOR_FK">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
-            <End Role="ENCARGO" EntitySet="ENCARGO" />
-          </AssociationSet>
-          <AssociationSet Name="LOCAL_COMUNA_FK" Association="Self.LOCAL_COMUNA_FK">
-            <End Role="COMUNA" EntitySet="COMUNA" />
-            <End Role="LOCAL" EntitySet="LOCAL" />
-          </AssociationSet>
-          <AssociationSet Name="MESA_LOCAL_FK" Association="Self.MESA_LOCAL_FK">
-            <End Role="LOCAL" EntitySet="LOCAL" />
-            <End Role="MESA" EntitySet="MESA" />
-          </AssociationSet>
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="INSUMO" EntityType="Self.INSUMO" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="MESA" EntityType="Self.MESA" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="PEDIDO_INSUMO" EntityType="Self.PEDIDO_INSUMO" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="PEDIDO_PLATOS" EntityType="Self.PEDIDO_PLATOS" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="PLATO" EntityType="Self.PLATO" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="RECETA" EntityType="Self.RECETA" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="TIPO_PLATO" EntityType="Self.TIPO_PLATO" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="RESTAURANTEBD" store:Type="Tables" />
+          <EntitySet Name="VENTA" EntityType="Self.VENTA" Schema="RESTAURANTEBD" store:Type="Tables" />
           <AssociationSet Name="PEDIDO_CLIENTE_FK" Association="Self.PEDIDO_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="PEDIDO" EntitySet="PEDIDO" />
           </AssociationSet>
-          <AssociationSet Name="PEDIDO_COCINERO_FK" Association="Self.PEDIDO_COCINERO_FK">
-            <End Role="COCINERO" EntitySet="COCINERO" />
+          <AssociationSet Name="PEDIDO_INSUMO_INSUMO_FK" Association="Self.PEDIDO_INSUMO_INSUMO_FK">
+            <End Role="INSUMO" EntitySet="INSUMO" />
+            <End Role="PEDIDO_INSUMO" EntitySet="PEDIDO_INSUMO" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_MESA_FK" Association="Self.PEDIDO_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
             <End Role="PEDIDO" EntitySet="PEDIDO" />
           </AssociationSet>
-          <AssociationSet Name="PEDIDO_GARZON_FK" Association="Self.PEDIDO_GARZON_FK">
-            <End Role="GARZON" EntitySet="GARZON" />
+          <AssociationSet Name="PEDIDO_PLATOS_PEDIDO_FK" Association="Self.PEDIDO_PLATOS_PEDIDO_FK">
             <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PEDIDO_PLATOS" EntitySet="PEDIDO_PLATOS" />
           </AssociationSet>
-          <AssociationSet Name="PEDIDO_PLATO_FK" Association="Self.PEDIDO_PLATO_FK">
+          <AssociationSet Name="PEDIDO_PLATOS_PLATO_FK" Association="Self.PEDIDO_PLATOS_PLATO_FK">
             <End Role="PLATO" EntitySet="PLATO" />
-            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PEDIDO_PLATOS" EntitySet="PEDIDO_PLATOS" />
           </AssociationSet>
-          <AssociationSet Name="PLATO_CATEGORIA_FK" Association="Self.PLATO_CATEGORIA_FK">
-            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
-            <End Role="PLATO" EntitySet="PLATO" />
-          </AssociationSet>
-          <AssociationSet Name="PLATO_RECETA_FK" Association="Self.PLATO_RECETA_FK">
-            <End Role="RECETA" EntitySet="RECETA" />
+          <AssociationSet Name="PLATO_TIPO_PLATO_FK" Association="Self.PLATO_TIPO_PLATO_FK">
+            <End Role="TIPO_PLATO" EntitySet="TIPO_PLATO" />
             <End Role="PLATO" EntitySet="PLATO" />
           </AssociationSet>
-          <AssociationSet Name="PRODUCTO_BODEGA_FK" Association="Self.PRODUCTO_BODEGA_FK">
-            <End Role="BODEGA" EntitySet="BODEGA" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="PRODUCTO_PROVEEDOR_FK" Association="Self.PRODUCTO_PROVEEDOR_FK">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="RECETA_PRODUCTO_FK" Association="Self.RECETA_PRODUCTO_FK">
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          <AssociationSet Name="RECETA_INSUMO_FK" Association="Self.RECETA_INSUMO_FK">
+            <End Role="INSUMO" EntitySet="INSUMO" />
             <End Role="RECETA" EntitySet="RECETA" />
           </AssociationSet>
-          <AssociationSet Name="REGION_PAIS_FK" Association="Self.REGION_PAIS_FK">
-            <End Role="PAIS" EntitySet="PAIS" />
-            <End Role="REGION" EntitySet="REGION" />
+          <AssociationSet Name="RECETA_PLATO_FK" Association="Self.RECETA_PLATO_FK">
+            <End Role="PLATO" EntitySet="PLATO" />
+            <End Role="RECETA" EntitySet="RECETA" />
           </AssociationSet>
-          <AssociationSet Name="RESERVA_CLIENTE_FK" Association="Self.RESERVA_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          <AssociationSet Name="RESERVA_MESA_FK" Association="Self.RESERVA_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
             <End Role="RESERVA" EntitySet="RESERVA" />
           </AssociationSet>
-          <AssociationSet Name="TARJETA_BANCO_FK" Association="Self.TARJETA_BANCO_FK">
-            <End Role="BANCO" EntitySet="BANCO" />
-            <End Role="TARJETA" EntitySet="TARJETA" />
+          <AssociationSet Name="USUARIO_ROL_FK" Association="Self.USUARIO_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <AssociationSet Name="TARJETA_CLIENTE_FK" Association="Self.TARJETA_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-            <End Role="TARJETA" EntitySet="TARJETA" />
+          <AssociationSet Name="VENTA_PEDIDO_FK" Association="Self.VENTA_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -748,247 +404,40 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ADMINISTRADOR">
-          <Key>
-            <PropertyRef Name="ID_ADMIN" />
-          </Key>
-          <Property Name="ID_ADMIN" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RUT_ADMIN" Type="Int32" Nullable="false" />
-          <Property Name="DV_ADMIN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PNOMBRE_ADMIN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SNOMBRE_ADMIN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APPATERNO_ADMIN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APMATERNO_ADMIN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SEXO_ADMIN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="USUARIO_ADMIN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PASSWD_ADMIN" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_ADMIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NRO_DIRECC_ADMIN" Type="Int16" Nullable="false" />
-          <Property Name="TELEFONO_ADMIN" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_NAC_ADMIN" Type="DateTime" Nullable="false" />
-          <Property Name="CORREO_ADMIN" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LOCAL_ID_LOCAL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="LOCAL" Relationship="Self.ADMINISTRADOR_LOCAL_FK" FromRole="ADMINISTRADOR" ToRole="LOCAL" />
-          <NavigationProperty Name="ENCARGO" Relationship="Self.ENCARGO_ADMINISTRADOR_FK" FromRole="ADMINISTRADOR" ToRole="ENCARGO" />
-        </EntityType>
-        <EntityType Name="BANCO">
-          <Key>
-            <PropertyRef Name="ID_BANCO" />
-          </Key>
-          <Property Name="ID_BANCO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOM_BANCO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TARJETA" Relationship="Self.TARJETA_BANCO_FK" FromRole="BANCO" ToRole="TARJETA" />
-        </EntityType>
-        <EntityType Name="BODEGA">
-          <Key>
-            <PropertyRef Name="ID_BODEGA" />
-          </Key>
-          <Property Name="ID_BODEGA" Type="Int16" Nullable="false" />
-          <Property Name="NOM_BODEGA" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CAPACIDAD" Type="Int16" Nullable="false" />
-          <Property Name="LOCAL_ID_LOCAL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_BODEG" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="BODEGUERO" Relationship="Self.BODEGA_BODEGUERO_FK" FromRole="BODEGA" ToRole="BODEGUERO" />
-          <NavigationProperty Name="LOCAL" Relationship="Self.BODEGA_LOCAL_FK" FromRole="BODEGA" ToRole="LOCAL" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_BODEGA_FK" FromRole="BODEGA" ToRole="PRODUCTO" />
-        </EntityType>
-        <EntityType Name="BODEGUERO">
-          <Key>
-            <PropertyRef Name="ID_BODEG" />
-          </Key>
-          <Property Name="ID_BODEG" Type="Int16" Nullable="false" />
-          <Property Name="RUT_BODEG" Type="Int32" Nullable="false" />
-          <Property Name="DV_BODEG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PNOMBRE_BODEG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SNOMBRE_BODEG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APPATERNO_BODEG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APMATERNO_BODEG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SEXO_BODEG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="USUARIO_BODEG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PASSWD_BODEG" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_BODEG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NRO_DIRECC_BODEG" Type="Int16" Nullable="false" />
-          <Property Name="TELEFONO_BODEG" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_NAC_BODEG" Type="DateTime" Nullable="false" />
-          <Property Name="CORREO_BODEG" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BODEGA" Relationship="Self.BODEGA_BODEGUERO_FK" FromRole="BODEGUERO" ToRole="BODEGA" />
-        </EntityType>
-        <EntityType Name="CAJA">
-          <Key>
-            <PropertyRef Name="ID_CAJA" />
-          </Key>
-          <Property Name="ID_CAJA" Type="Int16" Nullable="false" />
-          <Property Name="NOM_CAJA" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CAJERO" Relationship="Self.CAJERO_CAJA_FK" FromRole="CAJA" ToRole="CAJERO" />
-        </EntityType>
-        <EntityType Name="CAJERO">
-          <Key>
-            <PropertyRef Name="ID_CAJERO" />
-          </Key>
-          <Property Name="ID_CAJERO" Type="Int16" Nullable="false" />
-          <Property Name="RUT_CAJE" Type="Int32" Nullable="false" />
-          <Property Name="DV_CAJE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PNOMBRE_CAJE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SNOMBRE_CAJE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APPATERNO_CAJE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APMATERNO_CAJE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SEXO_CAJE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="USUARIO_CAJE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PASSWD_CAJE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_CAJE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NRO_DIRECC_CAJE" Type="Int16" Nullable="false" />
-          <Property Name="TELEFONO_CAJE" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_NAC_CAJE" Type="DateTime" Nullable="false" />
-          <Property Name="CORREO_CAJE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_CAJA" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="CAJA" Relationship="Self.CAJERO_CAJA_FK" FromRole="CAJERO" ToRole="CAJA" />
-          <NavigationProperty Name="CUENTA" Relationship="Self.CUENTA_CAJERO_FK" FromRole="CAJERO" ToRole="CUENTA" />
-        </EntityType>
-        <EntityType Name="CATEGORIA">
-          <Key>
-            <PropertyRef Name="ID_CATEG" />
-          </Key>
-          <Property Name="ID_CATEG" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DESCRIP_CATEG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOM_CATEG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="PLATO" Relationship="Self.PLATO_CATEGORIA_FK" FromRole="CATEGORIA" ToRole="PLATO" />
-        </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
             <PropertyRef Name="ID_CLIENTE" />
           </Key>
-          <Property Name="ID_CLIENTE" Type="Int16" Nullable="false" />
-          <Property Name="RUT_CLIENTE" Type="Int32" Nullable="false" />
-          <Property Name="DV_CLIENTE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PASSWD_CLIENTE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PNOMBRE_CLIENTE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SNOMBRE_CLIENTE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="APPATERNO_CLIENTE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APMATERNO_CLIENTE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="SEXO_CLIENTE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_ADMIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="NRO_DIRECC_CLIENTE" Type="Int16" />
-          <Property Name="TELEFONO_CLIENTE" Type="Int32" />
-          <Property Name="FECHA_NAC_CLIENTE" Type="DateTime" />
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD_CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO_CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CORREO_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="MESA_ID_MESA" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="MESA" Relationship="Self.CLIENTE_MESA_FK" FromRole="CLIENTE" ToRole="MESA" />
+          <Property Name="TELEFONO_CLIENTE" Type="Int32" />
           <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_CLIENTE_FK" FromRole="CLIENTE" ToRole="PEDIDO" />
-          <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_CLIENTE_FK" FromRole="CLIENTE" ToRole="RESERVA" />
-          <NavigationProperty Name="TARJETA" Relationship="Self.TARJETA_CLIENTE_FK" FromRole="CLIENTE" ToRole="TARJETA" />
         </EntityType>
-        <EntityType Name="COCINERO">
+        <EntityType Name="INSUMO">
           <Key>
-            <PropertyRef Name="ID_COCINERO" />
+            <PropertyRef Name="ID_INSUMO" />
           </Key>
-          <Property Name="ID_COCINERO" Type="Int16" Nullable="false" />
-          <Property Name="RUT_COCINERO" Type="Int32" Nullable="false" />
-          <Property Name="DV_COCINERO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PNOMBRE_COCINERO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SNOMBRE_COCINERO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APPATERNO_COCINERO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APMATERNO_COCINERO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SEXO_COCINERO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="USUARIO_COCINERO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PASSWD_COCINERO" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_COCINERO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NRO_DIRECC_COCINERO" Type="Int16" Nullable="false" />
-          <Property Name="TELEFONO_COCINERO" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_NAC_COCINERO" Type="DateTime" Nullable="false" />
-          <Property Name="CORREO_COCINERO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_COCINERO_FK" FromRole="COCINERO" ToRole="PEDIDO" />
-        </EntityType>
-        <EntityType Name="COMUNA">
-          <Key>
-            <PropertyRef Name="ID_COMUNA" />
-          </Key>
-          <Property Name="ID_COMUNA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOM_COMUNA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="REGION_ID_REGION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="REGION" Relationship="Self.COMUNA_REGION_FK" FromRole="COMUNA" ToRole="REGION" />
-          <NavigationProperty Name="LOCAL" Relationship="Self.LOCAL_COMUNA_FK" FromRole="COMUNA" ToRole="LOCAL" />
-        </EntityType>
-        <EntityType Name="CUENTA">
-          <Key>
-            <PropertyRef Name="CODIGO_CUENTA" />
-          </Key>
-          <Property Name="CODIGO_CUENTA" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_CUENTA" Type="DateTime" Nullable="false" />
-          <Property Name="METODO_PAGO_CUENTA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MONTO_PAGAR_CUENTA" Type="Int32" Nullable="false" />
-          <Property Name="IVA_CUENTA" Type="Int32" Nullable="false" />
-          <Property Name="MONTO_TOTAL_CUENTA" Type="Int32" Nullable="false" />
-          <Property Name="PEDIDO_ID_PEDIDO" Type="Int32" Nullable="false" />
-          <Property Name="ID_CAJERO" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="CAJERO" Relationship="Self.CUENTA_CAJERO_FK" FromRole="CUENTA" ToRole="CAJERO" />
-          <NavigationProperty Name="PEDIDO" Relationship="Self.CUENTA_PEDIDO_FK" FromRole="CUENTA" ToRole="PEDIDO" />
-        </EntityType>
-        <EntityType Name="ENCARGO">
-          <Key>
-            <PropertyRef Name="COD_ENCARGO" />
-          </Key>
-          <Property Name="COD_ENCARGO" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_ENCARGO" Type="DateTime" Nullable="false" />
-          <Property Name="DESCRIP_ENCARGO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PROVEEDOR_RUT_PROVEEDOR" Type="Int32" Nullable="false" />
-          <Property Name="ADMINISTRADOR_ID_ADMIN" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PRODUCTO_ID_PRODUCTO" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.ENCARGO_ADMINISTRADOR_FK" FromRole="ENCARGO" ToRole="ADMINISTRADOR" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.ENCARGO_PRODUCTO_FK" FromRole="ENCARGO" ToRole="PRODUCTO" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="Self.ENCARGO_PROVEEDOR_FK" FromRole="ENCARGO" ToRole="PROVEEDOR" />
-        </EntityType>
-        <EntityType Name="GARZON">
-          <Key>
-            <PropertyRef Name="ID_GARZON" />
-          </Key>
-          <Property Name="ID_GARZON" Type="Int16" Nullable="false" />
-          <Property Name="RUT_GARZON" Type="Int32" Nullable="false" />
-          <Property Name="DV_GARZON" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PNOMBRE_GARZON" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SNOMBRE_GARZON" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APPATERNO_GARZON" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APMATERNO_GARZON" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SEXO_GARZON" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_GARZON" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NRO_DIRECC_GARZON" Type="Int16" Nullable="false" />
-          <Property Name="TELEFONO_GARZON" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_NAC_GARZON" Type="DateTime" Nullable="false" />
-          <Property Name="CORREO_GARZON" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_GARZON_FK" FromRole="GARZON" ToRole="PEDIDO" />
-        </EntityType>
-        <EntityType Name="LOCAL">
-          <Key>
-            <PropertyRef Name="ID_LOCAL" />
-          </Key>
-          <Property Name="ID_LOCAL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOM_LOCAL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_LOCAL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NRO_DIRECC" Type="Int32" Nullable="false" />
-          <Property Name="TELEFONO_LOCAL" Type="Int32" Nullable="false" />
-          <Property Name="CAPACIDAD_LOCAL" Type="Int16" Nullable="false" />
-          <Property Name="COMUNA_ID_COMUNA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.ADMINISTRADOR_LOCAL_FK" FromRole="LOCAL" ToRole="ADMINISTRADOR" />
-          <NavigationProperty Name="BODEGA" Relationship="Self.BODEGA_LOCAL_FK" FromRole="LOCAL" ToRole="BODEGA" />
-          <NavigationProperty Name="COMUNA" Relationship="Self.LOCAL_COMUNA_FK" FromRole="LOCAL" ToRole="COMUNA" />
-          <NavigationProperty Name="MESA" Relationship="Self.MESA_LOCAL_FK" FromRole="LOCAL" ToRole="MESA" />
+          <Property Name="ID_INSUMO" Type="Int16" Nullable="false" />
+          <Property Name="NOMBRE_INSUMO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STOCK_INSUMO" Type="Int16" Nullable="false" />
+          <Property Name="UNIDAD_MEDIDA_INSUMO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO_INSUMO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PEDIDO_INSUMO" Relationship="Self.PEDIDO_INSUMO_INSUMO_FK" FromRole="INSUMO" ToRole="PEDIDO_INSUMO" />
+          <NavigationProperty Name="RECETA" Relationship="Self.RECETA_INSUMO_FK" FromRole="INSUMO" ToRole="RECETA" />
         </EntityType>
         <EntityType Name="MESA">
           <Key>
-            <PropertyRef Name="ID_MESA" />
+            <PropertyRef Name="NUM_MESA" />
           </Key>
-          <Property Name="ID_MESA" Type="Int16" Nullable="false" />
-          <Property Name="CAPACIDAD_MESA" Type="Int16" Nullable="false" />
-          <Property Name="LOCAL_ID_LOCAL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTE" Relationship="Self.CLIENTE_MESA_FK" FromRole="MESA" ToRole="CLIENTE" />
-          <NavigationProperty Name="LOCAL" Relationship="Self.MESA_LOCAL_FK" FromRole="MESA" ToRole="LOCAL" />
-        </EntityType>
-        <EntityType Name="PAIS">
-          <Key>
-            <PropertyRef Name="ID_PAIS" />
-          </Key>
-          <Property Name="ID_PAIS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOM_PAIS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="REGION" Relationship="Self.REGION_PAIS_FK" FromRole="PAIS" ToRole="REGION" />
+          <Property Name="NUM_MESA" Type="Int16" Nullable="false" />
+          <Property Name="ESTADO_MESA" Type="Int16" Nullable="false" />
+          <Property Name="CANT_PERSONAS" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_MESA_FK" FromRole="MESA" ToRole="PEDIDO" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_MESA_FK" FromRole="MESA" ToRole="RESERVA" />
         </EntityType>
         <EntityType Name="PEDIDO">
           <Key>
@@ -996,81 +445,60 @@
           </Key>
           <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
           <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PLATO_ID_PLATO" Type="Int16" Nullable="false" />
-          <Property Name="GARZON_ID_GARZON" Type="Int16" Nullable="false" />
-          <Property Name="ID_CLIENTE" Type="Int16" Nullable="false" />
-          <Property Name="ID_COCINERO" Type="Int16" Nullable="false" />
+          <Property Name="ESTADO_PEDIDO" Type="Int16" Nullable="false" />
+          <Property Name="MESA_NUM_MESA" Type="Int16" Nullable="false" />
+          <Property Name="CLIENTE_ID_CLIENTE" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.PEDIDO_CLIENTE_FK" FromRole="PEDIDO" ToRole="CLIENTE" />
-          <NavigationProperty Name="COCINERO" Relationship="Self.PEDIDO_COCINERO_FK" FromRole="PEDIDO" ToRole="COCINERO" />
-          <NavigationProperty Name="CUENTA" Relationship="Self.CUENTA_PEDIDO_FK" FromRole="PEDIDO" ToRole="CUENTA" />
-          <NavigationProperty Name="GARZON" Relationship="Self.PEDIDO_GARZON_FK" FromRole="PEDIDO" ToRole="GARZON" />
-          <NavigationProperty Name="PLATO" Relationship="Self.PEDIDO_PLATO_FK" FromRole="PEDIDO" ToRole="PLATO" />
+          <NavigationProperty Name="MESA" Relationship="Self.PEDIDO_MESA_FK" FromRole="PEDIDO" ToRole="MESA" />
+          <NavigationProperty Name="PEDIDO_PLATOS" Relationship="Self.PEDIDO_PLATOS_PEDIDO_FK" FromRole="PEDIDO" ToRole="PEDIDO_PLATOS" />
+          <NavigationProperty Name="VENTA" Relationship="Self.VENTA_PEDIDO_FK" FromRole="PEDIDO" ToRole="VENTA" />
+        </EntityType>
+        <EntityType Name="PEDIDO_INSUMO">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO_INSUMO" />
+          </Key>
+          <Property Name="ID_PEDIDO_INSUMO" Type="Int32" Nullable="false" />
+          <Property Name="CANTIDAD_PEDIDO_INSUMO" Type="Int16" Nullable="false" />
+          <Property Name="UNIDAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INSUMO_ID_INSUMO" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="INSUMO" Relationship="Self.PEDIDO_INSUMO_INSUMO_FK" FromRole="PEDIDO_INSUMO" ToRole="INSUMO" />
+        </EntityType>
+        <EntityType Name="PEDIDO_PLATOS">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO_PLATOS" />
+          </Key>
+          <Property Name="ID_PEDIDO_PLATOS" Type="Int32" Nullable="false" />
+          <Property Name="CANTIDAD" Type="Int16" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="Int32" Nullable="false" />
+          <Property Name="PLATO_ID_PLATO" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_PLATOS_PEDIDO_FK" FromRole="PEDIDO_PLATOS" ToRole="PEDIDO" />
+          <NavigationProperty Name="PLATO" Relationship="Self.PEDIDO_PLATOS_PLATO_FK" FromRole="PEDIDO_PLATOS" ToRole="PLATO" />
         </EntityType>
         <EntityType Name="PLATO">
           <Key>
             <PropertyRef Name="ID_PLATO" />
           </Key>
           <Property Name="ID_PLATO" Type="Int16" Nullable="false" />
-          <Property Name="NOM_PLATO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_PLATO" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRECIO_PLATO" Type="Int32" Nullable="false" />
-          <Property Name="DECRIP_PLATO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CATEGORIA_ID_CATEG" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RECETA_ID_RECETA" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CATEGORIA" Relationship="Self.PLATO_CATEGORIA_FK" FromRole="PLATO" ToRole="CATEGORIA" />
-          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_PLATO_FK" FromRole="PLATO" ToRole="PEDIDO" />
-          <NavigationProperty Name="RECETA" Relationship="Self.PLATO_RECETA_FK" FromRole="PLATO" ToRole="RECETA" />
-        </EntityType>
-        <EntityType Name="PRODUCTO">
-          <Key>
-            <PropertyRef Name="ID_PRODUCTO" />
-          </Key>
-          <Property Name="ID_PRODUCTO" Type="Int16" Nullable="false" />
-          <Property Name="NOM_PRODUCTO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CANT_PRODUCTO" Type="Int16" Nullable="false" />
-          <Property Name="TIPO_PRODUCTO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BODEGA_ID_BODEGA" Type="Int16" Nullable="false" />
-          <Property Name="PROVEEDOR_RUT_PROVEEDOR" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BODEGA" Relationship="Self.PRODUCTO_BODEGA_FK" FromRole="PRODUCTO" ToRole="BODEGA" />
-          <NavigationProperty Name="ENCARGO" Relationship="Self.ENCARGO_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="ENCARGO" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="Self.PRODUCTO_PROVEEDOR_FK" FromRole="PRODUCTO" ToRole="PROVEEDOR" />
-          <NavigationProperty Name="RECETA" Relationship="Self.RECETA_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="RECETA" />
-        </EntityType>
-        <EntityType Name="PROVEEDOR">
-          <Key>
-            <PropertyRef Name="RUT_PROVEEDOR" />
-          </Key>
-          <Property Name="RUT_PROVEEDOR" Type="Int32" Nullable="false" />
-          <Property Name="DV_PROVEEDOR" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOM_PROVEEDOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECC_PROVEEDOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NRO_DIRECC_PROVEEDOR" Type="Int32" Nullable="false" />
-          <Property Name="TELEFONO_PROVEEDOR" Type="Int32" Nullable="false" />
-          <Property Name="CORREO_PROVEEDOR" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ENCARGO" Relationship="Self.ENCARGO_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="ENCARGO" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="PRODUCTO" />
+          <Property Name="DESCRIPCION_PLATO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIEMPO_PREPARACION" Type="Int16" />
+          <Property Name="TIPO_PLATO_ID_TIPO_PLATO" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="PEDIDO_PLATOS" Relationship="Self.PEDIDO_PLATOS_PLATO_FK" FromRole="PLATO" ToRole="PEDIDO_PLATOS" />
+          <NavigationProperty Name="TIPO_PLATO" Relationship="Self.PLATO_TIPO_PLATO_FK" FromRole="PLATO" ToRole="TIPO_PLATO" />
+          <NavigationProperty Name="RECETA" Relationship="Self.RECETA_PLATO_FK" FromRole="PLATO" ToRole="RECETA" />
         </EntityType>
         <EntityType Name="RECETA">
           <Key>
             <PropertyRef Name="ID_RECETA" />
           </Key>
-          <Property Name="ID_RECETA" Type="Int32" Nullable="false" />
-          <Property Name="NOM_RECETA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DESCRIP_RECETA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PRODUCTO_ID_PRODUCTO" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="PLATO" Relationship="Self.PLATO_RECETA_FK" FromRole="RECETA" ToRole="PLATO" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.RECETA_PRODUCTO_FK" FromRole="RECETA" ToRole="PRODUCTO" />
-        </EntityType>
-        <EntityType Name="REGION">
-          <Key>
-            <PropertyRef Name="ID_REGION" />
-          </Key>
-          <Property Name="ID_REGION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOM_REGION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ORDINAL_REGION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PAIS_ID_PAIS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="COMUNA" Relationship="Self.COMUNA_REGION_FK" FromRole="REGION" ToRole="COMUNA" />
-          <NavigationProperty Name="PAIS" Relationship="Self.REGION_PAIS_FK" FromRole="REGION" ToRole="PAIS" />
+          <Property Name="ID_RECETA" Type="Int16" Nullable="false" />
+          <Property Name="CANTIDAD_UTILIZAR" Type="Int16" Nullable="false" />
+          <Property Name="DESCRIPCION_RECETA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INSUMO_ID_INSUMO" Type="Int16" Nullable="false" />
+          <Property Name="PLATO_ID_PLATO" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="INSUMO" Relationship="Self.RECETA_INSUMO_FK" FromRole="RECETA" ToRole="INSUMO" />
+          <NavigationProperty Name="PLATO" Relationship="Self.RECETA_PLATO_FK" FromRole="RECETA" ToRole="PLATO" />
         </EntityType>
         <EntityType Name="RESERVA">
           <Key>
@@ -1078,144 +506,54 @@
           </Key>
           <Property Name="ID_RESERVA" Type="Int32" Nullable="false" />
           <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" />
-          <Property Name="FECHA_INICIO_RESERVA" Type="DateTime" Nullable="false" />
-          <Property Name="CLIENTE_ID_CLIENTE" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="CLIENTE" Relationship="Self.RESERVA_CLIENTE_FK" FromRole="RESERVA" ToRole="CLIENTE" />
+          <Property Name="ESTADO_RESERVA" Type="Int16" Nullable="false" />
+          <Property Name="MESA_NUM_MESA" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="MESA" Relationship="Self.RESERVA_MESA_FK" FromRole="RESERVA" ToRole="MESA" />
         </EntityType>
-        <EntityType Name="TARJETA">
+        <EntityType Name="ROL">
           <Key>
-            <PropertyRef Name="NRO_TARJETA" />
+            <PropertyRef Name="ID_ROL" />
           </Key>
-          <Property Name="NRO_TARJETA" Type="Int64" Nullable="false" />
-          <Property Name="TIPO_TARJETA" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SALDO_TARJETA" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_EXP_TARJETA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="CODIGO_TARJETA" Type="Int16" />
-          <Property Name="BANCO_ID_BANCO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CLIENTE_ID_CLIENTE" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="BANCO" Relationship="Self.TARJETA_BANCO_FK" FromRole="TARJETA" ToRole="BANCO" />
-          <NavigationProperty Name="CLIENTE" Relationship="Self.TARJETA_CLIENTE_FK" FromRole="TARJETA" ToRole="CLIENTE" />
+          <Property Name="ID_ROL" Type="Int16" Nullable="false" />
+          <Property Name="NOMBRE_ROL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION_ROL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.USUARIO_ROL_FK" FromRole="ROL" ToRole="USUARIO" />
         </EntityType>
-        <Association Name="ADMINISTRADOR_LOCAL_FK">
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="1" />
-          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCAL">
-              <PropertyRef Name="ID_LOCAL" />
-            </Principal>
-            <Dependent Role="ADMINISTRADOR">
-              <PropertyRef Name="LOCAL_ID_LOCAL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ENCARGO_ADMINISTRADOR_FK">
-          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="1" />
-          <End Role="ENCARGO" Type="Self.ENCARGO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ADMINISTRADOR">
-              <PropertyRef Name="ID_ADMIN" />
-            </Principal>
-            <Dependent Role="ENCARGO">
-              <PropertyRef Name="ADMINISTRADOR_ID_ADMIN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TARJETA_BANCO_FK">
-          <End Role="BANCO" Type="Self.BANCO" Multiplicity="1" />
-          <End Role="TARJETA" Type="Self.TARJETA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BANCO">
-              <PropertyRef Name="ID_BANCO" />
-            </Principal>
-            <Dependent Role="TARJETA">
-              <PropertyRef Name="BANCO_ID_BANCO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BODEGA_BODEGUERO_FK">
-          <End Role="BODEGUERO" Type="Self.BODEGUERO" Multiplicity="1" />
-          <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BODEGUERO">
-              <PropertyRef Name="ID_BODEG" />
-            </Principal>
-            <Dependent Role="BODEGA">
-              <PropertyRef Name="ID_BODEG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BODEGA_LOCAL_FK">
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="1" />
-          <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCAL">
-              <PropertyRef Name="ID_LOCAL" />
-            </Principal>
-            <Dependent Role="BODEGA">
-              <PropertyRef Name="LOCAL_ID_LOCAL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PRODUCTO_BODEGA_FK">
-          <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="1" />
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BODEGA">
-              <PropertyRef Name="ID_BODEGA" />
-            </Principal>
-            <Dependent Role="PRODUCTO">
-              <PropertyRef Name="BODEGA_ID_BODEGA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CAJERO_CAJA_FK">
-          <End Role="CAJA" Type="Self.CAJA" Multiplicity="1" />
-          <End Role="CAJERO" Type="Self.CAJERO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAJA">
-              <PropertyRef Name="ID_CAJA" />
-            </Principal>
-            <Dependent Role="CAJERO">
-              <PropertyRef Name="ID_CAJA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CUENTA_CAJERO_FK">
-          <End Role="CAJERO" Type="Self.CAJERO" Multiplicity="1" />
-          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAJERO">
-              <PropertyRef Name="ID_CAJERO" />
-            </Principal>
-            <Dependent Role="CUENTA">
-              <PropertyRef Name="ID_CAJERO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PLATO_CATEGORIA_FK">
-          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
-          <End Role="PLATO" Type="Self.PLATO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORIA">
-              <PropertyRef Name="ID_CATEG" />
-            </Principal>
-            <Dependent Role="PLATO">
-              <PropertyRef Name="CATEGORIA_ID_CATEG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CLIENTE_MESA_FK">
-          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MESA">
-              <PropertyRef Name="ID_MESA" />
-            </Principal>
-            <Dependent Role="CLIENTE">
-              <PropertyRef Name="MESA_ID_MESA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="TIPO_PLATO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PLATO" />
+          </Key>
+          <Property Name="ID_TIPO_PLATO" Type="Int16" Nullable="false" />
+          <Property Name="NOMBRE_TIPO_PLATO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PLATO" Relationship="Self.PLATO_TIPO_PLATO_FK" FromRole="TIPO_PLATO" ToRole="PLATO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int16" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO_USUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL_USUARIO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD_USUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROL_ID_ROL" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="ROL" Relationship="Self.USUARIO_ROL_FK" FromRole="USUARIO" ToRole="ROL" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="ID_VENTA" />
+          </Key>
+          <Property Name="ID_VENTA" Type="Int32" Nullable="false" />
+          <Property Name="SUBTOTAL_VENTA" Type="Int32" Nullable="false" />
+          <Property Name="IVA_VENTA" Type="Int16" Nullable="false" />
+          <Property Name="PROPINA_VENTA" Type="Int32" Nullable="false" />
+          <Property Name="TOTAL_VENTA" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_VENTA" Type="DateTime" Nullable="false" />
+          <Property Name="TIPO_PAGO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.VENTA_PEDIDO_FK" FromRole="VENTA" ToRole="PEDIDO" />
+        </EntityType>
         <Association Name="PEDIDO_CLIENTE_FK">
           <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
@@ -1224,319 +562,263 @@
               <PropertyRef Name="ID_CLIENTE" />
             </Principal>
             <Dependent Role="PEDIDO">
-              <PropertyRef Name="ID_CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="RESERVA_CLIENTE_FK">
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="ID_CLIENTE" />
-            </Principal>
-            <Dependent Role="RESERVA">
               <PropertyRef Name="CLIENTE_ID_CLIENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TARJETA_CLIENTE_FK">
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-          <End Role="TARJETA" Type="Self.TARJETA" Multiplicity="*" />
+        <Association Name="PEDIDO_INSUMO_INSUMO_FK">
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="1" />
+          <End Role="PEDIDO_INSUMO" Type="Self.PEDIDO_INSUMO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="ID_CLIENTE" />
+            <Principal Role="INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
             </Principal>
-            <Dependent Role="TARJETA">
-              <PropertyRef Name="CLIENTE_ID_CLIENTE" />
+            <Dependent Role="PEDIDO_INSUMO">
+              <PropertyRef Name="INSUMO_ID_INSUMO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PEDIDO_COCINERO_FK">
-          <End Role="COCINERO" Type="Self.COCINERO" Multiplicity="1" />
+        <Association Name="RECETA_INSUMO_FK">
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="1" />
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
+            </Principal>
+            <Dependent Role="RECETA">
+              <PropertyRef Name="INSUMO_ID_INSUMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="COCINERO">
-              <PropertyRef Name="ID_COCINERO" />
+            <Principal Role="MESA">
+              <PropertyRef Name="NUM_MESA" />
             </Principal>
             <Dependent Role="PEDIDO">
-              <PropertyRef Name="ID_COCINERO" />
+              <PropertyRef Name="MESA_NUM_MESA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="COMUNA_REGION_FK">
-          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
-          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
+        <Association Name="RESERVA_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="REGION">
-              <PropertyRef Name="ID_REGION" />
+            <Principal Role="MESA">
+              <PropertyRef Name="NUM_MESA" />
             </Principal>
-            <Dependent Role="COMUNA">
-              <PropertyRef Name="REGION_ID_REGION" />
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="MESA_NUM_MESA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="LOCAL_COMUNA_FK">
-          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMUNA">
-              <PropertyRef Name="ID_COMUNA" />
-            </Principal>
-            <Dependent Role="LOCAL">
-              <PropertyRef Name="COMUNA_ID_COMUNA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CUENTA_PEDIDO_FK">
+        <Association Name="PEDIDO_PLATOS_PEDIDO_FK">
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
-          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <End Role="PEDIDO_PLATOS" Type="Self.PEDIDO_PLATOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO">
               <PropertyRef Name="ID_PEDIDO" />
             </Principal>
-            <Dependent Role="CUENTA">
+            <Dependent Role="PEDIDO_PLATOS">
               <PropertyRef Name="PEDIDO_ID_PEDIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ENCARGO_PRODUCTO_FK">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
-          <End Role="ENCARGO" Type="Self.ENCARGO" Multiplicity="*" />
+        <Association Name="VENTA_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="ID_PRODUCTO" />
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
             </Principal>
-            <Dependent Role="ENCARGO">
-              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+            <Dependent Role="VENTA">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ENCARGO_PROVEEDOR_FK">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
-          <End Role="ENCARGO" Type="Self.ENCARGO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROVEEDOR">
-              <PropertyRef Name="RUT_PROVEEDOR" />
-            </Principal>
-            <Dependent Role="ENCARGO">
-              <PropertyRef Name="PROVEEDOR_RUT_PROVEEDOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PEDIDO_GARZON_FK">
-          <End Role="GARZON" Type="Self.GARZON" Multiplicity="1" />
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GARZON">
-              <PropertyRef Name="ID_GARZON" />
-            </Principal>
-            <Dependent Role="PEDIDO">
-              <PropertyRef Name="GARZON_ID_GARZON" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="MESA_LOCAL_FK">
-          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="1" />
-          <End Role="MESA" Type="Self.MESA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCAL">
-              <PropertyRef Name="ID_LOCAL" />
-            </Principal>
-            <Dependent Role="MESA">
-              <PropertyRef Name="LOCAL_ID_LOCAL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REGION_PAIS_FK">
-          <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
-          <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PAIS">
-              <PropertyRef Name="ID_PAIS" />
-            </Principal>
-            <Dependent Role="REGION">
-              <PropertyRef Name="PAIS_ID_PAIS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PEDIDO_PLATO_FK">
+        <Association Name="PEDIDO_PLATOS_PLATO_FK">
           <End Role="PLATO" Type="Self.PLATO" Multiplicity="1" />
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <End Role="PEDIDO_PLATOS" Type="Self.PEDIDO_PLATOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PLATO">
               <PropertyRef Name="ID_PLATO" />
             </Principal>
-            <Dependent Role="PEDIDO">
+            <Dependent Role="PEDIDO_PLATOS">
               <PropertyRef Name="PLATO_ID_PLATO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PLATO_RECETA_FK">
-          <End Role="RECETA" Type="Self.RECETA" Multiplicity="1" />
+        <Association Name="PLATO_TIPO_PLATO_FK">
+          <End Role="TIPO_PLATO" Type="Self.TIPO_PLATO" Multiplicity="1" />
           <End Role="PLATO" Type="Self.PLATO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RECETA">
-              <PropertyRef Name="ID_RECETA" />
+            <Principal Role="TIPO_PLATO">
+              <PropertyRef Name="ID_TIPO_PLATO" />
             </Principal>
             <Dependent Role="PLATO">
-              <PropertyRef Name="RECETA_ID_RECETA" />
+              <PropertyRef Name="TIPO_PLATO_ID_TIPO_PLATO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PRODUCTO_PROVEEDOR_FK">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROVEEDOR">
-              <PropertyRef Name="RUT_PROVEEDOR" />
-            </Principal>
-            <Dependent Role="PRODUCTO">
-              <PropertyRef Name="PROVEEDOR_RUT_PROVEEDOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="RECETA_PRODUCTO_FK">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+        <Association Name="RECETA_PLATO_FK">
+          <End Role="PLATO" Type="Self.PLATO" Multiplicity="1" />
           <End Role="RECETA" Type="Self.RECETA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="ID_PRODUCTO" />
+            <Principal Role="PLATO">
+              <PropertyRef Name="ID_PLATO" />
             </Principal>
             <Dependent Role="RECETA">
-              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+              <PropertyRef Name="PLATO_ID_PLATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROL_ID_ROL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="RestauranteEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" />
-          <EntitySet Name="BANCO" EntityType="Self.BANCO" />
-          <EntitySet Name="BODEGA" EntityType="Self.BODEGA" />
-          <EntitySet Name="BODEGUERO" EntityType="Self.BODEGUERO" />
-          <EntitySet Name="CAJA" EntityType="Self.CAJA" />
-          <EntitySet Name="CAJERO" EntityType="Self.CAJERO" />
-          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
-          <EntitySet Name="COCINERO" EntityType="Self.COCINERO" />
-          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
-          <EntitySet Name="CUENTA" EntityType="Self.CUENTA" />
-          <EntitySet Name="ENCARGO" EntityType="Self.ENCARGO" />
-          <EntitySet Name="GARZON" EntityType="Self.GARZON" />
-          <EntitySet Name="LOCAL" EntityType="Self.LOCAL" />
+          <EntitySet Name="INSUMO" EntityType="Self.INSUMO" />
           <EntitySet Name="MESA" EntityType="Self.MESA" />
-          <EntitySet Name="PAIS" EntityType="Self.PAIS" />
           <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" />
+          <EntitySet Name="PEDIDO_INSUMO" EntityType="Self.PEDIDO_INSUMO" />
+          <EntitySet Name="PEDIDO_PLATOS" EntityType="Self.PEDIDO_PLATOS" />
           <EntitySet Name="PLATO" EntityType="Self.PLATO" />
-          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
-          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
           <EntitySet Name="RECETA" EntityType="Self.RECETA" />
-          <EntitySet Name="REGION" EntityType="Self.REGION" />
           <EntitySet Name="RESERVA" EntityType="Self.RESERVA" />
-          <EntitySet Name="TARJETA" EntityType="Self.TARJETA" />
-          <AssociationSet Name="ADMINISTRADOR_LOCAL_FK" Association="Self.ADMINISTRADOR_LOCAL_FK">
-            <End Role="LOCAL" EntitySet="LOCAL" />
-            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
-          </AssociationSet>
-          <AssociationSet Name="ENCARGO_ADMINISTRADOR_FK" Association="Self.ENCARGO_ADMINISTRADOR_FK">
-            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
-            <End Role="ENCARGO" EntitySet="ENCARGO" />
-          </AssociationSet>
-          <AssociationSet Name="TARJETA_BANCO_FK" Association="Self.TARJETA_BANCO_FK">
-            <End Role="BANCO" EntitySet="BANCO" />
-            <End Role="TARJETA" EntitySet="TARJETA" />
-          </AssociationSet>
-          <AssociationSet Name="BODEGA_BODEGUERO_FK" Association="Self.BODEGA_BODEGUERO_FK">
-            <End Role="BODEGUERO" EntitySet="BODEGUERO" />
-            <End Role="BODEGA" EntitySet="BODEGA" />
-          </AssociationSet>
-          <AssociationSet Name="BODEGA_LOCAL_FK" Association="Self.BODEGA_LOCAL_FK">
-            <End Role="LOCAL" EntitySet="LOCAL" />
-            <End Role="BODEGA" EntitySet="BODEGA" />
-          </AssociationSet>
-          <AssociationSet Name="PRODUCTO_BODEGA_FK" Association="Self.PRODUCTO_BODEGA_FK">
-            <End Role="BODEGA" EntitySet="BODEGA" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="CAJERO_CAJA_FK" Association="Self.CAJERO_CAJA_FK">
-            <End Role="CAJA" EntitySet="CAJA" />
-            <End Role="CAJERO" EntitySet="CAJERO" />
-          </AssociationSet>
-          <AssociationSet Name="CUENTA_CAJERO_FK" Association="Self.CUENTA_CAJERO_FK">
-            <End Role="CAJERO" EntitySet="CAJERO" />
-            <End Role="CUENTA" EntitySet="CUENTA" />
-          </AssociationSet>
-          <AssociationSet Name="PLATO_CATEGORIA_FK" Association="Self.PLATO_CATEGORIA_FK">
-            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
-            <End Role="PLATO" EntitySet="PLATO" />
-          </AssociationSet>
-          <AssociationSet Name="CLIENTE_MESA_FK" Association="Self.CLIENTE_MESA_FK">
-            <End Role="MESA" EntitySet="MESA" />
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-          </AssociationSet>
+          <EntitySet Name="ROL" EntityType="Self.ROL" />
+          <EntitySet Name="TIPO_PLATO" EntityType="Self.TIPO_PLATO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="VENTA" EntityType="Self.VENTA" />
           <AssociationSet Name="PEDIDO_CLIENTE_FK" Association="Self.PEDIDO_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="PEDIDO" EntitySet="PEDIDO" />
           </AssociationSet>
-          <AssociationSet Name="RESERVA_CLIENTE_FK" Association="Self.RESERVA_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          <AssociationSet Name="PEDIDO_INSUMO_INSUMO_FK" Association="Self.PEDIDO_INSUMO_INSUMO_FK">
+            <End Role="INSUMO" EntitySet="INSUMO" />
+            <End Role="PEDIDO_INSUMO" EntitySet="PEDIDO_INSUMO" />
+          </AssociationSet>
+          <AssociationSet Name="RECETA_INSUMO_FK" Association="Self.RECETA_INSUMO_FK">
+            <End Role="INSUMO" EntitySet="INSUMO" />
+            <End Role="RECETA" EntitySet="RECETA" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_MESA_FK" Association="Self.PEDIDO_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVA_MESA_FK" Association="Self.RESERVA_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
             <End Role="RESERVA" EntitySet="RESERVA" />
           </AssociationSet>
-          <AssociationSet Name="TARJETA_CLIENTE_FK" Association="Self.TARJETA_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-            <End Role="TARJETA" EntitySet="TARJETA" />
-          </AssociationSet>
-          <AssociationSet Name="PEDIDO_COCINERO_FK" Association="Self.PEDIDO_COCINERO_FK">
-            <End Role="COCINERO" EntitySet="COCINERO" />
+          <AssociationSet Name="PEDIDO_PLATOS_PEDIDO_FK" Association="Self.PEDIDO_PLATOS_PEDIDO_FK">
             <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PEDIDO_PLATOS" EntitySet="PEDIDO_PLATOS" />
           </AssociationSet>
-          <AssociationSet Name="COMUNA_REGION_FK" Association="Self.COMUNA_REGION_FK">
-            <End Role="REGION" EntitySet="REGION" />
-            <End Role="COMUNA" EntitySet="COMUNA" />
-          </AssociationSet>
-          <AssociationSet Name="LOCAL_COMUNA_FK" Association="Self.LOCAL_COMUNA_FK">
-            <End Role="COMUNA" EntitySet="COMUNA" />
-            <End Role="LOCAL" EntitySet="LOCAL" />
-          </AssociationSet>
-          <AssociationSet Name="CUENTA_PEDIDO_FK" Association="Self.CUENTA_PEDIDO_FK">
+          <AssociationSet Name="VENTA_PEDIDO_FK" Association="Self.VENTA_PEDIDO_FK">
             <End Role="PEDIDO" EntitySet="PEDIDO" />
-            <End Role="CUENTA" EntitySet="CUENTA" />
+            <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
-          <AssociationSet Name="ENCARGO_PRODUCTO_FK" Association="Self.ENCARGO_PRODUCTO_FK">
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-            <End Role="ENCARGO" EntitySet="ENCARGO" />
-          </AssociationSet>
-          <AssociationSet Name="ENCARGO_PROVEEDOR_FK" Association="Self.ENCARGO_PROVEEDOR_FK">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
-            <End Role="ENCARGO" EntitySet="ENCARGO" />
-          </AssociationSet>
-          <AssociationSet Name="PEDIDO_GARZON_FK" Association="Self.PEDIDO_GARZON_FK">
-            <End Role="GARZON" EntitySet="GARZON" />
-            <End Role="PEDIDO" EntitySet="PEDIDO" />
-          </AssociationSet>
-          <AssociationSet Name="MESA_LOCAL_FK" Association="Self.MESA_LOCAL_FK">
-            <End Role="LOCAL" EntitySet="LOCAL" />
-            <End Role="MESA" EntitySet="MESA" />
-          </AssociationSet>
-          <AssociationSet Name="REGION_PAIS_FK" Association="Self.REGION_PAIS_FK">
-            <End Role="PAIS" EntitySet="PAIS" />
-            <End Role="REGION" EntitySet="REGION" />
-          </AssociationSet>
-          <AssociationSet Name="PEDIDO_PLATO_FK" Association="Self.PEDIDO_PLATO_FK">
+          <AssociationSet Name="PEDIDO_PLATOS_PLATO_FK" Association="Self.PEDIDO_PLATOS_PLATO_FK">
             <End Role="PLATO" EntitySet="PLATO" />
-            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PEDIDO_PLATOS" EntitySet="PEDIDO_PLATOS" />
           </AssociationSet>
-          <AssociationSet Name="PLATO_RECETA_FK" Association="Self.PLATO_RECETA_FK">
-            <End Role="RECETA" EntitySet="RECETA" />
+          <AssociationSet Name="PLATO_TIPO_PLATO_FK" Association="Self.PLATO_TIPO_PLATO_FK">
+            <End Role="TIPO_PLATO" EntitySet="TIPO_PLATO" />
             <End Role="PLATO" EntitySet="PLATO" />
           </AssociationSet>
-          <AssociationSet Name="PRODUCTO_PROVEEDOR_FK" Association="Self.PRODUCTO_PROVEEDOR_FK">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="RECETA_PRODUCTO_FK" Association="Self.RECETA_PRODUCTO_FK">
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          <AssociationSet Name="RECETA_PLATO_FK" Association="Self.RECETA_PLATO_FK">
+            <End Role="PLATO" EntitySet="PLATO" />
             <End Role="RECETA" EntitySet="RECETA" />
           </AssociationSet>
+          <AssociationSet Name="USUARIO_ROL_FK" Association="Self.USUARIO_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <FunctionImport Name="INSERTCLIENTE">
+            <Parameter Name="P_RUT_CLIENTE" Mode="In" Type="String" />
+            <Parameter Name="P_PASSWORD_CLIENTE" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE_CLIENTE" Mode="In" Type="String" />
+            <Parameter Name="P_APELLIDO_CLIENTE" Mode="In" Type="String" />
+            <Parameter Name="P_CORREO_CLIENTE" Mode="In" Type="String" />
+            <Parameter Name="P_TELEFONO_CLIENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTINSUMO">
+            <Parameter Name="P_NOMBRE_INSUMO" Mode="In" Type="String" />
+            <Parameter Name="P_STOCK_INSUMO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_UNIDAD_MEDIDA_INSUMO" Mode="In" Type="String" />
+            <Parameter Name="P_PRECIO_INSUMO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTMESA">
+            <Parameter Name="P_NUM_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_ESTADO_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CANT_PERSONAS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTPEDIDO">
+            <Parameter Name="P_FECHA_PEDIDO" Mode="In" Type="DateTime" />
+            <Parameter Name="P_ESTADO_PEDIDO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MESA_NUM_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CLIENTE_ID_CLIENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTPEDIDOINSUMO">
+            <Parameter Name="P_CANTIDAD_PEDIDO_INSUMO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_UNIDAD" Mode="In" Type="String" />
+            <Parameter Name="P_INSUMO_ID_INSUMO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTPEDIDOPLATOS">
+            <Parameter Name="P_CANTIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PEDIDO_ID_PLATO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PLATO_ID_PLATO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTPLATO">
+            <Parameter Name="P_NOMBRE_PLATO" Mode="In" Type="String" />
+            <Parameter Name="P_PRECIO_PLATO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_DESCRIPCION_PLATO" Mode="In" Type="String" />
+            <Parameter Name="P_TIEMPO_PREPARACION" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIPO_PLATO_ID_TIPO_PLATO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTRECETA">
+            <Parameter Name="P_CANTIDAD_UTILIZAR" Mode="In" Type="Decimal" />
+            <Parameter Name="P_DESCRIPCION_RECETA" Mode="In" Type="String" />
+            <Parameter Name="P_INSUMO_ID_INSUMO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PLATO_ID_PLATO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTRESERVA">
+            <Parameter Name="P_FECHA_RESERVA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_ESTADO_RESERVA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MESA_NUM_MESA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTROL">
+            <Parameter Name="P_ID_ROL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE_ROL" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION_ROL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTUSUARIO">
+            <Parameter Name="P_RUT_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="P_APELLIDO_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="P_PASSWORD_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="P_ROL_ID_ROL" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTVENTA">
+            <Parameter Name="P_SUBTOTAL_VENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_IVA_VENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PROPINA_VENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TOTAL_VENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FECHA_VENTA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_TIPO_PAGO" Mode="In" Type="String" />
+            <Parameter Name="P_PEDIDO_ID_PEDIDO" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1544,230 +826,36 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="RestauranteEntities">
-          <EntitySetMapping Name="ADMINISTRADOR">
-            <EntityTypeMapping TypeName="Model.ADMINISTRADOR">
-              <MappingFragment StoreEntitySet="ADMINISTRADOR">
-                <ScalarProperty Name="ID_ADMIN" ColumnName="ID_ADMIN" />
-                <ScalarProperty Name="RUT_ADMIN" ColumnName="RUT_ADMIN" />
-                <ScalarProperty Name="DV_ADMIN" ColumnName="DV_ADMIN" />
-                <ScalarProperty Name="PNOMBRE_ADMIN" ColumnName="PNOMBRE_ADMIN" />
-                <ScalarProperty Name="SNOMBRE_ADMIN" ColumnName="SNOMBRE_ADMIN" />
-                <ScalarProperty Name="APPATERNO_ADMIN" ColumnName="APPATERNO_ADMIN" />
-                <ScalarProperty Name="APMATERNO_ADMIN" ColumnName="APMATERNO_ADMIN" />
-                <ScalarProperty Name="SEXO_ADMIN" ColumnName="SEXO_ADMIN" />
-                <ScalarProperty Name="USUARIO_ADMIN" ColumnName="USUARIO_ADMIN" />
-                <ScalarProperty Name="PASSWD_ADMIN" ColumnName="PASSWD_ADMIN" />
-                <ScalarProperty Name="DIRECC_ADMIN" ColumnName="DIRECC_ADMIN" />
-                <ScalarProperty Name="NRO_DIRECC_ADMIN" ColumnName="NRO_DIRECC_ADMIN" />
-                <ScalarProperty Name="TELEFONO_ADMIN" ColumnName="TELEFONO_ADMIN" />
-                <ScalarProperty Name="FECHA_NAC_ADMIN" ColumnName="FECHA_NAC_ADMIN" />
-                <ScalarProperty Name="CORREO_ADMIN" ColumnName="CORREO_ADMIN" />
-                <ScalarProperty Name="LOCAL_ID_LOCAL" ColumnName="LOCAL_ID_LOCAL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BANCO">
-            <EntityTypeMapping TypeName="Model.BANCO">
-              <MappingFragment StoreEntitySet="BANCO">
-                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
-                <ScalarProperty Name="NOM_BANCO" ColumnName="NOM_BANCO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BODEGA">
-            <EntityTypeMapping TypeName="Model.BODEGA">
-              <MappingFragment StoreEntitySet="BODEGA">
-                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
-                <ScalarProperty Name="NOM_BODEGA" ColumnName="NOM_BODEGA" />
-                <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
-                <ScalarProperty Name="LOCAL_ID_LOCAL" ColumnName="LOCAL_ID_LOCAL" />
-                <ScalarProperty Name="ID_BODEG" ColumnName="ID_BODEG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BODEGUERO">
-            <EntityTypeMapping TypeName="Model.BODEGUERO">
-              <MappingFragment StoreEntitySet="BODEGUERO">
-                <ScalarProperty Name="ID_BODEG" ColumnName="ID_BODEG" />
-                <ScalarProperty Name="RUT_BODEG" ColumnName="RUT_BODEG" />
-                <ScalarProperty Name="DV_BODEG" ColumnName="DV_BODEG" />
-                <ScalarProperty Name="PNOMBRE_BODEG" ColumnName="PNOMBRE_BODEG" />
-                <ScalarProperty Name="SNOMBRE_BODEG" ColumnName="SNOMBRE_BODEG" />
-                <ScalarProperty Name="APPATERNO_BODEG" ColumnName="APPATERNO_BODEG" />
-                <ScalarProperty Name="APMATERNO_BODEG" ColumnName="APMATERNO_BODEG" />
-                <ScalarProperty Name="SEXO_BODEG" ColumnName="SEXO_BODEG" />
-                <ScalarProperty Name="USUARIO_BODEG" ColumnName="USUARIO_BODEG" />
-                <ScalarProperty Name="PASSWD_BODEG" ColumnName="PASSWD_BODEG" />
-                <ScalarProperty Name="DIRECC_BODEG" ColumnName="DIRECC_BODEG" />
-                <ScalarProperty Name="NRO_DIRECC_BODEG" ColumnName="NRO_DIRECC_BODEG" />
-                <ScalarProperty Name="TELEFONO_BODEG" ColumnName="TELEFONO_BODEG" />
-                <ScalarProperty Name="FECHA_NAC_BODEG" ColumnName="FECHA_NAC_BODEG" />
-                <ScalarProperty Name="CORREO_BODEG" ColumnName="CORREO_BODEG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CAJA">
-            <EntityTypeMapping TypeName="Model.CAJA">
-              <MappingFragment StoreEntitySet="CAJA">
-                <ScalarProperty Name="ID_CAJA" ColumnName="ID_CAJA" />
-                <ScalarProperty Name="NOM_CAJA" ColumnName="NOM_CAJA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CAJERO">
-            <EntityTypeMapping TypeName="Model.CAJERO">
-              <MappingFragment StoreEntitySet="CAJERO">
-                <ScalarProperty Name="ID_CAJERO" ColumnName="ID_CAJERO" />
-                <ScalarProperty Name="RUT_CAJE" ColumnName="RUT_CAJE" />
-                <ScalarProperty Name="DV_CAJE" ColumnName="DV_CAJE" />
-                <ScalarProperty Name="PNOMBRE_CAJE" ColumnName="PNOMBRE_CAJE" />
-                <ScalarProperty Name="SNOMBRE_CAJE" ColumnName="SNOMBRE_CAJE" />
-                <ScalarProperty Name="APPATERNO_CAJE" ColumnName="APPATERNO_CAJE" />
-                <ScalarProperty Name="APMATERNO_CAJE" ColumnName="APMATERNO_CAJE" />
-                <ScalarProperty Name="SEXO_CAJE" ColumnName="SEXO_CAJE" />
-                <ScalarProperty Name="USUARIO_CAJE" ColumnName="USUARIO_CAJE" />
-                <ScalarProperty Name="PASSWD_CAJE" ColumnName="PASSWD_CAJE" />
-                <ScalarProperty Name="DIRECC_CAJE" ColumnName="DIRECC_CAJE" />
-                <ScalarProperty Name="NRO_DIRECC_CAJE" ColumnName="NRO_DIRECC_CAJE" />
-                <ScalarProperty Name="TELEFONO_CAJE" ColumnName="TELEFONO_CAJE" />
-                <ScalarProperty Name="FECHA_NAC_CAJE" ColumnName="FECHA_NAC_CAJE" />
-                <ScalarProperty Name="CORREO_CAJE" ColumnName="CORREO_CAJE" />
-                <ScalarProperty Name="ID_CAJA" ColumnName="ID_CAJA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CATEGORIA">
-            <EntityTypeMapping TypeName="Model.CATEGORIA">
-              <MappingFragment StoreEntitySet="CATEGORIA">
-                <ScalarProperty Name="ID_CATEG" ColumnName="ID_CATEG" />
-                <ScalarProperty Name="DESCRIP_CATEG" ColumnName="DESCRIP_CATEG" />
-                <ScalarProperty Name="NOM_CATEG" ColumnName="NOM_CATEG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CLIENTE">
             <EntityTypeMapping TypeName="Model.CLIENTE">
               <MappingFragment StoreEntitySet="CLIENTE">
                 <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-                <ScalarProperty Name="DV_CLIENTE" ColumnName="DV_CLIENTE" />
-                <ScalarProperty Name="PASSWD_CLIENTE" ColumnName="PASSWD_CLIENTE" />
-                <ScalarProperty Name="PNOMBRE_CLIENTE" ColumnName="PNOMBRE_CLIENTE" />
-                <ScalarProperty Name="SNOMBRE_CLIENTE" ColumnName="SNOMBRE_CLIENTE" />
-                <ScalarProperty Name="APPATERNO_CLIENTE" ColumnName="APPATERNO_CLIENTE" />
-                <ScalarProperty Name="APMATERNO_CLIENTE" ColumnName="APMATERNO_CLIENTE" />
-                <ScalarProperty Name="SEXO_CLIENTE" ColumnName="SEXO_CLIENTE" />
-                <ScalarProperty Name="DIRECC_ADMIN" ColumnName="DIRECC_ADMIN" />
-                <ScalarProperty Name="NRO_DIRECC_CLIENTE" ColumnName="NRO_DIRECC_CLIENTE" />
-                <ScalarProperty Name="TELEFONO_CLIENTE" ColumnName="TELEFONO_CLIENTE" />
-                <ScalarProperty Name="FECHA_NAC_CLIENTE" ColumnName="FECHA_NAC_CLIENTE" />
+                <ScalarProperty Name="PASSWORD_CLIENTE" ColumnName="PASSWORD_CLIENTE" />
+                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+                <ScalarProperty Name="APELLIDO_CLIENTE" ColumnName="APELLIDO_CLIENTE" />
                 <ScalarProperty Name="CORREO_CLIENTE" ColumnName="CORREO_CLIENTE" />
-                <ScalarProperty Name="MESA_ID_MESA" ColumnName="MESA_ID_MESA" />
+                <ScalarProperty Name="TELEFONO_CLIENTE" ColumnName="TELEFONO_CLIENTE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="COCINERO">
-            <EntityTypeMapping TypeName="Model.COCINERO">
-              <MappingFragment StoreEntitySet="COCINERO">
-                <ScalarProperty Name="ID_COCINERO" ColumnName="ID_COCINERO" />
-                <ScalarProperty Name="RUT_COCINERO" ColumnName="RUT_COCINERO" />
-                <ScalarProperty Name="DV_COCINERO" ColumnName="DV_COCINERO" />
-                <ScalarProperty Name="PNOMBRE_COCINERO" ColumnName="PNOMBRE_COCINERO" />
-                <ScalarProperty Name="SNOMBRE_COCINERO" ColumnName="SNOMBRE_COCINERO" />
-                <ScalarProperty Name="APPATERNO_COCINERO" ColumnName="APPATERNO_COCINERO" />
-                <ScalarProperty Name="APMATERNO_COCINERO" ColumnName="APMATERNO_COCINERO" />
-                <ScalarProperty Name="SEXO_COCINERO" ColumnName="SEXO_COCINERO" />
-                <ScalarProperty Name="USUARIO_COCINERO" ColumnName="USUARIO_COCINERO" />
-                <ScalarProperty Name="PASSWD_COCINERO" ColumnName="PASSWD_COCINERO" />
-                <ScalarProperty Name="DIRECC_COCINERO" ColumnName="DIRECC_COCINERO" />
-                <ScalarProperty Name="NRO_DIRECC_COCINERO" ColumnName="NRO_DIRECC_COCINERO" />
-                <ScalarProperty Name="TELEFONO_COCINERO" ColumnName="TELEFONO_COCINERO" />
-                <ScalarProperty Name="FECHA_NAC_COCINERO" ColumnName="FECHA_NAC_COCINERO" />
-                <ScalarProperty Name="CORREO_COCINERO" ColumnName="CORREO_COCINERO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMUNA">
-            <EntityTypeMapping TypeName="Model.COMUNA">
-              <MappingFragment StoreEntitySet="COMUNA">
-                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-                <ScalarProperty Name="NOM_COMUNA" ColumnName="NOM_COMUNA" />
-                <ScalarProperty Name="REGION_ID_REGION" ColumnName="REGION_ID_REGION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CUENTA">
-            <EntityTypeMapping TypeName="Model.CUENTA">
-              <MappingFragment StoreEntitySet="CUENTA">
-                <ScalarProperty Name="CODIGO_CUENTA" ColumnName="CODIGO_CUENTA" />
-                <ScalarProperty Name="FECHA_CUENTA" ColumnName="FECHA_CUENTA" />
-                <ScalarProperty Name="METODO_PAGO_CUENTA" ColumnName="METODO_PAGO_CUENTA" />
-                <ScalarProperty Name="MONTO_PAGAR_CUENTA" ColumnName="MONTO_PAGAR_CUENTA" />
-                <ScalarProperty Name="IVA_CUENTA" ColumnName="IVA_CUENTA" />
-                <ScalarProperty Name="MONTO_TOTAL_CUENTA" ColumnName="MONTO_TOTAL_CUENTA" />
-                <ScalarProperty Name="PEDIDO_ID_PEDIDO" ColumnName="PEDIDO_ID_PEDIDO" />
-                <ScalarProperty Name="ID_CAJERO" ColumnName="ID_CAJERO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ENCARGO">
-            <EntityTypeMapping TypeName="Model.ENCARGO">
-              <MappingFragment StoreEntitySet="ENCARGO">
-                <ScalarProperty Name="COD_ENCARGO" ColumnName="COD_ENCARGO" />
-                <ScalarProperty Name="FECHA_ENCARGO" ColumnName="FECHA_ENCARGO" />
-                <ScalarProperty Name="DESCRIP_ENCARGO" ColumnName="DESCRIP_ENCARGO" />
-                <ScalarProperty Name="PROVEEDOR_RUT_PROVEEDOR" ColumnName="PROVEEDOR_RUT_PROVEEDOR" />
-                <ScalarProperty Name="ADMINISTRADOR_ID_ADMIN" ColumnName="ADMINISTRADOR_ID_ADMIN" />
-                <ScalarProperty Name="PRODUCTO_ID_PRODUCTO" ColumnName="PRODUCTO_ID_PRODUCTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GARZON">
-            <EntityTypeMapping TypeName="Model.GARZON">
-              <MappingFragment StoreEntitySet="GARZON">
-                <ScalarProperty Name="ID_GARZON" ColumnName="ID_GARZON" />
-                <ScalarProperty Name="RUT_GARZON" ColumnName="RUT_GARZON" />
-                <ScalarProperty Name="DV_GARZON" ColumnName="DV_GARZON" />
-                <ScalarProperty Name="PNOMBRE_GARZON" ColumnName="PNOMBRE_GARZON" />
-                <ScalarProperty Name="SNOMBRE_GARZON" ColumnName="SNOMBRE_GARZON" />
-                <ScalarProperty Name="APPATERNO_GARZON" ColumnName="APPATERNO_GARZON" />
-                <ScalarProperty Name="APMATERNO_GARZON" ColumnName="APMATERNO_GARZON" />
-                <ScalarProperty Name="SEXO_GARZON" ColumnName="SEXO_GARZON" />
-                <ScalarProperty Name="DIRECC_GARZON" ColumnName="DIRECC_GARZON" />
-                <ScalarProperty Name="NRO_DIRECC_GARZON" ColumnName="NRO_DIRECC_GARZON" />
-                <ScalarProperty Name="TELEFONO_GARZON" ColumnName="TELEFONO_GARZON" />
-                <ScalarProperty Name="FECHA_NAC_GARZON" ColumnName="FECHA_NAC_GARZON" />
-                <ScalarProperty Name="CORREO_GARZON" ColumnName="CORREO_GARZON" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LOCAL">
-            <EntityTypeMapping TypeName="Model.LOCAL">
-              <MappingFragment StoreEntitySet="LOCAL">
-                <ScalarProperty Name="ID_LOCAL" ColumnName="ID_LOCAL" />
-                <ScalarProperty Name="NOM_LOCAL" ColumnName="NOM_LOCAL" />
-                <ScalarProperty Name="DIRECC_LOCAL" ColumnName="DIRECC_LOCAL" />
-                <ScalarProperty Name="NRO_DIRECC" ColumnName="NRO_DIRECC" />
-                <ScalarProperty Name="TELEFONO_LOCAL" ColumnName="TELEFONO_LOCAL" />
-                <ScalarProperty Name="CAPACIDAD_LOCAL" ColumnName="CAPACIDAD_LOCAL" />
-                <ScalarProperty Name="COMUNA_ID_COMUNA" ColumnName="COMUNA_ID_COMUNA" />
+          <EntitySetMapping Name="INSUMO">
+            <EntityTypeMapping TypeName="Model.INSUMO">
+              <MappingFragment StoreEntitySet="INSUMO">
+                <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
+                <ScalarProperty Name="NOMBRE_INSUMO" ColumnName="NOMBRE_INSUMO" />
+                <ScalarProperty Name="STOCK_INSUMO" ColumnName="STOCK_INSUMO" />
+                <ScalarProperty Name="UNIDAD_MEDIDA_INSUMO" ColumnName="UNIDAD_MEDIDA_INSUMO" />
+                <ScalarProperty Name="PRECIO_INSUMO" ColumnName="PRECIO_INSUMO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MESA">
             <EntityTypeMapping TypeName="Model.MESA">
               <MappingFragment StoreEntitySet="MESA">
-                <ScalarProperty Name="ID_MESA" ColumnName="ID_MESA" />
-                <ScalarProperty Name="CAPACIDAD_MESA" ColumnName="CAPACIDAD_MESA" />
-                <ScalarProperty Name="LOCAL_ID_LOCAL" ColumnName="LOCAL_ID_LOCAL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PAIS">
-            <EntityTypeMapping TypeName="Model.PAIS">
-              <MappingFragment StoreEntitySet="PAIS">
-                <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
-                <ScalarProperty Name="NOM_PAIS" ColumnName="NOM_PAIS" />
+                <ScalarProperty Name="NUM_MESA" ColumnName="NUM_MESA" />
+                <ScalarProperty Name="ESTADO_MESA" ColumnName="ESTADO_MESA" />
+                <ScalarProperty Name="CANT_PERSONAS" ColumnName="CANT_PERSONAS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1776,11 +864,29 @@
               <MappingFragment StoreEntitySet="PEDIDO">
                 <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
                 <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTADO_PEDIDO" ColumnName="ESTADO_PEDIDO" />
+                <ScalarProperty Name="MESA_NUM_MESA" ColumnName="MESA_NUM_MESA" />
+                <ScalarProperty Name="CLIENTE_ID_CLIENTE" ColumnName="CLIENTE_ID_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDO_INSUMO">
+            <EntityTypeMapping TypeName="Model.PEDIDO_INSUMO">
+              <MappingFragment StoreEntitySet="PEDIDO_INSUMO">
+                <ScalarProperty Name="ID_PEDIDO_INSUMO" ColumnName="ID_PEDIDO_INSUMO" />
+                <ScalarProperty Name="CANTIDAD_PEDIDO_INSUMO" ColumnName="CANTIDAD_PEDIDO_INSUMO" />
+                <ScalarProperty Name="UNIDAD" ColumnName="UNIDAD" />
+                <ScalarProperty Name="INSUMO_ID_INSUMO" ColumnName="INSUMO_ID_INSUMO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDO_PLATOS">
+            <EntityTypeMapping TypeName="Model.PEDIDO_PLATOS">
+              <MappingFragment StoreEntitySet="PEDIDO_PLATOS">
+                <ScalarProperty Name="ID_PEDIDO_PLATOS" ColumnName="ID_PEDIDO_PLATOS" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PEDIDO_ID_PEDIDO" ColumnName="PEDIDO_ID_PEDIDO" />
                 <ScalarProperty Name="PLATO_ID_PLATO" ColumnName="PLATO_ID_PLATO" />
-                <ScalarProperty Name="GARZON_ID_GARZON" ColumnName="GARZON_ID_GARZON" />
-                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
-                <ScalarProperty Name="ID_COCINERO" ColumnName="ID_COCINERO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1788,36 +894,11 @@
             <EntityTypeMapping TypeName="Model.PLATO">
               <MappingFragment StoreEntitySet="PLATO">
                 <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
-                <ScalarProperty Name="NOM_PLATO" ColumnName="NOM_PLATO" />
+                <ScalarProperty Name="NOMBRE_PLATO" ColumnName="NOMBRE_PLATO" />
                 <ScalarProperty Name="PRECIO_PLATO" ColumnName="PRECIO_PLATO" />
-                <ScalarProperty Name="DECRIP_PLATO" ColumnName="DECRIP_PLATO" />
-                <ScalarProperty Name="CATEGORIA_ID_CATEG" ColumnName="CATEGORIA_ID_CATEG" />
-                <ScalarProperty Name="RECETA_ID_RECETA" ColumnName="RECETA_ID_RECETA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PRODUCTO">
-            <EntityTypeMapping TypeName="Model.PRODUCTO">
-              <MappingFragment StoreEntitySet="PRODUCTO">
-                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
-                <ScalarProperty Name="NOM_PRODUCTO" ColumnName="NOM_PRODUCTO" />
-                <ScalarProperty Name="CANT_PRODUCTO" ColumnName="CANT_PRODUCTO" />
-                <ScalarProperty Name="TIPO_PRODUCTO" ColumnName="TIPO_PRODUCTO" />
-                <ScalarProperty Name="BODEGA_ID_BODEGA" ColumnName="BODEGA_ID_BODEGA" />
-                <ScalarProperty Name="PROVEEDOR_RUT_PROVEEDOR" ColumnName="PROVEEDOR_RUT_PROVEEDOR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PROVEEDOR">
-            <EntityTypeMapping TypeName="Model.PROVEEDOR">
-              <MappingFragment StoreEntitySet="PROVEEDOR">
-                <ScalarProperty Name="RUT_PROVEEDOR" ColumnName="RUT_PROVEEDOR" />
-                <ScalarProperty Name="DV_PROVEEDOR" ColumnName="DV_PROVEEDOR" />
-                <ScalarProperty Name="NOM_PROVEEDOR" ColumnName="NOM_PROVEEDOR" />
-                <ScalarProperty Name="DIRECC_PROVEEDOR" ColumnName="DIRECC_PROVEEDOR" />
-                <ScalarProperty Name="NRO_DIRECC_PROVEEDOR" ColumnName="NRO_DIRECC_PROVEEDOR" />
-                <ScalarProperty Name="TELEFONO_PROVEEDOR" ColumnName="TELEFONO_PROVEEDOR" />
-                <ScalarProperty Name="CORREO_PROVEEDOR" ColumnName="CORREO_PROVEEDOR" />
+                <ScalarProperty Name="DESCRIPCION_PLATO" ColumnName="DESCRIPCION_PLATO" />
+                <ScalarProperty Name="TIEMPO_PREPARACION" ColumnName="TIEMPO_PREPARACION" />
+                <ScalarProperty Name="TIPO_PLATO_ID_TIPO_PLATO" ColumnName="TIPO_PLATO_ID_TIPO_PLATO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1825,19 +906,10 @@
             <EntityTypeMapping TypeName="Model.RECETA">
               <MappingFragment StoreEntitySet="RECETA">
                 <ScalarProperty Name="ID_RECETA" ColumnName="ID_RECETA" />
-                <ScalarProperty Name="NOM_RECETA" ColumnName="NOM_RECETA" />
-                <ScalarProperty Name="DESCRIP_RECETA" ColumnName="DESCRIP_RECETA" />
-                <ScalarProperty Name="PRODUCTO_ID_PRODUCTO" ColumnName="PRODUCTO_ID_PRODUCTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="REGION">
-            <EntityTypeMapping TypeName="Model.REGION">
-              <MappingFragment StoreEntitySet="REGION">
-                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
-                <ScalarProperty Name="NOM_REGION" ColumnName="NOM_REGION" />
-                <ScalarProperty Name="ORDINAL_REGION" ColumnName="ORDINAL_REGION" />
-                <ScalarProperty Name="PAIS_ID_PAIS" ColumnName="PAIS_ID_PAIS" />
+                <ScalarProperty Name="CANTIDAD_UTILIZAR" ColumnName="CANTIDAD_UTILIZAR" />
+                <ScalarProperty Name="DESCRIPCION_RECETA" ColumnName="DESCRIPCION_RECETA" />
+                <ScalarProperty Name="INSUMO_ID_INSUMO" ColumnName="INSUMO_ID_INSUMO" />
+                <ScalarProperty Name="PLATO_ID_PLATO" ColumnName="PLATO_ID_PLATO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1846,24 +918,67 @@
               <MappingFragment StoreEntitySet="RESERVA">
                 <ScalarProperty Name="ID_RESERVA" ColumnName="ID_RESERVA" />
                 <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
-                <ScalarProperty Name="FECHA_INICIO_RESERVA" ColumnName="FECHA_INICIO_RESERVA" />
-                <ScalarProperty Name="CLIENTE_ID_CLIENTE" ColumnName="CLIENTE_ID_CLIENTE" />
+                <ScalarProperty Name="ESTADO_RESERVA" ColumnName="ESTADO_RESERVA" />
+                <ScalarProperty Name="MESA_NUM_MESA" ColumnName="MESA_NUM_MESA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TARJETA">
-            <EntityTypeMapping TypeName="Model.TARJETA">
-              <MappingFragment StoreEntitySet="TARJETA">
-                <ScalarProperty Name="NRO_TARJETA" ColumnName="NRO_TARJETA" />
-                <ScalarProperty Name="TIPO_TARJETA" ColumnName="TIPO_TARJETA" />
-                <ScalarProperty Name="SALDO_TARJETA" ColumnName="SALDO_TARJETA" />
-                <ScalarProperty Name="FECHA_EXP_TARJETA" ColumnName="FECHA_EXP_TARJETA" />
-                <ScalarProperty Name="CODIGO_TARJETA" ColumnName="CODIGO_TARJETA" />
-                <ScalarProperty Name="BANCO_ID_BANCO" ColumnName="BANCO_ID_BANCO" />
-                <ScalarProperty Name="CLIENTE_ID_CLIENTE" ColumnName="CLIENTE_ID_CLIENTE" />
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="Model.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="NOMBRE_ROL" ColumnName="NOMBRE_ROL" />
+                <ScalarProperty Name="DESCRIPCION_ROL" ColumnName="DESCRIPCION_ROL" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_PLATO">
+            <EntityTypeMapping TypeName="Model.TIPO_PLATO">
+              <MappingFragment StoreEntitySet="TIPO_PLATO">
+                <ScalarProperty Name="ID_TIPO_PLATO" ColumnName="ID_TIPO_PLATO" />
+                <ScalarProperty Name="NOMBRE_TIPO_PLATO" ColumnName="NOMBRE_TIPO_PLATO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+                <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+                <ScalarProperty Name="APELLIDO_USUARIO" ColumnName="APELLIDO_USUARIO" />
+                <ScalarProperty Name="EMAIL_USUARIO" ColumnName="EMAIL_USUARIO" />
+                <ScalarProperty Name="PASSWORD_USUARIO" ColumnName="PASSWORD_USUARIO" />
+                <ScalarProperty Name="ROL_ID_ROL" ColumnName="ROL_ID_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTA">
+            <EntityTypeMapping TypeName="Model.VENTA">
+              <MappingFragment StoreEntitySet="VENTA">
+                <ScalarProperty Name="ID_VENTA" ColumnName="ID_VENTA" />
+                <ScalarProperty Name="SUBTOTAL_VENTA" ColumnName="SUBTOTAL_VENTA" />
+                <ScalarProperty Name="IVA_VENTA" ColumnName="IVA_VENTA" />
+                <ScalarProperty Name="PROPINA_VENTA" ColumnName="PROPINA_VENTA" />
+                <ScalarProperty Name="TOTAL_VENTA" ColumnName="TOTAL_VENTA" />
+                <ScalarProperty Name="FECHA_VENTA" ColumnName="FECHA_VENTA" />
+                <ScalarProperty Name="TIPO_PAGO" ColumnName="TIPO_PAGO" />
+                <ScalarProperty Name="PEDIDO_ID_PEDIDO" ColumnName="PEDIDO_ID_PEDIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="INSERTCLIENTE" FunctionName="Model.Store.INSERTCLIENTE" />
+          <FunctionImportMapping FunctionImportName="INSERTINSUMO" FunctionName="Model.Store.INSERTINSUMO" />
+          <FunctionImportMapping FunctionImportName="INSERTMESA" FunctionName="Model.Store.INSERTMESA" />
+          <FunctionImportMapping FunctionImportName="INSERTPEDIDO" FunctionName="Model.Store.INSERTPEDIDO" />
+          <FunctionImportMapping FunctionImportName="INSERTPEDIDOINSUMO" FunctionName="Model.Store.INSERTPEDIDOINSUMO" />
+          <FunctionImportMapping FunctionImportName="INSERTPEDIDOPLATOS" FunctionName="Model.Store.INSERTPEDIDOPLATOS" />
+          <FunctionImportMapping FunctionImportName="INSERTPLATO" FunctionName="Model.Store.INSERTPLATO" />
+          <FunctionImportMapping FunctionImportName="INSERTRECETA" FunctionName="Model.Store.INSERTRECETA" />
+          <FunctionImportMapping FunctionImportName="INSERTRESERVA" FunctionName="Model.Store.INSERTRESERVA" />
+          <FunctionImportMapping FunctionImportName="INSERTROL" FunctionName="Model.Store.INSERTROL" />
+          <FunctionImportMapping FunctionImportName="INSERTUSUARIO" FunctionName="Model.Store.INSERTUSUARIO" />
+          <FunctionImportMapping FunctionImportName="INSERTVENTA" FunctionName="Model.Store.INSERTVENTA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

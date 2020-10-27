@@ -1,0 +1,11 @@
+﻿body {
+    /*Seteamos el fondo de la vista*/
+    background-image: url(/Recursos/homebackground2.jpg);
+    /*La imagen estará centrada tanto vertical como horizontalmente*/
+    background-position: center center;
+    /**/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}

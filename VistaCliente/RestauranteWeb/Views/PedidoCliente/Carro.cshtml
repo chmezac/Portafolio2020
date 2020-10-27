@@ -1,0 +1,220 @@
+﻿@model IEnumerable<RestauranteDatos.PEDIDO_PLATOS>
+
+
+@{
+    ViewBag.Title = "Carro";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.transitions.css" />
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">-->
+
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+    <div class="main-header" id="main-header">
+        <nav class="navbar mynav navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "PedidoCliente")">Restaurante Siglo XXl</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">@Html.ActionLink("Platos", "Index", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
+                        <li class="nav-item">@Html.ActionLink("Carro", "Carro", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
+                        <!--<li class="nav-item">@*Html.ActionLink("Ver Pedidos", "Pedidos", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })*@</li>-->
+                        <li><br /></li>
+
+                        <li>
+                            @if (Session["nombre"] != null)
+                            {
+                                var var = Session["nombre"];
+                            <li>
+                                <a style="color:#fff;">Bienvenido  @var</a>
+                            </li>
+
+                            <li class="nav-item">@Html.ActionLink("Cerrar sesión", "SingOut", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })"</li>
+                        }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <!--End navbar-->
+        <br /><br /><br /><br />
+        <h1 style="text-align:center">Carro</h1>
+        <br />
+        @if (Model.Count() >= 1)
+        {
+            <div class="container">
+                <table class="table">
+                    <tr>
+                        <th style="text-align:center">
+                            Imagen
+                        </th>
+                        <th style="text-align:center">
+                            Nombre Plato
+                        </th>
+                        <th style="text-align:center">
+                            Cantidad
+                        </th>
+                        <th style="text-align:center">
+                            Precio
+                        </th>
+                        <th></th>
+                    </tr>
+                    @{
+                        int totalFinal = 0;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="text-align:center">
+                                @Html.DisplayFor(modelItem => item.PLATO.NOMBRE_PLATO)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.DisplayFor(modelItem => item.CANTIDAD)
+                            </td>
+                            @{
+
+                                int total = item.CANTIDAD * item.PLATO.PRECIO_PLATO;
+                                totalFinal += total;
+                            }
+                            <td style="text-align:center">
+                                $ @Html.DisplayFor(modelItem => total)
+                            </td>
+                            <td style="text-align:center">
+                                <a href='@Url.Action("Sumar", new { id = item.PLATO.ID_PLATO })' class="btn btn-warning">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <a href='@Url.Action("Restar", new { id = item.PLATO.ID_PLATO })' class="btn btn-info">
+                                    <i class="fa fa-minus"></i>
+                                </a>
+                                <a href='@Url.Action("Delete", new { id = item.PLATO.ID_PLATO })' class="btn btn-danger" id="btnDelete">
+                                    <i class="fa fa-trash"></i>
+                                    Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td style="text-align:center">
+                            <h4> Total = $@totalFinal</h4>
+                        </td>
+                        @using (Html.BeginForm("Carro", "PedidoCliente"))
+                        {
+                            @Html.AntiForgeryToken()
+                            <td style="text-align:center">
+                                @{
+                                    List<SelectListItem> listItems = new List<SelectListItem>();
+                                    listItems = ViewBag.items;
+
+
+                                }
+                                <div class="form-group form-inline">
+                                    <label class="control-label">Seleccione Mesa</label>
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("idMesa", listItems, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td style="text-align:center">
+                                <form>
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input onclick="aviso()" type="submit" value="Confimar Pedido" class="btn btn-success" />
+                                    </div>
+                                </form>
+                            </td>
+                        }
+                    </tr>
+
+                </table>
+            </div> }
+        else
+        {
+            <div class="container">
+                <div class="alert alert-info">
+                    <strong>Atención!</strong>, no ha añadido ningún plato a su pedido. Haga click <a href="@Url.Action("Index")">aquí</a> para ver los platos que tenemos disponibles para usted
+
+                </div>
+                <table class="table">
+                    <tr>
+                        <th style="text-align:center">
+                            Nombre del plato
+                        </th>
+                        <th style="text-align:center">
+                            Cantidad a pedir
+                        </th>
+                        <th style="text-align:center">
+                            Precio
+                        </th>
+                        <th style="text-align:center">
+                            Acciones
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        }
+
+
+        <script type="text/javascript">
+
+                    function aviso() {
+                        let aviso = document.getElementById("card-footer");
+                        alert("Su pedido se ha confirmado correctamente. Disfrute su comida.");
+                    }
+
+        </script>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"> <span class="copyright">Portafolio 2020, DUOC UC</span> </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li>Plantilla: <a href="https://www.free-css.com/free-css-templates/page256/ethereal">W3 Template</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

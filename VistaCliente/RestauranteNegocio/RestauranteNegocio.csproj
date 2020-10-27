@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E56EE3B-C74A-47B0-9AC9-8E3573972A02}</ProjectGuid>
+    <ProjectGuid>{7C0BA4FE-F7AB-4717-9A15-441B207F9A70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RestauranteNegocio</RootNamespace>
@@ -38,6 +38,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Insumo.cs" />
+    <Compile Include="Mesa.cs" />
+    <Compile Include="Pedido.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rol.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestauranteDatos\RestauranteDatos.csproj">
-      <Project>{7d998072-d86a-4a1b-9568-7974b06edeb3}</Project>
+      <Project>{c6fdd4b9-d517-4a4e-8b70-46823e9757cb}</Project>
       <Name>RestauranteDatos</Name>
     </ProjectReference>
   </ItemGroup>

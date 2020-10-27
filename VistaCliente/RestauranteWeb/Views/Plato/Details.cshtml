@@ -1,0 +1,120 @@
+﻿@model IEnumerable<RestauranteDatos.RECETA>
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.18/datatables.min.css" />
+
+<br />
+
+<h2>Detalles</h2>
+
+<p>
+    <a href='@Url.Action("CreateReceta", new { id= ViewBag.plato.ID_PLATO})'
+       class="btn btn-info">
+        <i class="fa fa-plus"></i>
+        Agregar Insumo a Receta
+    </a>
+    &nbsp;
+    <a href='@Url.Action("Index")'
+       class="btn btn-success">
+        <i class="fa fa-chevron-left"></i>
+        Volver
+    </a>
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Receta:  @ViewBag.plato.NOMBRE_PLATO</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped" id="MyTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th>
+                                <label>Insumo</label>
+                            </th>
+                            <th>
+                                <label>Cantidad insumo</label>
+                            </th>
+                            <th>
+                                <label>Unidad de medida</label>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.INSUMO.NOMBRE_INSUMO)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CANTIDAD_UTILIZAR)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem =>  item.INSUMO.UNIDAD_MEDIDA_INSUMO)
+                                </td>
+                                <td id="@item.ID_RECETA">
+                                    <a href='@Url.Action("DeleteReceta", new { id = item.ID_RECETA })' class="btn btn-danger" id="btnDelete">
+                                        <i class="fa fa-trash"></i>
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="deleteDialog" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Eliminar</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Estas seguro de eliminar este insumo de la receta?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
+                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+
+            $('#MyTable').DataTable();
+
+            var id = 0;
+
+            $('a[id*=btnDelete]').click(function () {
+                debugger;
+                id = $(this).parent()[0].id;
+                $("#deleteDialog").modal('show');
+                return false;
+            });
+
+            $("#btnNoDelete").click(function () {
+                $("#deleteDialog").modal('hide');
+                return false;
+            });
+
+            $("#btnYesDelete").click(function () {
+                window.location.href = '/Plato/DeleteReceta/' + id;
+            });
+
+        });</script>
+}

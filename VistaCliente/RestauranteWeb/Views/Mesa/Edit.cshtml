@@ -1,0 +1,59 @@
+﻿@model RestauranteDatos.MESA
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar mesa</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" width: 70rem">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NUM_MESA, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NUM_MESA, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.NUM_MESA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @{
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem { Text = "Desocupada", Value = "0" });
+            listItems.Add(new SelectListItem { Text = "Ocupada", Value = "1" });
+
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.ESTADO_MESA, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ESTADO_MESA, listItems, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ESTADO_MESA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CANT_PERSONAS, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CANT_PERSONAS, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CANT_PERSONAS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar cambios" class="btn btn-success" />
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+        <br />
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

@@ -1,63 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RestauranteDatos;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestauranteNegocio
 {
     public class Cliente
     {
-
-        public decimal Id { get; set; }
-
-
-        [Required(ErrorMessage = "Debe ingresar su RUT (obligatorio)")]
-        public decimal Rut { get; set; }
-
-        [Required(ErrorMessage = "Debe ingresar su DV (obligatorio)"), MaxLength(1, ErrorMessage ="El {0} debe tener {1} caracter.")]
-        public string Dv { get; set; }
-
-        [Required(ErrorMessage = "Debe ingresar su Contraseña (obligatorio)")]
-        public string Pass { get; set; }
-
-        public string PNombre { get; set; }
-
-        public string SNombre { get; set; }
-
-        public string ApPaterno { get; set; }
-
-        public string ApMaterno { get; set; }
-
-        public string Sexo { get; set; }
-
-        public string Direccion { get; set; }
-
-        public decimal NDireccion { get; set; }
-
-        public decimal Telefono { get; set; }
-
-        public DateTime FechaN { get; set; }
-
-        public string Correo { get; set; }
-
-        public decimal IdMesa { get; set; }
+        [Required]
+        [StringLength(maximumLength: 10, MinimumLength = 9, ErrorMessage = "RUT inválido")]
+        [Display(Name = "Rut")]
+        public string RUT_CLIENTE { get; set; }
 
 
+        [Required]
+        [StringLength(maximumLength: 20, ErrorMessage = "Contraseña no puede ser mayor a 20 caracteres")]
+        [Display(Name = "Pass")]
+        public string PASSWORD_CLIENTE { get; set; }
 
-        RestauranteEntities db = new RestauranteEntities();
-
-        public bool Autenticar()
-        {
-            return db.CLIENTE
-                .Where(c => c.RUT_CLIENTE  == this.Rut && c.DV_CLIENTE == this.Dv && c.PASSWD_CLIENTE == this.Pass)
-                .FirstOrDefault() != null;   
-        }
         
+        [Required]
+        [StringLength(maximumLength: 20, ErrorMessage = "Nombre no puede ser mayor a 20 caracteres")]
+        [Display(Name = "Nombre")]
+        public string NOMBRE_CLIENTE { get; set; }
+
         
-        }
-    
+        [Required]
+        [StringLength(20, ErrorMessage = "Apellido no puede ser mayor a 20 caracteres")]
+        [Display(Name = "Apellido")]
+        public string APELLIDO_CLIENTE { get; set; }
+
+
+        [StringLength(40, ErrorMessage = "Correo no puede ser mayor a 40 caracteres")]
+        [Display(Name = "Correo")]
+        public string CORREO_CLIENTE { get; set; }
+
+        [Range(0, 9999999999, ErrorMessage = "Ingrese un número válido")]
+        [Display(Name = "Telefono")]
+        public int TELEFONO_CLIENTE { get; set; }
+
+
+
     }
-
+}

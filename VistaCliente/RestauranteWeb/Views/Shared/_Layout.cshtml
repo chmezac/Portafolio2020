@@ -3,57 +3,96 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.transitions.css" />
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
+
+    <!--<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" href="~/Recursos/homestyle.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">-->
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("RESTAURANTE SIGLO XXI", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+    <div class="main-header" id="main-header">
+        <nav class="navbar mynav navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Restaurante Siglo XXl</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#banner">INICIO</a></li>
+                        <li><a href="#work">GALERIA</a></li>
+                        <li><a href="#testimonials">OPINIONES</a></li>
+                        <li><a href="#about">SOBRE NOSOTROS</a></li>
+                        <li><a href="#contact">CONTACTO</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+        </nav>
+    </div>
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>
-                            @Html.ActionLink("Salir", "LogOut", "Auth")
-                        </li>
 
-                        <li>
-                            <a href="#">Bienvenido!<!--arroba User.Identity.Name --></a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            @Html.ActionLink("Entrar", "Login", "Auth")
-                        </li>
-                    }
+    <div class="contact" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                    </div>
+                </div>
 
-                    
-                </ul>
+                @RenderBody()
+
             </div>
         </div>
     </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"> <span class="copyright">Portafolio 2020, DUOC UC.</span> </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li>Plantilla: <a href="https://www.free-css.com/free-css-templates/page256/ethereal">W3 Template</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="~/Recursos/js/jquery.min.js" language="javascript" type="text/javascript"></script>
+    <script src="~/Recursos/js/bootstrap.min.js" language="javascript" type="text/javascript"></script>
+    <script src="~/Recursos/js/owl.carousel.min.js" language="javascript" type="text/javascript"></script>
+    <script src="~/Recursos/js/jquery.countTo.js" language="javascript" type="text/javascript"></script>
+    <script src="~/Recursos/js/jquery.waypoints.min.js" language="javascript" type="text/javascript"></script>
+
+
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

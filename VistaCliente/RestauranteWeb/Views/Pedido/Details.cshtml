@@ -1,0 +1,107 @@
+﻿@model IEnumerable<RestauranteDatos.PEDIDO_PLATOS>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<p>
+    <a href='@Url.Action("CambiarEstadoPedido", new { id = ViewBag.id })' class="btn btn-info">
+        <i class="fa fa-edit"></i>
+        Marcar Pedido Entregado
+    </a>
+    &nbsp;
+    <a href='@Url.Action("Index")'
+       class="btn btn-success">
+        <i class="fa fa-chevron-left"></i>
+        Volver
+    </a>
+</p>
+<div class="row">
+    <div class="col-md-12">
+    </div>
+    <div class="col-md-12">
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Pedido N° @ViewBag.id</h2>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-hover table-striped" id="MyTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th>
+                                Plato
+                            </th>
+                            <th>
+                                Cantidad
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PLATO.NOMBRE_PLATO)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CANTIDAD)
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="deleteDialog" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Eliminar</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Estas seguro de eliminar un usuario?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
+                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+
+            $('#MyTable').DataTable();
+
+            var id = 0;
+
+            $('a[id*=btnDelete]').click(function () {
+                debugger;
+                id = $(this).parent()[0].id;
+                $("#deleteDialog").modal('show');
+                return false;
+            });
+
+            $("#btnNoDelete").click(function () {
+                $("#deleteDialog").modal('hide');
+                return false;
+            });
+
+            $("#btnYesDelete").click(function () {
+                window.location.href = '/Usuario/Delete/' + id;
+            });
+
+        });</script>
+}

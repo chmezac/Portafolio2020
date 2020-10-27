@@ -16,14 +16,15 @@ namespace RestauranteDatos
     {
         public MESA()
         {
-            this.CLIENTE = new HashSet<CLIENTE>();
+            this.PEDIDO = new HashSet<PEDIDO>();
+            this.RESERVA = new HashSet<RESERVA>();
         }
     
-        public short ID_MESA { get; set; }
-        public short CAPACIDAD_MESA { get; set; }
-        public string LOCAL_ID_LOCAL { get; set; }
+        public short NUM_MESA { get; set; }
+        public short ESTADO_MESA { get; set; }
+        public short CANT_PERSONAS { get; set; }
     
-        public virtual ICollection<CLIENTE> CLIENTE { get; set; }
-        public virtual LOCAL LOCAL { get; set; }
+        public virtual ICollection<PEDIDO> PEDIDO { get; set; }
+        public virtual ICollection<RESERVA> RESERVA { get; set; }
     }
 }

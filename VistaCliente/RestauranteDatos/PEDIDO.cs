@@ -16,21 +16,19 @@ namespace RestauranteDatos
     {
         public PEDIDO()
         {
-            this.CUENTA = new HashSet<CUENTA>();
+            this.PEDIDO_PLATOS = new HashSet<PEDIDO_PLATOS>();
+            this.VENTA = new HashSet<VENTA>();
         }
     
         public int ID_PEDIDO { get; set; }
         public System.DateTime FECHA_PEDIDO { get; set; }
-        public string DESCRIPCION { get; set; }
-        public short PLATO_ID_PLATO { get; set; }
-        public short GARZON_ID_GARZON { get; set; }
-        public short ID_CLIENTE { get; set; }
-        public short ID_COCINERO { get; set; }
+        public short ESTADO_PEDIDO { get; set; }
+        public short MESA_NUM_MESA { get; set; }
+        public int CLIENTE_ID_CLIENTE { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
-        public virtual COCINERO COCINERO { get; set; }
-        public virtual ICollection<CUENTA> CUENTA { get; set; }
-        public virtual GARZON GARZON { get; set; }
-        public virtual PLATO PLATO { get; set; }
+        public virtual MESA MESA { get; set; }
+        public virtual ICollection<PEDIDO_PLATOS> PEDIDO_PLATOS { get; set; }
+        public virtual ICollection<VENTA> VENTA { get; set; }
     }
 }

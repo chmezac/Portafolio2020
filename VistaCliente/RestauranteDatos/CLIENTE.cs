@@ -17,29 +17,16 @@ namespace RestauranteDatos
         public CLIENTE()
         {
             this.PEDIDO = new HashSet<PEDIDO>();
-            this.RESERVA = new HashSet<RESERVA>();
-            this.TARJETA = new HashSet<TARJETA>();
         }
     
-        public short ID_CLIENTE { get; set; }
-        public int RUT_CLIENTE { get; set; }
-        public string DV_CLIENTE { get; set; }
-        public string PASSWD_CLIENTE { get; set; }
-        public string PNOMBRE_CLIENTE { get; set; }
-        public string SNOMBRE_CLIENTE { get; set; }
-        public string APPATERNO_CLIENTE { get; set; }
-        public string APMATERNO_CLIENTE { get; set; }
-        public string SEXO_CLIENTE { get; set; }
-        public string DIRECC_ADMIN { get; set; }
-        public Nullable<short> NRO_DIRECC_CLIENTE { get; set; }
-        public Nullable<int> TELEFONO_CLIENTE { get; set; }
-        public Nullable<System.DateTime> FECHA_NAC_CLIENTE { get; set; }
+        public int ID_CLIENTE { get; set; }
+        public string RUT_CLIENTE { get; set; }
+        public string PASSWORD_CLIENTE { get; set; }
+        public string NOMBRE_CLIENTE { get; set; }
+        public string APELLIDO_CLIENTE { get; set; }
         public string CORREO_CLIENTE { get; set; }
-        public short MESA_ID_MESA { get; set; }
+        public Nullable<int> TELEFONO_CLIENTE { get; set; }
     
-        public virtual MESA MESA { get; set; }
         public virtual ICollection<PEDIDO> PEDIDO { get; set; }
-        public virtual ICollection<RESERVA> RESERVA { get; set; }
-        public virtual ICollection<TARJETA> TARJETA { get; set; }
     }
 }

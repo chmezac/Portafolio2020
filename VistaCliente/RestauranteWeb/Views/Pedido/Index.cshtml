@@ -1,0 +1,131 @@
+﻿@model IEnumerable<RestauranteDatos.PEDIDO>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pedidos</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Usuarios</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped" id="MyTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th>
+                                N° Pedido
+                            </th>
+                            <th>
+                                Nombre Cliente
+                            </th>
+                            <th>
+                                N° Mesa
+                            </th>
+                            <th>
+                                Fecha Pedido
+                            </th>
+                            <th>
+                                Estado Pedido
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID_PEDIDO)
+                                </td>
+                                <td>
+                                    @item.CLIENTE.NOMBRE_CLIENTE @item.CLIENTE.APELLIDO_CLIENTE
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MESA_NUM_MESA)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FECHA_PEDIDO)
+                                </td>
+                                <td>
+                                    @{
+                                        if (item.ESTADO_PEDIDO == 0)
+                                        {
+                                            <label><span class="label label-warning">Pendiente</span></label>
+                                        }
+                                        else
+                                        {
+                                            <h2 class="label label-success">Servida </h2>
+                                        }
+                                    }
+                                </td>
+                                <td id="@item.ID_PEDIDO">
+                                    <a href='@Url.Action("Details", new { id = item.ID_PEDIDO })' class="btn btn-warning">
+                                        <i class="fa fa-list"></i>
+                                        Ver Pedido
+                                    </a>
+                                    <a href='@Url.Action("Delete", new { id = item.ID_PEDIDO })' class="btn btn-danger" id="btnDelete">
+                                        <i class="fa fa-trash"></i>
+                                        Cancelar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="deleteDialog" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Eliminar</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Estas seguro de eliminar el pedido?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
+                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+
+            $('#MyTable').DataTable();
+
+            var id = 0;
+
+            $('a[id*=btnDelete]').click(function () {
+                debugger;
+                id = $(this).parent()[0].id;
+                $("#deleteDialog").modal('show');
+                return false;
+            });
+
+            $("#btnNoDelete").click(function () {
+                $("#deleteDialog").modal('hide');
+                return false;
+            });
+
+            $("#btnYesDelete").click(function () {
+                window.location.href = '/Pedido/Delete/' + id;
+            });
+
+        });</script>
+}

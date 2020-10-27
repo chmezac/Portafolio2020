@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{354258BD-F749-43DF-B78F-7AC410622479}</ProjectGuid>
+    <ProjectGuid>{6C448B6E-DDEB-4BF7-A5FC-2D4B167524A5}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -43,10 +43,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.9.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -98,32 +108,72 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Recursos\css\animate.css" />
+    <Content Include="Recursos\css\Carrusel.css" />
+    <Content Include="Recursos\css\images\background.jpg" />
+    <Content Include="Recursos\css\bootstrap.min.css" />
+    <Content Include="Recursos\img\background.jpg" />
+    <Content Include="Recursos\img\carrusel1.jpg" />
+    <Content Include="Recursos\img\carrusel2.jpg" />
+    <Content Include="Recursos\img\carrusel3.jpg" />
+    <Content Include="Recursos\img\portfolio-1.jpg" />
+    <Content Include="Recursos\img\portfolio-2.jpg" />
+    <Content Include="Recursos\img\portfolio-3.jpg" />
+    <Content Include="Recursos\img\portfolio-4.jpg" />
+    <Content Include="Recursos\img\team-img-01.jpg" />
+    <Content Include="Recursos\img\team-img-02.jpg" />
+    <Content Include="Recursos\img\team-img-03.jpg" />
+    <Content Include="Recursos\js\bootstrap.min.js" />
+    <Content Include="Recursos\css\font-awesome.min.css" />
+    <Content Include="Recursos\img\homebackground.jpg" />
+    <Content Include="Recursos\img\homebackground2.jpg" />
+    <Content Include="Recursos\css\homestyle.css" />
+    <Content Include="Recursos\js\Carrusel.js" />
+    <Content Include="Recursos\js\jquery.countTo.js" />
+    <Content Include="Recursos\js\jquery.min.js" />
+    <Content Include="Recursos\js\jquery.waypoints.min.js" />
+    <Content Include="Recursos\img\loginbg.jpg" />
+    <Content Include="Recursos\css\loginstyle.css" />
+    <Content Include="Recursos\css\owl.carousel.css" />
+    <Content Include="Recursos\js\owl.carousel.min.js" />
+    <Content Include="Recursos\css\owl.theme.css" />
+    <Content Include="Recursos\css\owl.transitions.css" />
+    <Content Include="Recursos\css\simple-line-icons.css" />
+    <Content Include="Recursos\css\style.css" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Views\Auth\Login.cshtml" />
-    <Content Include="Views\Plato\Index.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Cliente\Create.cshtml" />
+    <Content Include="Views\Cliente\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsumoController.cs" />
+    <Compile Include="Controllers\MesaController.cs" />
+    <Compile Include="Controllers\PedidoClienteController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\PlatoController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarroDeCompras.cs" />
+    <Compile Include="Models\Repos\ClienteRepo.cs" />
+    <Compile Include="Models\Repos\InsumosRepo.cs" />
+    <Compile Include="Models\Repos\MesaRepo.cs" />
+    <Compile Include="Models\Repos\PedidoClienteRepo.cs" />
+    <Compile Include="Models\Repos\PedidoRepo.cs" />
+    <Compile Include="Models\Repos\PlatoRepo.cs" />
+    <Compile Include="Models\Repos\RolRepo.cs" />
+    <Compile Include="Models\Repos\UsuarioRepo.cs" />
+    <Compile Include="Models\Seguridad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Views\web.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -131,7 +181,26 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Plato\Index.cshtml" />
+    <Content Include="Views\Plato\Details.cshtml" />
+    <Content Include="Views\Plato\Create.cshtml" />
+    <Content Include="Views\Plato\Edit.cshtml" />
+    <Content Include="Views\Plato\CreateReceta.cshtml" />
+    <Content Include="Views\Mesa\Index.cshtml" />
+    <Content Include="Views\Mesa\Create.cshtml" />
+    <Content Include="Views\Mesa\Edit.cshtml" />
+    <Content Include="Views\Rol\Index.cshtml" />
+    <Content Include="Views\Rol\Create.cshtml" />
+    <Content Include="Views\Rol\Edit.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\PedidoCliente\Index.cshtml" />
+    <Content Include="Views\PedidoCliente\Pedidos.cshtml" />
+    <Content Include="Views\PedidoCliente\Cliente.cshtml" />
+    <Content Include="Views\PedidoCliente\Carro.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
+    <Content Include="Views\Pedido\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,11 +210,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Recursos\fonts\" />
+    <Folder Include="Views\Insumo\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestauranteDatos\RestauranteDatos.csproj">
+      <Project>{c6fdd4b9-d517-4a4e-8b70-46823e9757cb}</Project>
+      <Name>RestauranteDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestauranteNegocio\RestauranteNegocio.csproj">
-      <Project>{8e56ee3b-c74a-47b0-9ac9-8e3573972a02}</Project>
+      <Project>{7c0ba4fe-f7ab-4717-9a15-441b207f9a70}</Project>
       <Name>RestauranteNegocio</Name>
     </ProjectReference>
   </ItemGroup>
@@ -162,9 +236,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50138</DevelopmentServerPort>
+          <DevelopmentServerPort>50386</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50138/</IISUrl>
+          <IISUrl>http://localhost:50386/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

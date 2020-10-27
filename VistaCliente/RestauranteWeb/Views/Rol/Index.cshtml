@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RestauranteDatos.ROL>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index de rol</h2>
+
+<br />
+<p>
+    <a href='@Url.Action("Create", "Rol")'
+       class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Crear Rol
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Nombre Rol</label>
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE_ROL)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_ROL }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_ROL }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_ROL })
+            </td>
+        </tr>
+    }
+</table>
+

@@ -77,8 +77,11 @@ C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\obj\Debug\Restauran
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\obj\Debug\RestauranteWeb.pdb
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\Oracle.ManagedDataAccess.dll
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\RestauranteNegocio.dll.config
-C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\RestauranteDatos.dll
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\EntityFramework.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\RestauranteDatos.dll
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\RestauranteDatos.pdb
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\RestauranteDatos.dll.config
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\EntityFramework.xml
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\BouncyCastle.Crypto.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\itextsharp.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\itextsharp.xml

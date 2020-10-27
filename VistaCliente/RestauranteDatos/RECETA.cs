@@ -14,17 +14,13 @@ namespace RestauranteDatos
     
     public partial class RECETA
     {
-        public RECETA()
-        {
-            this.PLATO = new HashSet<PLATO>();
-        }
+        public short ID_RECETA { get; set; }
+        public short CANTIDAD_UTILIZAR { get; set; }
+        public string DESCRIPCION_RECETA { get; set; }
+        public short INSUMO_ID_INSUMO { get; set; }
+        public short PLATO_ID_PLATO { get; set; }
     
-        public int ID_RECETA { get; set; }
-        public string NOM_RECETA { get; set; }
-        public string DESCRIP_RECETA { get; set; }
-        public short PRODUCTO_ID_PRODUCTO { get; set; }
-    
-        public virtual ICollection<PLATO> PLATO { get; set; }
-        public virtual PRODUCTO PRODUCTO { get; set; }
+        public virtual INSUMO INSUMO { get; set; }
+        public virtual PLATO PLATO { get; set; }
     }
 }

@@ -1,0 +1,71 @@
+﻿@model RestauranteDatos.PLATO
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 >Agregar plato</h2>
+
+@using (Html.BeginForm("Create", "Plato", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" width: 70rem">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre del plato</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NOMBRE_PLATO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NOMBRE_PLATO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Precio del plato</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRECIO_PLATO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRECIO_PLATO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @{
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            listItems = ViewBag.items;
+
+
+        }
+        <div class="form-group">
+            <label class="control-label col-md-2">Tipo de plato</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TIPO_PLATO_ID_TIPO_PLATO, listItems, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TIPO_PLATO_ID_TIPO_PLATO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Descripción</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DESCRIPCION_PLATO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DESCRIPCION_PLATO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Tiempo Preparacion(Minutos)</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TIEMPO_PREPARACION, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TIEMPO_PREPARACION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="btn btn-success" />
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+        <br />
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

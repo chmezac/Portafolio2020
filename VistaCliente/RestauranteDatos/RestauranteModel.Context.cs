@@ -12,6 +12,9 @@ namespace RestauranteDatos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class RestauranteEntities : DbContext
     {
@@ -25,29 +28,282 @@ namespace RestauranteDatos
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<ADMINISTRADOR> ADMINISTRADOR { get; set; }
-        public DbSet<BANCO> BANCO { get; set; }
-        public DbSet<BODEGA> BODEGA { get; set; }
-        public DbSet<BODEGUERO> BODEGUERO { get; set; }
-        public DbSet<CAJA> CAJA { get; set; }
-        public DbSet<CAJERO> CAJERO { get; set; }
-        public DbSet<CATEGORIA> CATEGORIA { get; set; }
         public DbSet<CLIENTE> CLIENTE { get; set; }
-        public DbSet<COCINERO> COCINERO { get; set; }
-        public DbSet<COMUNA> COMUNA { get; set; }
-        public DbSet<CUENTA> CUENTA { get; set; }
-        public DbSet<ENCARGO> ENCARGO { get; set; }
-        public DbSet<GARZON> GARZON { get; set; }
-        public DbSet<LOCAL> LOCAL { get; set; }
+        public DbSet<INSUMO> INSUMO { get; set; }
         public DbSet<MESA> MESA { get; set; }
-        public DbSet<PAIS> PAIS { get; set; }
         public DbSet<PEDIDO> PEDIDO { get; set; }
+        public DbSet<PEDIDO_INSUMO> PEDIDO_INSUMO { get; set; }
+        public DbSet<PEDIDO_PLATOS> PEDIDO_PLATOS { get; set; }
         public DbSet<PLATO> PLATO { get; set; }
-        public DbSet<PRODUCTO> PRODUCTO { get; set; }
-        public DbSet<PROVEEDOR> PROVEEDOR { get; set; }
         public DbSet<RECETA> RECETA { get; set; }
-        public DbSet<REGION> REGION { get; set; }
         public DbSet<RESERVA> RESERVA { get; set; }
-        public DbSet<TARJETA> TARJETA { get; set; }
+        public DbSet<ROL> ROL { get; set; }
+        public DbSet<TIPO_PLATO> TIPO_PLATO { get; set; }
+        public DbSet<USUARIO> USUARIO { get; set; }
+        public DbSet<VENTA> VENTA { get; set; }
+    
+        public virtual int INSERTCLIENTE(string p_RUT_CLIENTE, string p_PASSWORD_CLIENTE, string p_NOMBRE_CLIENTE, string p_APELLIDO_CLIENTE, string p_CORREO_CLIENTE, Nullable<decimal> p_TELEFONO_CLIENTE)
+        {
+            var p_RUT_CLIENTEParameter = p_RUT_CLIENTE != null ?
+                new ObjectParameter("P_RUT_CLIENTE", p_RUT_CLIENTE) :
+                new ObjectParameter("P_RUT_CLIENTE", typeof(string));
+    
+            var p_PASSWORD_CLIENTEParameter = p_PASSWORD_CLIENTE != null ?
+                new ObjectParameter("P_PASSWORD_CLIENTE", p_PASSWORD_CLIENTE) :
+                new ObjectParameter("P_PASSWORD_CLIENTE", typeof(string));
+    
+            var p_NOMBRE_CLIENTEParameter = p_NOMBRE_CLIENTE != null ?
+                new ObjectParameter("P_NOMBRE_CLIENTE", p_NOMBRE_CLIENTE) :
+                new ObjectParameter("P_NOMBRE_CLIENTE", typeof(string));
+    
+            var p_APELLIDO_CLIENTEParameter = p_APELLIDO_CLIENTE != null ?
+                new ObjectParameter("P_APELLIDO_CLIENTE", p_APELLIDO_CLIENTE) :
+                new ObjectParameter("P_APELLIDO_CLIENTE", typeof(string));
+    
+            var p_CORREO_CLIENTEParameter = p_CORREO_CLIENTE != null ?
+                new ObjectParameter("P_CORREO_CLIENTE", p_CORREO_CLIENTE) :
+                new ObjectParameter("P_CORREO_CLIENTE", typeof(string));
+    
+            var p_TELEFONO_CLIENTEParameter = p_TELEFONO_CLIENTE.HasValue ?
+                new ObjectParameter("P_TELEFONO_CLIENTE", p_TELEFONO_CLIENTE) :
+                new ObjectParameter("P_TELEFONO_CLIENTE", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTCLIENTE", p_RUT_CLIENTEParameter, p_PASSWORD_CLIENTEParameter, p_NOMBRE_CLIENTEParameter, p_APELLIDO_CLIENTEParameter, p_CORREO_CLIENTEParameter, p_TELEFONO_CLIENTEParameter);
+        }
+    
+        public virtual int INSERTINSUMO(string p_NOMBRE_INSUMO, Nullable<decimal> p_STOCK_INSUMO, string p_UNIDAD_MEDIDA_INSUMO, Nullable<decimal> p_PRECIO_INSUMO)
+        {
+            var p_NOMBRE_INSUMOParameter = p_NOMBRE_INSUMO != null ?
+                new ObjectParameter("P_NOMBRE_INSUMO", p_NOMBRE_INSUMO) :
+                new ObjectParameter("P_NOMBRE_INSUMO", typeof(string));
+    
+            var p_STOCK_INSUMOParameter = p_STOCK_INSUMO.HasValue ?
+                new ObjectParameter("P_STOCK_INSUMO", p_STOCK_INSUMO) :
+                new ObjectParameter("P_STOCK_INSUMO", typeof(decimal));
+    
+            var p_UNIDAD_MEDIDA_INSUMOParameter = p_UNIDAD_MEDIDA_INSUMO != null ?
+                new ObjectParameter("P_UNIDAD_MEDIDA_INSUMO", p_UNIDAD_MEDIDA_INSUMO) :
+                new ObjectParameter("P_UNIDAD_MEDIDA_INSUMO", typeof(string));
+    
+            var p_PRECIO_INSUMOParameter = p_PRECIO_INSUMO.HasValue ?
+                new ObjectParameter("P_PRECIO_INSUMO", p_PRECIO_INSUMO) :
+                new ObjectParameter("P_PRECIO_INSUMO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTINSUMO", p_NOMBRE_INSUMOParameter, p_STOCK_INSUMOParameter, p_UNIDAD_MEDIDA_INSUMOParameter, p_PRECIO_INSUMOParameter);
+        }
+    
+        public virtual int INSERTMESA(Nullable<decimal> p_NUM_MESA, Nullable<decimal> p_ESTADO_MESA, Nullable<decimal> p_CANT_PERSONAS)
+        {
+            var p_NUM_MESAParameter = p_NUM_MESA.HasValue ?
+                new ObjectParameter("P_NUM_MESA", p_NUM_MESA) :
+                new ObjectParameter("P_NUM_MESA", typeof(decimal));
+    
+            var p_ESTADO_MESAParameter = p_ESTADO_MESA.HasValue ?
+                new ObjectParameter("P_ESTADO_MESA", p_ESTADO_MESA) :
+                new ObjectParameter("P_ESTADO_MESA", typeof(decimal));
+    
+            var p_CANT_PERSONASParameter = p_CANT_PERSONAS.HasValue ?
+                new ObjectParameter("P_CANT_PERSONAS", p_CANT_PERSONAS) :
+                new ObjectParameter("P_CANT_PERSONAS", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTMESA", p_NUM_MESAParameter, p_ESTADO_MESAParameter, p_CANT_PERSONASParameter);
+        }
+    
+        public virtual int INSERTPEDIDO(Nullable<System.DateTime> p_FECHA_PEDIDO, Nullable<decimal> p_ESTADO_PEDIDO, Nullable<decimal> p_MESA_NUM_MESA, Nullable<decimal> p_CLIENTE_ID_CLIENTE)
+        {
+            var p_FECHA_PEDIDOParameter = p_FECHA_PEDIDO.HasValue ?
+                new ObjectParameter("P_FECHA_PEDIDO", p_FECHA_PEDIDO) :
+                new ObjectParameter("P_FECHA_PEDIDO", typeof(System.DateTime));
+    
+            var p_ESTADO_PEDIDOParameter = p_ESTADO_PEDIDO.HasValue ?
+                new ObjectParameter("P_ESTADO_PEDIDO", p_ESTADO_PEDIDO) :
+                new ObjectParameter("P_ESTADO_PEDIDO", typeof(decimal));
+    
+            var p_MESA_NUM_MESAParameter = p_MESA_NUM_MESA.HasValue ?
+                new ObjectParameter("P_MESA_NUM_MESA", p_MESA_NUM_MESA) :
+                new ObjectParameter("P_MESA_NUM_MESA", typeof(decimal));
+    
+            var p_CLIENTE_ID_CLIENTEParameter = p_CLIENTE_ID_CLIENTE.HasValue ?
+                new ObjectParameter("P_CLIENTE_ID_CLIENTE", p_CLIENTE_ID_CLIENTE) :
+                new ObjectParameter("P_CLIENTE_ID_CLIENTE", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTPEDIDO", p_FECHA_PEDIDOParameter, p_ESTADO_PEDIDOParameter, p_MESA_NUM_MESAParameter, p_CLIENTE_ID_CLIENTEParameter);
+        }
+    
+        public virtual int INSERTPEDIDOINSUMO(Nullable<decimal> p_CANTIDAD_PEDIDO_INSUMO, string p_UNIDAD, Nullable<decimal> p_INSUMO_ID_INSUMO)
+        {
+            var p_CANTIDAD_PEDIDO_INSUMOParameter = p_CANTIDAD_PEDIDO_INSUMO.HasValue ?
+                new ObjectParameter("P_CANTIDAD_PEDIDO_INSUMO", p_CANTIDAD_PEDIDO_INSUMO) :
+                new ObjectParameter("P_CANTIDAD_PEDIDO_INSUMO", typeof(decimal));
+    
+            var p_UNIDADParameter = p_UNIDAD != null ?
+                new ObjectParameter("P_UNIDAD", p_UNIDAD) :
+                new ObjectParameter("P_UNIDAD", typeof(string));
+    
+            var p_INSUMO_ID_INSUMOParameter = p_INSUMO_ID_INSUMO.HasValue ?
+                new ObjectParameter("P_INSUMO_ID_INSUMO", p_INSUMO_ID_INSUMO) :
+                new ObjectParameter("P_INSUMO_ID_INSUMO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTPEDIDOINSUMO", p_CANTIDAD_PEDIDO_INSUMOParameter, p_UNIDADParameter, p_INSUMO_ID_INSUMOParameter);
+        }
+    
+        public virtual int INSERTPEDIDOPLATOS(Nullable<decimal> p_CANTIDAD, Nullable<decimal> p_PEDIDO_ID_PLATO, Nullable<decimal> p_PLATO_ID_PLATO)
+        {
+            var p_CANTIDADParameter = p_CANTIDAD.HasValue ?
+                new ObjectParameter("P_CANTIDAD", p_CANTIDAD) :
+                new ObjectParameter("P_CANTIDAD", typeof(decimal));
+    
+            var p_PEDIDO_ID_PLATOParameter = p_PEDIDO_ID_PLATO.HasValue ?
+                new ObjectParameter("P_PEDIDO_ID_PLATO", p_PEDIDO_ID_PLATO) :
+                new ObjectParameter("P_PEDIDO_ID_PLATO", typeof(decimal));
+    
+            var p_PLATO_ID_PLATOParameter = p_PLATO_ID_PLATO.HasValue ?
+                new ObjectParameter("P_PLATO_ID_PLATO", p_PLATO_ID_PLATO) :
+                new ObjectParameter("P_PLATO_ID_PLATO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTPEDIDOPLATOS", p_CANTIDADParameter, p_PEDIDO_ID_PLATOParameter, p_PLATO_ID_PLATOParameter);
+        }
+    
+        public virtual int INSERTPLATO(string p_NOMBRE_PLATO, Nullable<decimal> p_PRECIO_PLATO, string p_DESCRIPCION_PLATO, Nullable<decimal> p_TIEMPO_PREPARACION, Nullable<decimal> p_TIPO_PLATO_ID_TIPO_PLATO)
+        {
+            var p_NOMBRE_PLATOParameter = p_NOMBRE_PLATO != null ?
+                new ObjectParameter("P_NOMBRE_PLATO", p_NOMBRE_PLATO) :
+                new ObjectParameter("P_NOMBRE_PLATO", typeof(string));
+    
+            var p_PRECIO_PLATOParameter = p_PRECIO_PLATO.HasValue ?
+                new ObjectParameter("P_PRECIO_PLATO", p_PRECIO_PLATO) :
+                new ObjectParameter("P_PRECIO_PLATO", typeof(decimal));
+    
+            var p_DESCRIPCION_PLATOParameter = p_DESCRIPCION_PLATO != null ?
+                new ObjectParameter("P_DESCRIPCION_PLATO", p_DESCRIPCION_PLATO) :
+                new ObjectParameter("P_DESCRIPCION_PLATO", typeof(string));
+    
+            var p_TIEMPO_PREPARACIONParameter = p_TIEMPO_PREPARACION.HasValue ?
+                new ObjectParameter("P_TIEMPO_PREPARACION", p_TIEMPO_PREPARACION) :
+                new ObjectParameter("P_TIEMPO_PREPARACION", typeof(decimal));
+    
+            var p_TIPO_PLATO_ID_TIPO_PLATOParameter = p_TIPO_PLATO_ID_TIPO_PLATO.HasValue ?
+                new ObjectParameter("P_TIPO_PLATO_ID_TIPO_PLATO", p_TIPO_PLATO_ID_TIPO_PLATO) :
+                new ObjectParameter("P_TIPO_PLATO_ID_TIPO_PLATO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTPLATO", p_NOMBRE_PLATOParameter, p_PRECIO_PLATOParameter, p_DESCRIPCION_PLATOParameter, p_TIEMPO_PREPARACIONParameter, p_TIPO_PLATO_ID_TIPO_PLATOParameter);
+        }
+    
+        public virtual int INSERTRECETA(Nullable<decimal> p_CANTIDAD_UTILIZAR, string p_DESCRIPCION_RECETA, Nullable<decimal> p_INSUMO_ID_INSUMO, Nullable<decimal> p_PLATO_ID_PLATO)
+        {
+            var p_CANTIDAD_UTILIZARParameter = p_CANTIDAD_UTILIZAR.HasValue ?
+                new ObjectParameter("P_CANTIDAD_UTILIZAR", p_CANTIDAD_UTILIZAR) :
+                new ObjectParameter("P_CANTIDAD_UTILIZAR", typeof(decimal));
+    
+            var p_DESCRIPCION_RECETAParameter = p_DESCRIPCION_RECETA != null ?
+                new ObjectParameter("P_DESCRIPCION_RECETA", p_DESCRIPCION_RECETA) :
+                new ObjectParameter("P_DESCRIPCION_RECETA", typeof(string));
+    
+            var p_INSUMO_ID_INSUMOParameter = p_INSUMO_ID_INSUMO.HasValue ?
+                new ObjectParameter("P_INSUMO_ID_INSUMO", p_INSUMO_ID_INSUMO) :
+                new ObjectParameter("P_INSUMO_ID_INSUMO", typeof(decimal));
+    
+            var p_PLATO_ID_PLATOParameter = p_PLATO_ID_PLATO.HasValue ?
+                new ObjectParameter("P_PLATO_ID_PLATO", p_PLATO_ID_PLATO) :
+                new ObjectParameter("P_PLATO_ID_PLATO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTRECETA", p_CANTIDAD_UTILIZARParameter, p_DESCRIPCION_RECETAParameter, p_INSUMO_ID_INSUMOParameter, p_PLATO_ID_PLATOParameter);
+        }
+    
+        public virtual int INSERTRESERVA(Nullable<System.DateTime> p_FECHA_RESERVA, Nullable<decimal> p_ESTADO_RESERVA, Nullable<decimal> p_MESA_NUM_MESA)
+        {
+            var p_FECHA_RESERVAParameter = p_FECHA_RESERVA.HasValue ?
+                new ObjectParameter("P_FECHA_RESERVA", p_FECHA_RESERVA) :
+                new ObjectParameter("P_FECHA_RESERVA", typeof(System.DateTime));
+    
+            var p_ESTADO_RESERVAParameter = p_ESTADO_RESERVA.HasValue ?
+                new ObjectParameter("P_ESTADO_RESERVA", p_ESTADO_RESERVA) :
+                new ObjectParameter("P_ESTADO_RESERVA", typeof(decimal));
+    
+            var p_MESA_NUM_MESAParameter = p_MESA_NUM_MESA.HasValue ?
+                new ObjectParameter("P_MESA_NUM_MESA", p_MESA_NUM_MESA) :
+                new ObjectParameter("P_MESA_NUM_MESA", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTRESERVA", p_FECHA_RESERVAParameter, p_ESTADO_RESERVAParameter, p_MESA_NUM_MESAParameter);
+        }
+    
+        public virtual int INSERTROL(Nullable<decimal> p_ID_ROL, string p_NOMBRE_ROL, string p_DESCRIPCION_ROL)
+        {
+            var p_ID_ROLParameter = p_ID_ROL.HasValue ?
+                new ObjectParameter("P_ID_ROL", p_ID_ROL) :
+                new ObjectParameter("P_ID_ROL", typeof(decimal));
+    
+            var p_NOMBRE_ROLParameter = p_NOMBRE_ROL != null ?
+                new ObjectParameter("P_NOMBRE_ROL", p_NOMBRE_ROL) :
+                new ObjectParameter("P_NOMBRE_ROL", typeof(string));
+    
+            var p_DESCRIPCION_ROLParameter = p_DESCRIPCION_ROL != null ?
+                new ObjectParameter("P_DESCRIPCION_ROL", p_DESCRIPCION_ROL) :
+                new ObjectParameter("P_DESCRIPCION_ROL", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTROL", p_ID_ROLParameter, p_NOMBRE_ROLParameter, p_DESCRIPCION_ROLParameter);
+        }
+    
+        public virtual int INSERTUSUARIO(string p_RUT_USUARIO, string p_NOMBRE_USUARIO, string p_APELLIDO_USUARIO, string p_EMAIL_USUARIO, string p_PASSWORD_USUARIO, Nullable<decimal> p_ROL_ID_ROL)
+        {
+            var p_RUT_USUARIOParameter = p_RUT_USUARIO != null ?
+                new ObjectParameter("P_RUT_USUARIO", p_RUT_USUARIO) :
+                new ObjectParameter("P_RUT_USUARIO", typeof(string));
+    
+            var p_NOMBRE_USUARIOParameter = p_NOMBRE_USUARIO != null ?
+                new ObjectParameter("P_NOMBRE_USUARIO", p_NOMBRE_USUARIO) :
+                new ObjectParameter("P_NOMBRE_USUARIO", typeof(string));
+    
+            var p_APELLIDO_USUARIOParameter = p_APELLIDO_USUARIO != null ?
+                new ObjectParameter("P_APELLIDO_USUARIO", p_APELLIDO_USUARIO) :
+                new ObjectParameter("P_APELLIDO_USUARIO", typeof(string));
+    
+            var p_EMAIL_USUARIOParameter = p_EMAIL_USUARIO != null ?
+                new ObjectParameter("P_EMAIL_USUARIO", p_EMAIL_USUARIO) :
+                new ObjectParameter("P_EMAIL_USUARIO", typeof(string));
+    
+            var p_PASSWORD_USUARIOParameter = p_PASSWORD_USUARIO != null ?
+                new ObjectParameter("P_PASSWORD_USUARIO", p_PASSWORD_USUARIO) :
+                new ObjectParameter("P_PASSWORD_USUARIO", typeof(string));
+    
+            var p_ROL_ID_ROLParameter = p_ROL_ID_ROL.HasValue ?
+                new ObjectParameter("P_ROL_ID_ROL", p_ROL_ID_ROL) :
+                new ObjectParameter("P_ROL_ID_ROL", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTUSUARIO", p_RUT_USUARIOParameter, p_NOMBRE_USUARIOParameter, p_APELLIDO_USUARIOParameter, p_EMAIL_USUARIOParameter, p_PASSWORD_USUARIOParameter, p_ROL_ID_ROLParameter);
+        }
+    
+        public virtual int INSERTVENTA(Nullable<decimal> p_SUBTOTAL_VENTA, Nullable<decimal> p_IVA_VENTA, Nullable<decimal> p_PROPINA_VENTA, Nullable<decimal> p_TOTAL_VENTA, Nullable<System.DateTime> p_FECHA_VENTA, string p_TIPO_PAGO, Nullable<decimal> p_PEDIDO_ID_PEDIDO)
+        {
+            var p_SUBTOTAL_VENTAParameter = p_SUBTOTAL_VENTA.HasValue ?
+                new ObjectParameter("P_SUBTOTAL_VENTA", p_SUBTOTAL_VENTA) :
+                new ObjectParameter("P_SUBTOTAL_VENTA", typeof(decimal));
+    
+            var p_IVA_VENTAParameter = p_IVA_VENTA.HasValue ?
+                new ObjectParameter("P_IVA_VENTA", p_IVA_VENTA) :
+                new ObjectParameter("P_IVA_VENTA", typeof(decimal));
+    
+            var p_PROPINA_VENTAParameter = p_PROPINA_VENTA.HasValue ?
+                new ObjectParameter("P_PROPINA_VENTA", p_PROPINA_VENTA) :
+                new ObjectParameter("P_PROPINA_VENTA", typeof(decimal));
+    
+            var p_TOTAL_VENTAParameter = p_TOTAL_VENTA.HasValue ?
+                new ObjectParameter("P_TOTAL_VENTA", p_TOTAL_VENTA) :
+                new ObjectParameter("P_TOTAL_VENTA", typeof(decimal));
+    
+            var p_FECHA_VENTAParameter = p_FECHA_VENTA.HasValue ?
+                new ObjectParameter("P_FECHA_VENTA", p_FECHA_VENTA) :
+                new ObjectParameter("P_FECHA_VENTA", typeof(System.DateTime));
+    
+            var p_TIPO_PAGOParameter = p_TIPO_PAGO != null ?
+                new ObjectParameter("P_TIPO_PAGO", p_TIPO_PAGO) :
+                new ObjectParameter("P_TIPO_PAGO", typeof(string));
+    
+            var p_PEDIDO_ID_PEDIDOParameter = p_PEDIDO_ID_PEDIDO.HasValue ?
+                new ObjectParameter("P_PEDIDO_ID_PEDIDO", p_PEDIDO_ID_PEDIDO) :
+                new ObjectParameter("P_PEDIDO_ID_PEDIDO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTVENTA", p_SUBTOTAL_VENTAParameter, p_IVA_VENTAParameter, p_PROPINA_VENTAParameter, p_TOTAL_VENTAParameter, p_FECHA_VENTAParameter, p_TIPO_PAGOParameter, p_PEDIDO_ID_PEDIDOParameter);
+        }
     }
 }

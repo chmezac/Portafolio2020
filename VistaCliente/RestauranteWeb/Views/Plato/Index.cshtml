@@ -1,37 +1,132 @@
-﻿@using RestauranteNegocio;
+﻿@model IEnumerable<RestauranteDatos.PLATO>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Listado de platos</h2>
 
-@{ List<Plato> platos = (List<Plato>)ViewBag.platos;}
-
-
-<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Descripcion</th>
-        <!--<th>Categoria</th>-->
-    </tr>
-
-    @foreach (var plato in platos)
-    {
-        <tr>
-            <td>@plato.Nombre</td>
-            <td>@plato.Precio</td>
-            <td>@plato.Descripcion</td>
-            <!--arroba platos.Categoria.Nombre-->
-        </tr>
-    }
-
-</table>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.18/datatables.min.css" />
+<br />
 
 
-<a href='@Url.Action("Index", "Home")'
-   class="btn btn-info">
-    <i class="fa fa-plus"></i>
-    Volver
-</a>
+<p>
+    <a href='@Url.Action("Create", "Plato")'
+       class="btn btn-info">
+        <i class="fa fa-plus"></i>
+        Agregar plato
+    </a>
+</p>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Platos</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped" id="MyTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th>
+                                <label>Nombre Plato</label>
+                            </th>
+                            <th>
+                                <label>Precio Plato</label>
+                            </th>
+                            <th>
+                                <label>Tipo de plato</label>
+                            </th>
+                            <th>
+                                <label>Tipo Preparación (min)</label>
+                            </th>
+                            <th>
+                                Opciones
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NOMBRE_PLATO)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PRECIO_PLATO)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TIPO_PLATO.NOMBRE_TIPO_PLATO)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TIEMPO_PREPARACION) Minutos
+                                </td>
+                                <td id="@item.ID_PLATO">
+                                    <a href='@Url.Action("Details", new { id = item.ID_PLATO })' class="btn btn-warning">
+                                        <i class="fa fa-list"></i>
+
+                                    </a>
+
+                                    <a href='@Url.Action("Edit", new { id = item.ID_PLATO })' class="btn btn-info">
+                                        <i class="fa fa-edit"></i>
+
+                                    </a>
+
+                                    <a href='@Url.Action("Delete", new { id = item.ID_PLATO })' class="btn btn-danger" id="btnDelete">
+                                        <i class="fa fa-trash"></i>
+
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="deleteDialog" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Eliminar</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Estas seguro de eliminar un Plato?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
+                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+
+            $('#MyTable').DataTable();
+
+            var id = 0;
+
+            $('a[id*=btnDelete]').click(function () {
+                debugger;
+                id = $(this).parent()[0].id;
+                $("#deleteDialog").modal('show');
+                return false;
+            });
+
+            $("#btnNoDelete").click(function () {
+                $("#deleteDialog").modal('hide');
+                return false;
+            });
+
+            $("#btnYesDelete").click(function () {
+                window.location.href = '/Plato/Delete/' + id;
+            });
+
+        });</script>
+}

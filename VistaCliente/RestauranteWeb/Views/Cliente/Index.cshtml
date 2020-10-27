@@ -1,0 +1,135 @@
+﻿@model IEnumerable<RestauranteDatos.CLIENTE>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.18/datatables.min.css" />
+
+<br />
+
+
+<p>
+    <a href='@Url.Action("Create", "Cliente")'
+       class="btn btn-info">
+        <i class="fa fa-plus"></i>
+        Agregar Cliente
+    </a>
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Clientes</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped" id="MyTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th>
+                                Rut
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Apellido
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Telefono
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RUT_CLIENTE)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NOMBRE_CLIENTE)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.APELLIDO_CLIENTE)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CORREO_CLIENTE)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TELEFONO_CLIENTE)
+                                </td>
+
+                                <td id="@item.RUT_CLIENTE">
+                                    <a href='@Url.Action("Edit", new { id = item.RUT_CLIENTE })' class="btn btn-info">
+                                        <i class="fa fa-edit"></i>
+                                        Editar
+                                    </a>
+
+                                    <a href='@Url.Action("Delete", new { id = item.RUT_CLIENTE })' class="btn btn-danger" id="btnDelete">
+                                        <i class="fa fa-trash"></i>
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="deleteDialog" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Eliminar</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Estas seguro de eliminar este Cliente?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
+                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+
+            $('#MyTable').DataTable();
+
+            var id = 0;
+
+            $('a[id*=btnDelete]').click(function () {
+                debugger;
+                id = $(this).parent()[0].id;
+                $("#deleteDialog").modal('show');
+                return false;
+            });
+
+            $("#btnNoDelete").click(function () {
+                $("#deleteDialog").modal('hide');
+                return false;
+            });
+
+            $("#btnYesDelete").click(function () {
+                window.location.href = '/Cliente/Delete/' + id;
+            });
+
+        });</script>
+}

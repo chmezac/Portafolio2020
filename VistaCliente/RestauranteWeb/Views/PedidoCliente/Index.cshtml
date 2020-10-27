@@ -1,0 +1,174 @@
+﻿@model IEnumerable<RestauranteDatos.PLATO>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.transitions.css" />
+
+    <link rel="stylesheet" type="text/css"  href="~/Recursos/css/Carrusel.css"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">-->
+
+</head>
+
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+    <div class="main-header" id="main-header">
+        <nav class="navbar mynav navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "PedidoCliente")">Restaurante Siglo XXl</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">@Html.ActionLink("Platos", "Index", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
+                        <li class="nav-item">@Html.ActionLink("Carro", "Carro", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
+                        <!--<li class="nav-item">@*Html.ActionLink("Ver Pedidos", "Pedidos", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })*@</li>-->
+                        <li><br /></li>
+
+                        <li>
+                            @if (Session["nombre"] != null)
+                            {
+                                var var = Session["nombre"];
+                            <li>
+                                <a style="color:#fff;">Bienvenido  @var</a>
+                            </li>
+
+                            <li class="nav-item">@Html.ActionLink("Cerrar sesión", "SingOut", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })"</li>
+                        }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <!--Carousel-->
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img  src="~/Recursos/img/carrusel1.jpg" style="width:100%">
+                <div class="text">Fideos con salsa</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img  src="~/Recursos/img/carrusel2.jpg" style="width:100%">
+                <div class="text">Ceviche</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img  src="~/Recursos/img/carrusel3.jpg" style="width:100%">
+                <div class="text">Pastel de Choclo</div>
+            </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+
+        <div class="container">
+            <!--End carousel-->
+            <br /><br /><br />
+            <!--Menú-->
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <!--Filter-->
+
+                    <!--End filter-->
+                    <div class="col-lg-3 col-sm-5 col-md-4 col-xs-1">
+                        <div class="card text-center bg-light border-primary" style="width: 15rem; ">
+                            <div class="card-body border-primary">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.NOMBRE_PLATO)</h5>
+                                <p class="card-text">Comida típica @Html.DisplayFor(modelItem => item.TIPO_PLATO.NOMBRE_TIPO_PLATO)</p>
+                                <p class="card-text"><small>Precio: @Html.DisplayFor(modelItem => item.PRECIO_PLATO)</small></p>
+                            </div>
+                            <div class="card-footer border-primary">
+                                <a onclick="aviso()" href='@Url.Action("Create", new { id = item.ID_PLATO })' class="btn btn-success">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Agregar al pedido
+                                </a>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                }
+                <script type="text/javascript">
+                    function aviso() {
+                        let aviso = document.getElementById("card-footer");
+                        alert("Su pedido se ha agregado correctamente, dirijase a 'Carro' para continuar.");
+                    }
+                </script>
+            </div>
+            <!--End menú-->
+        </div>
+        <br /><br />
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"> <span class="copyright">Portafolio 2020, DUOC UC</span> </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li>Plantilla: <a href="https://www.free-css.com/free-css-templates/page256/ethereal">W3 Template</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+        <script src="~/Recursos/js/jquery.min.js" language="javascript" type="text/javascript"></script>
+        <script src="~/Recursos/js/bootstrap.min.js" language="javascript" type="text/javascript"></script>
+        <script src="~/Recursos/js/owl.carousel.min.js" language="javascript" type="text/javascript"></script>
+        <script src="~/Recursos/js/jquery.countTo.js" language="javascript" type="text/javascript"></script>
+        <script src="~/Recursos/js/jquery.waypoints.min.js" language="javascript" type="text/javascript"></script>
+
+        <script src="~/Recursos/js/Carrusel.js" language="javascript" type="text/javascript"></script>
+    </body>
+</html>
+
+
+

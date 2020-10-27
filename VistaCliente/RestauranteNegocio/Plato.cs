@@ -3,54 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RestauranteDatos;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestauranteNegocio
 {
     public class Plato
     {
-        public decimal Id { get; set; }
 
-        public string Nombre { get; set; }
+        [Required]
+        [StringLength(35, ErrorMessage = "Nombre del plato no puede ser mayor a 35 caracteres")]
+        [Display(Name = "Nombre plato")]
+        public string NOMBRE_PLATO { get; set; }
 
-        public decimal Precio { get; set; }
-
-        public string Descripcion { get; set; }
-
-        public string CategoriaId { get; set; }
-
-        public Categoria Categoria { get; set; }
-
-        /*public Receta Receta { get; set; }*/
+        [Required]
+        [Range(0, 50000, ErrorMessage = "Ingrese un número válido")]
+        [Display(Name = "Precio Venta")]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
+        public int PRECIO_PLATO { get; set; }
 
 
-        RestauranteEntities db = new RestauranteEntities();
+        [Required]
+        [StringLength(40, ErrorMessage = "Descripcion no puede ser mayor a 40 caracteres")]
+        [Display(Name = "Descripción")]
+        public string DESCRIPCION_PLATO { get; set; }
 
-
-
-        /*LEER DATOS*/
-        public List<Plato> ReadAll()
-        {
-            return this.db.PLATO.Select(p => new Plato()
-            {
-
-                Id = (decimal)p.ID_PLATO,
-                Nombre = p.NOM_PLATO,
-                Precio = (decimal)p.PRECIO_PLATO,
-                Descripcion = p.DECRIP_PLATO,
-                CategoriaId = p.CATEGORIA_ID_CATEG,
-
-                Categoria = new Categoria()
-                {
-                    Id = p.CATEGORIA_ID_CATEG,
-                    /*Descripcion = p.DESCRIP_CATEG,
-                    Nombre = p.NOM_CATEG*/
-                }
-
-            }).ToList();
-        }
-
-
+        [Required]
+        [Range(0, 350, ErrorMessage = "Ingrese numero valido")]
+        [Display(Name = "Tiempo Preparación")]
+        public int TIEMPO_PREPARACION { get; set; }
 
     }
 }
