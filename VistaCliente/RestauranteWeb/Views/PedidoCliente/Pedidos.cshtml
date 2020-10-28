@@ -44,7 +44,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">@Html.ActionLink("Platos", "Index", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
                         <li class="nav-item">@Html.ActionLink("Carro", "Carro", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
-                        <!--<li class="nav-item">@*Html.ActionLink("Ver Pedidos", "Pedidos", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })*@</li>-->
+                        <li class="nav-item">@Html.ActionLink("Ver Pedidos", "Pedidos", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
                         <li><br /></li>
 
                         <li>
@@ -57,7 +57,6 @@
 
                             <li class="nav-item">@Html.ActionLink("Cerrar sesión", "SingOut", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })"</li>
                         }
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -70,7 +69,7 @@
 
         <!--End navbar-->
         <br /><br /><br /><br />
-        <h1 style="text-align:center">Historial de Pedidos</h1>
+        <h1 style="text-align:center">Pedidos Realizados</h1>
         <br />
         @if (Model.Count() >= 1)
         {
@@ -139,13 +138,10 @@
                         <td></td>
                         <td style="text-align:center">
                             @{
-                                if (estado == 0)
+                                if (estado == 1)
                                 {
-                                    <a href='@Url.Action("pedirCuenta")' class="btn btn-info">
-                                        <i class="fa fa-edit"></i>
-                                        Pedir Cuenta
-                                    </a>
-
+                                 <a href="@Url.Action("Index", "PedidoCliente")" onclick="aviso()" class="btn btn-info">
+                                  <i class="fa fa-edit"></i>Pedir cuenta</a>
                                 }
                             }
                         </td>
@@ -157,7 +153,7 @@
         {
             <div class="container">
                 <div class="alert alert-info">
-                    <strong>Usted no ha solicitado ningún pedido.</strong>Puede<a href="@Url.Action("Index")">redirigirse aquí</a> para seleccionar un pedido.
+                    <strong>Usted no ha solicitado ningún pedido.</strong>Puede<a href="@Url.Action("Index")"> redirigirse aquí</a> para seleccionar un pedido.
 
                 </div>
                 <table class="table">
@@ -176,8 +172,17 @@
             </div>
         }
 
+        <script type="text/javascript">
 
-       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    function aviso() {
+                        let aviso = document.getElementById("card-footer");
+                        alert("Se ha generado la boleta, dirijase a Caja para pagar.");
+                    }
+
+        </script>
+
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
         <footer>
             <div class="container">
@@ -199,3 +204,4 @@
         </footer>
 
     </body>
+</html>

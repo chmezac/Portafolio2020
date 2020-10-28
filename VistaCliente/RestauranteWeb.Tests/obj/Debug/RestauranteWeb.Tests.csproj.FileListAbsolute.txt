@@ -39,3 +39,10 @@ C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\Ent
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\RestauranteDatos.pdb
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\RestauranteDatos.dll.config
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\EntityFramework.xml
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\WebDriver.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\WebDriver.xml
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\WebDriver.Support.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\WebDriver.Support.xml
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\nunit.framework.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\nunit.framework.pdb
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\nunit.framework.xml

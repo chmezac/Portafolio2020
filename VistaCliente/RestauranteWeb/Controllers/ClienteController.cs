@@ -13,6 +13,8 @@ namespace RestauranteWeb.Controllers
     {
 
         private ClienteRepo context = new ClienteRepo();
+
+
         // GET: Cliente
         public ActionResult Index()
         {

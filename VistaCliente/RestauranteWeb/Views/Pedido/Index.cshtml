@@ -3,129 +3,186 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Pedidos</h2>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Usuarios</h3>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.transitions.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+
+</head>
+
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+    <div class="main-header" id="main-header">
+        <nav class="navbar mynav navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="http://localhost:50386/Garzon/Garzon">Restaurante Siglo XXl</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Mesa/Index">Mesas</a></li>
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Pedido/Index">Pedidos</a></li>
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Plato/Index">Platos</a></li>
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Home/Index">Salir</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="panel-body">
-                <table class="table table-hover table-striped" id="MyTable">
-                    <thead class="thead thead-dark">
-                        <tr>
-                            <th>
-                                N° Pedido
-                            </th>
-                            <th>
-                                Nombre Cliente
-                            </th>
-                            <th>
-                                N° Mesa
-                            </th>
-                            <th>
-                                Fecha Pedido
-                            </th>
-                            <th>
-                                Estado Pedido
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ID_PEDIDO)
-                                </td>
-                                <td>
-                                    @item.CLIENTE.NOMBRE_CLIENTE @item.CLIENTE.APELLIDO_CLIENTE
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.MESA_NUM_MESA)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FECHA_PEDIDO)
-                                </td>
-                                <td>
-                                    @{
-                                        if (item.ESTADO_PEDIDO == 0)
-                                        {
-                                            <label><span class="label label-warning">Pendiente</span></label>
-                                        }
-                                        else
-                                        {
-                                            <h2 class="label label-success">Servida </h2>
-                                        }
-                                    }
-                                </td>
-                                <td id="@item.ID_PEDIDO">
-                                    <a href='@Url.Action("Details", new { id = item.ID_PEDIDO })' class="btn btn-warning">
-                                        <i class="fa fa-list"></i>
-                                        Ver Pedido
-                                    </a>
-                                    <a href='@Url.Action("Delete", new { id = item.ID_PEDIDO })' class="btn btn-danger" id="btnDelete">
-                                        <i class="fa fa-trash"></i>
-                                        Cancelar
-                                    </a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+        </nav>
+    </div>
+
+    <br />    <br />    <br />    <br />  
+
+    <div class="container">
+        <h2>Pedidos</h2>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Usuarios</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-striped" id="MyTable">
+                            <thead class="thead thead-dark">
+                                <tr>
+                                    <th>
+                                        N° Pedido
+                                    </th>
+                                    <th>
+                                        Nombre Cliente
+                                    </th>
+                                    <th>
+                                        N° Mesa
+                                    </th>
+                                    <th>
+                                        Fecha Pedido
+                                    </th>
+                                    <th>
+                                        Estado Pedido
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID_PEDIDO)
+                                        </td>
+                                        <td>
+                                            @item.CLIENTE.NOMBRE_CLIENTE @item.CLIENTE.APELLIDO_CLIENTE
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MESA_NUM_MESA)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FECHA_PEDIDO)
+                                        </td>
+                                        <td>
+                                            @{
+                                                if (item.ESTADO_PEDIDO == 0)
+                                                {
+                                                    <label><span class="label label-warning">Pendiente</span></label>
+                                                }
+                                                else
+                                                {
+                                                    <h2 class="label label-success">Servida </h2>
+                                                }
+                                            }
+                                        </td>
+                                        <td id="@item.ID_PEDIDO">
+                                            <a href='@Url.Action("Details", new { id = item.ID_PEDIDO })' class="btn btn-warning">
+                                                <i class="fa fa-list"></i>
+                                                Ver Pedido
+                                            </a>
+                                            <a href='@Url.Action("Delete", new { id = item.ID_PEDIDO })' class="btn btn-danger" id="btnDelete">
+                                                <i class="fa fa-trash"></i>
+                                                Cancelar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<div id="deleteDialog" class="modal fade">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
-                <h4 class="modal-title">Eliminar</h4>
-            </div>
-            <div class="modal-body">
-                <p>¿Estas seguro de eliminar el pedido?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
-                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+    <div id="deleteDialog" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                    <h4 class="modal-title">Eliminar</h4>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estas seguro de eliminar el pedido?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
+                    <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-@section Scripts {
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
-    <script type="text/javascript">$(document).ready(function () {
 
-            $('#MyTable').DataTable();
+    @section Scripts {
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
 
-            var id = 0;
+                $('#MyTable').DataTable();
 
-            $('a[id*=btnDelete]').click(function () {
-                debugger;
-                id = $(this).parent()[0].id;
-                $("#deleteDialog").modal('show');
-                return false;
-            });
+                var id = 0;
 
-            $("#btnNoDelete").click(function () {
-                $("#deleteDialog").modal('hide');
-                return false;
-            });
+                $('a[id*=btnDelete]').click(function () {
+                    debugger;
+                    id = $(this).parent()[0].id;
+                    $("#deleteDialog").modal('show');
+                    return false;
+                });
 
-            $("#btnYesDelete").click(function () {
-                window.location.href = '/Pedido/Delete/' + id;
-            });
+                $("#btnNoDelete").click(function () {
+                    $("#deleteDialog").modal('hide');
+                    return false;
+                });
 
-        });</script>
-}
+                $("#btnYesDelete").click(function () {
+                    window.location.href = '/Pedido/Delete/' + id;
+                });
+
+            });</script>
+    }
+
+</body>
+</html>

@@ -34,7 +34,7 @@ namespace RestauranteWeb.Models.Repos
                 PEDIDO ped = this.context.PEDIDO.Where(n => n.ESTADO_PEDIDO == 1 && n.CLIENTE.ID_CLIENTE == id).FirstOrDefault();
                 if (ped != null)
                 {
-                    ped.ESTADO_PEDIDO = 2;
+                    ped.ESTADO_PEDIDO = 1;
                     this.context.SaveChanges();
                     return true;
                 }

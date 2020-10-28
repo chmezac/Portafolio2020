@@ -2,131 +2,200 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.18/datatables.min.css" />
-<br />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.transitions.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 
-<p>
-    <a href='@Url.Action("Create", "Plato")'
-       class="btn btn-info">
-        <i class="fa fa-plus"></i>
-        Agregar plato
-    </a>
-</p>
+</head>
 
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Platos</h3>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+    <div class="main-header" id="main-header">
+        <nav class="navbar mynav navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="http://localhost:50386/Garzon/Garzon">Restaurante Siglo XXl</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Mesa/Index">Mesas</a></li>
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Pedido/Index">Pedidos</a></li>
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Plato/Index">Platos</a></li>
+                        <li class="nav-item" style="color: #fff;text-decoration:none;padding: 10px 15px;"><a href="http://localhost:50386/Home/Index">Salir</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="panel-body">
-                <table class="table table-hover table-striped" id="MyTable">
-                    <thead class="thead thead-dark">
-                        <tr>
-                            <th>
-                                <label>Nombre Plato</label>
-                            </th>
-                            <th>
-                                <label>Precio Plato</label>
-                            </th>
-                            <th>
-                                <label>Tipo de plato</label>
-                            </th>
-                            <th>
-                                <label>Tipo Preparación (min)</label>
-                            </th>
-                            <th>
-                                Opciones
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NOMBRE_PLATO)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PRECIO_PLATO)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TIPO_PLATO.NOMBRE_TIPO_PLATO)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TIEMPO_PREPARACION) Minutos
-                                </td>
-                                <td id="@item.ID_PLATO">
-                                    <a href='@Url.Action("Details", new { id = item.ID_PLATO })' class="btn btn-warning">
-                                        <i class="fa fa-list"></i>
+        </nav>
+    </div>
 
-                                    </a>
+    <br />    <br />    <br />    <br />
 
-                                    <a href='@Url.Action("Edit", new { id = item.ID_PLATO })' class="btn btn-info">
-                                        <i class="fa fa-edit"></i>
 
-                                    </a>
 
-                                    <a href='@Url.Action("Delete", new { id = item.ID_PLATO })' class="btn btn-danger" id="btnDelete">
-                                        <i class="fa fa-trash"></i>
 
-                                    </a>
-                                </td>
-                            </tr>
-                        }
 
-                    </tbody>
-                </table>
+
+
+    <div class="container">
+
+
+            <p>
+        <a href='@Url.Action("Create", "Plato")'
+           class="btn btn-info">
+            <i class="fa fa-plus"></i>
+            Agregar plato
+        </a>
+    </p>
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Platos</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-striped" id="MyTable">
+                            <thead class="thead thead-dark">
+                                <tr>
+                                    <th>
+                                        <label>Nombre Plato</label>
+                                    </th>
+                                    <th>
+                                        <label>Precio Plato</label>
+                                    </th>
+                                    <th>
+                                        <label>Tipo de plato</label>
+                                    </th>
+                                    <th>
+                                        <label>Tipo Preparación (min)</label>
+                                    </th>
+                                    <th>
+                                        Opciones
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NOMBRE_PLATO)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PRECIO_PLATO)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TIPO_PLATO.NOMBRE_TIPO_PLATO)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TIEMPO_PREPARACION) Minutos
+                                        </td>
+                                        <td id="@item.ID_PLATO">
+                                            <a href='@Url.Action("Details", new { id = item.ID_PLATO })' class="btn btn-warning">
+                                                <i class="fa fa-list"></i>
+
+                                            </a>
+
+                                            <a href='@Url.Action("Edit", new { id = item.ID_PLATO })' class="btn btn-info">
+                                                <i class="fa fa-edit"></i>
+
+                                            </a>
+
+                                            <a href='@Url.Action("Delete", new { id = item.ID_PLATO })' class="btn btn-danger" id="btnDelete">
+                                                <i class="fa fa-trash"></i>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div id="deleteDialog" class="modal fade">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
-                <h4 class="modal-title">Eliminar</h4>
-            </div>
-            <div class="modal-body">
-                <p>¿Estas seguro de eliminar un Plato?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
-                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+
+
+
+
+        <div id="deleteDialog" class="modal fade">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                        <h4 class="modal-title">Eliminar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estas seguro de eliminar un Plato?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" id="btnYesDelete">Eliminar</button>
+                        <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
-</div>
-@section Scripts {
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
-    <script type="text/javascript">$(document).ready(function () {
 
-            $('#MyTable').DataTable();
 
-            var id = 0;
+    @section Scripts {
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
 
-            $('a[id*=btnDelete]').click(function () {
-                debugger;
-                id = $(this).parent()[0].id;
-                $("#deleteDialog").modal('show');
-                return false;
-            });
+                $('#MyTable').DataTable();
 
-            $("#btnNoDelete").click(function () {
-                $("#deleteDialog").modal('hide');
-                return false;
-            });
+                var id = 0;
 
-            $("#btnYesDelete").click(function () {
-                window.location.href = '/Plato/Delete/' + id;
-            });
+                $('a[id*=btnDelete]').click(function () {
+                    debugger;
+                    id = $(this).parent()[0].id;
+                    $("#deleteDialog").modal('show');
+                    return false;
+                });
 
-        });</script>
-}
+                $("#btnNoDelete").click(function () {
+                    $("#deleteDialog").modal('hide');
+                    return false;
+                });
+
+                $("#btnYesDelete").click(function () {
+                    window.location.href = '/Plato/Delete/' + id;
+                });
+
+            });</script>
+    }
+
+</body>
+</html>

@@ -116,6 +116,9 @@
     <Content Include="Recursos\img\carrusel1.jpg" />
     <Content Include="Recursos\img\carrusel2.jpg" />
     <Content Include="Recursos\img\carrusel3.jpg" />
+    <Content Include="Recursos\img\garzones.jpg" />
+    <Content Include="Recursos\img\garzones2.jpg" />
+    <Content Include="Recursos\img\garzones3.jpg" />
     <Content Include="Recursos\img\portfolio-1.jpg" />
     <Content Include="Recursos\img\portfolio-2.jpg" />
     <Content Include="Recursos\img\portfolio-3.jpg" />
@@ -149,6 +152,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\GarzonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsumoController.cs" />
     <Compile Include="Controllers\MesaController.cs" />
@@ -162,6 +166,7 @@
     </Compile>
     <Compile Include="Models\CarroDeCompras.cs" />
     <Compile Include="Models\Repos\ClienteRepo.cs" />
+    <Compile Include="Models\Repos\GarzonRepo.cs" />
     <Compile Include="Models\Repos\InsumosRepo.cs" />
     <Compile Include="Models\Repos\MesaRepo.cs" />
     <Compile Include="Models\Repos\PedidoClienteRepo.cs" />
@@ -201,6 +206,8 @@
     <Content Include="Views\PedidoCliente\Carro.cshtml" />
     <Content Include="Views\Pedido\Index.cshtml" />
     <Content Include="Views\Pedido\Details.cshtml" />
+    <Content Include="Views\Garzon\Index.cshtml" />
+    <Content Include="Views\Garzon\Garzon.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

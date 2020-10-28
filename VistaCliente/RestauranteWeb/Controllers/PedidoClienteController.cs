@@ -14,6 +14,8 @@ namespace RestauranteWeb.Controllers
 
 
         private PedidoClienteRepo context = new PedidoClienteRepo();
+
+
         // GET: PedidoCliente
         public ActionResult Index()
         {
@@ -33,10 +35,10 @@ namespace RestauranteWeb.Controllers
             {
                 return View(context.listarPedidos());
             }
-            else
+           else
             {
-                return RedirectToAction("Cliente");
-            }
+              return RedirectToAction("Cliente");
+           }
         }
 
         public ActionResult pedirCuenta()
