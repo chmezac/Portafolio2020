@@ -85,3 +85,15 @@ C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\EntityFramework
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\BouncyCastle.Crypto.dll
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\itextsharp.dll
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\itextsharp.xml
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\Microsoft.Web.Services3.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\MQTTnet.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\Newtonsoft.Json.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\System.Net.Security.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\System.Net.WebSockets.Client.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\System.Net.WebSockets.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\Transbank.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb\bin\Newtonsoft.Json.xml

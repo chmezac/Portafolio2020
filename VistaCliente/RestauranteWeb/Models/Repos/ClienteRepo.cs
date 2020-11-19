@@ -132,22 +132,6 @@ namespace RestauranteWeb.Models.Repos
             }
         }
 
-        /*
-
-        public USUARIO UsuarioViewToUsuario(UsuarioViewModel model)
-        {
-            USUARIO user = new USUARIO();
-            user.RUT_USUARIO = model.RUT_USUARIO;
-            user.NOMBRE_USUARIO = model.NOMBRE_USUARIO;
-            user.APELLIDO_USUARIO = model.APELLIDO_USUARIO;
-            user.EMAIL_USUARIO = model.EMAIL_USUARIO;
-            user.PASSWORD = model.Password;
-            user.ROL_ID_ROL = model.Rol;
-
-            return user;
-        }*/
-
-
 
         public bool eliminarCliente(string rut)
         {
@@ -179,13 +163,6 @@ namespace RestauranteWeb.Models.Repos
                 return false;
             }
         }
-
-
-
-
-
-
-
 
     }
 }

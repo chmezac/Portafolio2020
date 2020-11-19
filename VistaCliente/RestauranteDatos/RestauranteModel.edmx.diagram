@@ -4,27 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ff6af0c521d549bcb2b4110499a858f2" Name="Diagram1" ZoomLevel="98">
-        <EntityTypeShape EntityType="Model.CLIENTE" Width="2" PointX="2.5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.INSUMO" Width="1.875" PointX="8.5" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.MESA" Width="1.5" PointX="0.5" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PEDIDO" Width="2" PointX="2.5" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PEDIDO_INSUMO" Width="2.5" PointX="11.5" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PEDIDO_PLATOS" Width="1.875" PointX="5.625" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PLATO" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.RECETA" Width="2.375" PointX="10.375" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.RESERVA" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ROL" Width="1.875" PointX="6.25" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.TIPO_PLATO" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.USUARIO" Width="2.125" PointX="8.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.VENTA" Width="1.875" PointX="5.875" PointY="7.5" IsExpanded="true" />
+      <Diagram DiagramId="ff6af0c521d549bcb2b4110499a858f2" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="Model.CLIENTE" Width="2" PointX="9" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.INSUMO" Width="1.875" PointX="15.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MESA" Width="1.875" PointX="12" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PEDIDO" Width="2.25" PointX="8.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PEDIDO_INSUMO" Width="2.5" PointX="18.625" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PEDIDO_PLATOS" Width="1.875" PointX="5.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PLATO" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RECETA" Width="2.375" PointX="14.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RESERVA" Width="1.75" PointX="12" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ROL" Width="1.875" PointX="19" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_PLATO" Width="1.5" PointX="0.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIO" Width="2.125" PointX="18.875" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VENTA" Width="1.875" PointX="5.375" PointY="5.25" IsExpanded="true" />
         <AssociationConnector Association="Model.PEDIDO_CLIENTE_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.PEDIDO_INSUMO_INSUMO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.RECETA_INSUMO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.PEDIDO_MESA_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.RESERVA_MESA_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.PEDIDO_PLATOS_PEDIDO_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.VENTA_PEDIDO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VENTA_PEDIDO_FK" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="Model.PEDIDO_PLATOS_PLATO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.PLATO_TIPO_PLATO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.RECETA_PLATO_FK" ManuallyRouted="false" />

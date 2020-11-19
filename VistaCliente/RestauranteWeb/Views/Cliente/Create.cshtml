@@ -21,31 +21,51 @@
         <label class="control-label col-md-2">Rut Cliente</label>
         <div class="col-md-10">
             @Html.EditorFor(model => model.RUT_CLIENTE, new
-             {
-                 htmlAttributes = new
-                 {
-                     @class = "form-control",
-                     @id = "rut",
-                     @name = "rut"
-                 }
-             })
+       {
+           htmlAttributes = new
+           {
+               @class = "form-control",
+               @id = "rut",
+               @name = "rut",
+               @minlength = "8",
+               @maxlength = "9",
+               @type = "text",
+               @onkeypress = "this.value = this.value.replace(/[^0-9,k,K.]/g, '');"
+
+           }
+       })
             @Html.ValidationMessageFor(model => model.RUT_CLIENTE, "", new { @class = "text-danger" })
         </div>
     </div>
 
 
+
     <div class="form-group">
         <label class="control-label col-md-2">Contraseña</label>
+        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.PASSWORD_CLIENTE, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+            @Html.EditorFor(model => model.PASSWORD_CLIENTE, new
+
+       {
+           htmlAttributes = new
+           {
+               @class = "form-control",
+               @type = "password",
+               @maxlength = "20",
+               @id = "password-field",
+               @name = "password",
+               @value = "secret"
+
+           } })
             @Html.ValidationMessageFor(model => model.PASSWORD_CLIENTE, "", new { @class = "text-danger" })
+
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-2">Nombre</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.NOMBRE_CLIENTE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.NOMBRE_CLIENTE, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
             @Html.ValidationMessageFor(model => model.NOMBRE_CLIENTE, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -54,47 +74,72 @@
     <div class="form-group">
         <label class="control-label col-md-2">Apellido</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.APELLIDO_CLIENTE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.APELLIDO_CLIENTE, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
             @Html.ValidationMessageFor(model => model.APELLIDO_CLIENTE, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Correo</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.CORREO_CLIENTE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.CORREO_CLIENTE, new { htmlAttributes = new { @class = "form-control", @maxlength = "40", @type = "email" } })
             @Html.ValidationMessageFor(model => model.CORREO_CLIENTE, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Número de telefono</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.TELEFONO_CLIENTE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.TELEFONO_CLIENTE, new
+
+       {
+           htmlAttributes = new {
+               @class = "form-control",
+               @type = "text",
+               @maxlength = "9",
+               @onkeypress = "return isNumberKey(event)"
+
+           }
+       })
             @Html.ValidationMessageFor(model => model.TELEFONO_CLIENTE, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input onclick="aviso()" type="submit" value="Registrarme" class="btn btn-success" />
+            <input onclick="aviso()" type="submit" value="Aceptar" class="btn btn-success" />
             <a href="@Url.Action("Cliente", "PedidoCliente")" class="btn btn-info">Volver</a>
 
         </div>
     </div>
+
     <br />
 
     <script type="text/javascript">
         function aviso() {
             let aviso = document.getElementById("card-footer");
-            alert("Se ha registrado correctamente.");
+            alert("Validando datos, acepte para continuar.");
         }
     </script>
 
+    <script>
+        $(".toggle-password").click(function () {
 
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+
+    </script>
 </div>
 
 }
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
 
 

@@ -46,3 +46,8 @@ C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\Web
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\nunit.framework.dll
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\nunit.framework.pdb
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\nunit.framework.xml
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\Transbank.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\Microsoft.Web.Services3.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\MQTTnet.dll
+C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteWeb.Tests\bin\Debug\Newtonsoft.Json.xml

@@ -9,43 +9,78 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <div class="box">
-            <br />
-            <h4 class="text-center">Ingrese su Rut y Contraseña para realizar su pedido.</h4>
-            <form>
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    <label class="control-label">Rut</label>
-                    @Html.EditorFor(model => model.RUT_CLIENTE, new
-               {
-                   htmlAttributes = new
-                   {
-                       @class = "form-control",
-                       @id = "rut",
-                       @name = "rut",
-                       @oninput = "checkRut(this)"
-                   }
-               })
-                    @Html.ValidationMessageFor(model => model.RUT_CLIENTE, "", new { @class = "text-danger" })
-                </div>
-
-
-                <div class="form-group">
-                    <label class="control-label">Contraseña</label>
-                    @Html.EditorFor(model => model.PASSWORD_CLIENTE, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
-                    @Html.ValidationMessageFor(model => model.PASSWORD_CLIENTE, "", new { @class = "text-danger" })
-                </div>
-
-
-                <input type="submit" value="Ingresar" class="btn btn-primary btn-block" />
-
-                <br />
-                <a href="@Url.Action("Create", "Cliente")" class="btn btn-primary btn-block">¿No tienes cuenta?</a>
-
-
-
-            </form>
+<div class="box">
+    <br />
+    <h4 class="text-center">Ingrese su Rut y Contraseña para realizar su pedido.</h4>
+    <form>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label">Rut</label>
+            @Html.EditorFor(model => model.RUT_CLIENTE, new
+       {
+           htmlAttributes = new
+           {
+               @class = "form-control",
+               @id = "rut",
+               @name = "rut",
+               @minlength = "8",
+               @maxlength = "9",
+               @type = "text",
+               @onkeypress = "this.value = this.value.replace(/[^0-9,k,K.]/g, '');"
+           }
+       })
+            @Html.ValidationMessageFor(model => model.RUT_CLIENTE, "", new { @class = "text-danger" })
         </div>
+
+
+        <div class="form-group">
+            <label class="control-label">Contraseña</label>
+            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+            @Html.EditorFor(model => model.PASSWORD_CLIENTE, new
+       {
+           htmlAttributes = new
+           {
+               @class = "form-control",
+               @type = "password",
+               @maxlength = "20",
+               @id = "password-field",
+               @name = "password",
+               @value = "secret"
+           }
+
+       })
+            @Html.ValidationMessageFor(model => model.PASSWORD_CLIENTE, "", new { @class = "text-danger" })
+        </div>
+
+
+        <input type="submit" value="Ingresar" class="btn btn-primary btn-block" />
+
+        <br />
+        <a href="@Url.Action("Create", "Cliente")" class="btn btn-primary btn-block">¿No tienes cuenta?</a>
+
+
+
+    </form>
+
+
+
+
+    <script>
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+
+    </script>
+
+
+</div>
 
     }
 

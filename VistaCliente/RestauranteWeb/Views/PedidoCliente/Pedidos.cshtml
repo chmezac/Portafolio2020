@@ -23,7 +23,7 @@
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
 
-
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">-->
 
 </head>
@@ -126,22 +126,30 @@
                         </tr>
                     }
                     <tr>
-                        <td>Estado pedido: @cuenta  </td>
+                        <td>Estado pedido:  <b>@cuenta</b></td>
                         <td></td>
-                        <td>
-                            Total : @totalFinal
+                        <td style="text-align:center">
+                            <b>Total : @totalFinal</b>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td style="text-align:center">
+                        <td>
                             @{
                                 if (estado == 1)
                                 {
-                                 <a href="@Url.Action("Index", "PedidoCliente")" onclick="aviso()" class="btn btn-info">
-                                  <i class="fa fa-edit"></i>Pedir cuenta</a>
+                            <p>
+                                <a href="@Url.Action("Index", "PedidoCliente")" onclick="aviso()" class="btn btn-info" style="text-align:left">
+                                    <i class='fas fa-cash-register'></i> Pedir cuenta
+                                </a>
+
+                                &nbsp;
+
+                                <a href="@Url.Action("Index", "WebPay")" class="btn btn-warning" style="text-align:right">
+                                    <i class="fa fa-credit-card"></i> Pagar con WebPay Plus
+                                </a>
+                            </p>
                                 }
                             }
                         </td>
@@ -173,11 +181,10 @@
         }
 
         <script type="text/javascript">
-
                     function aviso() {
                         let aviso = document.getElementById("card-footer");
                         alert("Se ha generado la boleta, dirijase a Caja para pagar.");
-                    }
+            }
 
         </script>
 

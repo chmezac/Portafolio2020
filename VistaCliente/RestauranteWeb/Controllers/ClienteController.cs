@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using RestauranteDatos;
 using RestauranteNegocio;
 using RestauranteWeb.Models.Repos;
+using System.ComponentModel;
+using System.Drawing;
 
 namespace RestauranteWeb.Controllers
 {
@@ -45,7 +47,7 @@ namespace RestauranteWeb.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Cliente ya existe");
+                    ModelState.AddModelError(string.Empty, "Ingrese los datos correctamente.");
                     return View(cliente);
                 }
 

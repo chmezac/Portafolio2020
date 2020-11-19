@@ -9,8 +9,7 @@ namespace RestauranteNegocio
 {
     public class Cliente
     {
-        [Required]
-        [StringLength(maximumLength: 10, MinimumLength = 9, ErrorMessage = "RUT inválido")]
+        [Required(ErrorMessage = "Rut Incorrecto")]
         [Display(Name = "Rut")]
         public string RUT_CLIENTE { get; set; }
 
@@ -37,7 +36,7 @@ namespace RestauranteNegocio
         [Display(Name = "Correo")]
         public string CORREO_CLIENTE { get; set; }
 
-        [Range(0, 9999999999, ErrorMessage = "Ingrese un número válido")]
+        [Range(0, 999999999, ErrorMessage = "Ingrese un número válido")]
         [Display(Name = "Telefono")]
         public int TELEFONO_CLIENTE { get; set; }
 

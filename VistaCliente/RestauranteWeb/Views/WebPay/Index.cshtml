@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Recursos/css/owl.transitions.css" />
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">-->
+
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+    <div class="main-header" id="main-header">
+        <nav class="navbar mynav navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "PedidoCliente")">Restaurante Siglo XXl</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">@Html.ActionLink("Platos", "Index", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
+                        <li class="nav-item">@Html.ActionLink("Carro", "Carro", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
+                        <li class="nav-item">@Html.ActionLink("Ver Pedidos", "Pedidos", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })</li>
+                        <li><br /></li>
+
+                        <li>
+                            @if (Session["nombre"] != null)
+                            {
+                                var var = Session["nombre"];
+                            <li>
+                                <a style="color:#fff;">Bienvenido  @var</a>
+                            </li>
+
+                            <li class="nav-item">@Html.ActionLink("Cerrar sesión", "SingOut", "PedidoCliente", new { @style = "color: #fff;text-decoration:none;padding: 10px 15px;" })"</li>
+                        }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <br /><br /><br /><br />
+
+        <h1 style="text-align:center">Pago con <img src="~/Recursos/img/webpay1.png" alt="Logo WebPay Plus" style="width:300px;height:100px;"/></h1>
+        <br />
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Detalles</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover table-striped" id="MyTable">
+                                <thead class="thead thead-dark">
+
+
+                                    <p>Valor: @ViewBag.Amount</p>
+                                    <p>Orden de Compra: @ViewBag.BuyOrder</p>
+
+                                    <form action="@ViewBag.FormAction" method="post">
+                                        <input type="hidden" name="token_ws" value="@ViewBag.TokenWs" />
+                                        <button type="submit" onclick="avisowp()" class="btn btn-primary">Realizar Pago</button>
+                                    </form>
+
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            function avisowp() {
+                let aviso = document.getElementById("card-footer");
+                alert("Se le redirigirá a la plataforma WebPay Plus para pagar");
+            }
+
+        </script>
+
+
+    </body>
+</html>
+
+
