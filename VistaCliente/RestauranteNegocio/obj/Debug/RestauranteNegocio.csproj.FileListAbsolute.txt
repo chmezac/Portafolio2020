@@ -11,3 +11,16 @@ C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteNegocio\obj\Debug\Resta
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteNegocio\obj\Debug\RestauranteNegocio.dll
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteNegocio\obj\Debug\RestauranteNegocio.pdb
 C:\Users\thekrois\source\repos\RestauranteWeb\RestauranteNegocio\bin\Debug\RestauranteNegocio.dll.config
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\RestauranteNegocio.dll.config
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\RestauranteNegocio.dll
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\RestauranteNegocio.pdb
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\EntityFramework.dll
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\RestauranteDatos.dll
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\RestauranteDatos.pdb
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\RestauranteDatos.dll.config
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\bin\Debug\EntityFramework.xml
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\obj\Debug\RestauranteNegocio.csprojAssemblyReference.cache
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\obj\Debug\RestauranteNegocio.csproj.CoreCompileInputs.cache
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\obj\Debug\RestauranteNegocio.csproj.CopyComplete
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\obj\Debug\RestauranteNegocio.dll
+C:\Users\thekrois\Desktop\RestauranteWeb (respaldo 20-11-2020)\RestauranteNegocio\obj\Debug\RestauranteNegocio.pdb

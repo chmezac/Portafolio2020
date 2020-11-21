@@ -74,6 +74,7 @@
     <Compile Include="GarzonPlatosTest.cs" />
     <Compile Include="LoginClienteTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPayTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

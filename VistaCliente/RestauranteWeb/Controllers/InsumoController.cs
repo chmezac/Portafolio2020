@@ -83,27 +83,6 @@ namespace RestauranteWeb.Controllers
             }
         }
 
-        //[HttpPost]
-        //public ActionResult SolicitarInsumo(int id, INSUMO model)
-        //{
-        
-        //    bool edit = this.context.INSERTPEDIDOINSUMO(id, model);
-
-          //  if (edit != false)
-           // {
-
-             //   return RedirectToAction("Index");
-            //}
-            //else
-            //{
-                //ModelState.AddModelError(string.Empty, "Error en editar insumo");
-              //  return View(model);
-  //          }
-
-//        }
-
-
-
         // POST: Insumo/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, INSUMO model, HttpPostedFileBase file)
@@ -158,11 +137,6 @@ namespace RestauranteWeb.Controllers
                 return View();
             }
         }
-
-
-
-
-
 
     }
 }

@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44396</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -143,11 +143,25 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="index.js" />
+    <Content Include="pwa.js" />
+    <Content Include="pwabuilder-sw.js" />
     <Content Include="Recursos\css\animate.css" />
     <Content Include="Recursos\css\Boleta.css" />
-    <Content Include="Recursos\css\Carrusel.css" />
-    <Content Include="Recursos\css\images\background.jpg" />
     <Content Include="Recursos\css\bootstrap.min.css" />
+    <Content Include="Recursos\css\Carrusel.css" />
+    <Content Include="Recursos\css\font-awesome.min.css" />
+    <Content Include="Recursos\css\homestyle.css" />
+    <Content Include="Recursos\css\images\background.jpg" />
+    <Content Include="Recursos\css\loginstyle.css" />
+    <Content Include="Recursos\css\owl.carousel.css" />
+    <Content Include="Recursos\css\owl.theme.css" />
+    <Content Include="Recursos\css\owl.transitions.css" />
+    <Content Include="Recursos\css\simple-line-icons.css" />
+    <Content Include="Recursos\css\style.css" />
+    <Content Include="Recursos\fonts\fontawesome-webfont.svg" />
+    <Content Include="Recursos\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Recursos\fonts\Simple-Line-Icons.svg" />
     <Content Include="Recursos\img\background.jpg" />
     <Content Include="Recursos\img\carrusel1.jpg" />
     <Content Include="Recursos\img\carrusel2.jpg" />
@@ -155,15 +169,24 @@
     <Content Include="Recursos\img\garzones.jpg" />
     <Content Include="Recursos\img\garzones2.jpg" />
     <Content Include="Recursos\img\garzones3.jpg" />
+    <Content Include="Recursos\img\icons\android-icon-144x144.png" />
+    <Content Include="Recursos\img\icons\android-icon-192x192.png" />
+    <Content Include="Recursos\img\icons\android-icon-36x36.png" />
+    <Content Include="Recursos\img\icons\android-icon-48x48.png" />
+    <Content Include="Recursos\img\icons\android-icon-72x72.png" />
+    <Content Include="Recursos\img\icons\android-icon-96x96.png" />
+    <Content Include="Recursos\img\icons\apple-icon-144x144.png" />
+    <Content Include="Recursos\img\icons\apple-icon-152x152.png" />
+    <Content Include="Recursos\img\icons\apple-icon-180x180.png" />
+    <Content Include="Recursos\img\icons\apple-icon-57x57.png" />
+    <Content Include="Recursos\img\icons\apple-icon-60x60.png" />
+    <Content Include="Recursos\img\icons\apple-icon-72x72.png" />
+    <Content Include="Recursos\img\icons\apple-icon-76x76.png" />
+    <Content Include="Recursos\img\icons\apple-icon-precomposed.png" />
+    <Content Include="Recursos\img\icons\apple-icon.png" />
+    <Content Include="Recursos\img\icons\browserconfig.xml" />
     <Content Include="Recursos\img\icons\favicon.ico" />
-    <Content Include="Recursos\img\icons\icon-128x128.png" />
-    <Content Include="Recursos\img\icons\icon-144x144.png" />
-    <Content Include="Recursos\img\icons\icon-152x152.png" />
-    <Content Include="Recursos\img\icons\icon-192x192.png" />
-    <Content Include="Recursos\img\icons\icon-384x384.png" />
     <Content Include="Recursos\img\icons\icon-512x512.png" />
-    <Content Include="Recursos\img\icons\icon-72x72.png" />
-    <Content Include="Recursos\img\icons\icon-96x96.png" />
     <Content Include="Recursos\img\portfolio-1.jpg" />
     <Content Include="Recursos\img\portfolio-2.jpg" />
     <Content Include="Recursos\img\portfolio-3.jpg" />
@@ -174,23 +197,14 @@
     <Content Include="Recursos\img\webpay1.png" />
     <Content Include="Recursos\img\webpay2.png" />
     <Content Include="Recursos\js\bootstrap.min.js" />
-    <Content Include="Recursos\css\font-awesome.min.css" />
-    <Content Include="Recursos\img\homebackground.jpg" />
-    <Content Include="Recursos\img\homebackground2.jpg" />
-    <Content Include="Recursos\css\homestyle.css" />
     <Content Include="Recursos\js\Carrusel.js" />
     <Content Include="Recursos\js\jquery.countTo.js" />
     <Content Include="Recursos\js\jquery.min.js" />
     <Content Include="Recursos\js\jquery.waypoints.min.js" />
-    <Content Include="Recursos\css\loginstyle.css" />
-    <Content Include="Recursos\css\owl.carousel.css" />
     <Content Include="Recursos\js\owl.carousel.min.js" />
-    <Content Include="Recursos\css\owl.theme.css" />
-    <Content Include="Recursos\css\owl.transitions.css" />
-    <Content Include="Recursos\css\simple-line-icons.css" />
-    <Content Include="Recursos\css\style.css" />
     <Content Include="Recursos\js\validarRUT.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="sw.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -229,9 +243,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="manifest.json" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -261,6 +277,19 @@
     <Content Include="Views\WebPay\Index.cshtml" />
     <Content Include="Views\WebPay\Return.cshtml" />
     <Content Include="Views\WebPay\Final.cshtml" />
+    <Content Include="Recursos\fonts\fontawesome-webfont.eot" />
+    <Content Include="Recursos\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Recursos\fonts\fontawesome-webfont.woff" />
+    <Content Include="Recursos\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Recursos\fonts\FontAwesome.otf" />
+    <Content Include="Recursos\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Recursos\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Recursos\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Recursos\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Recursos\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Recursos\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Recursos\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Recursos\fonts\Simple-Line-Icons.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -270,7 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Recursos\fonts\" />
     <Folder Include="Views\Insumo\" />
   </ItemGroup>
   <ItemGroup>

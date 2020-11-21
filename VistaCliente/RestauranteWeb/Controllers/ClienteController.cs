@@ -194,11 +194,5 @@ namespace RestauranteWeb.Controllers
             return View(context.listarReserva());
         }
 
-
-
-
-
-
-
     }
 }

@@ -140,12 +140,13 @@ namespace RestauranteWeb.Controllers
                 if (cl == null)
                 {
                     cliente.CORREO_CLIENTE = "No existe correo";
+                    cliente.RUT_CLIENTE = "No existe Rut";
                     cliente.TELEFONO_CLIENTE = 0;
                     context.insertarCliente(cliente);
                     cl = context.buscarCliente(cliente.RUT_CLIENTE);
                 }
-                   //System.Web.HttpContext.Current.Session["idcliente"] = cl.ID_CLIENTE;
-                   //System.Web.HttpContext.Current.Session["nombre"] = cl.NOMBRE_CLIENTE; 
+                   System.Web.HttpContext.Current.Session["idcliente"] = cl.ID_CLIENTE;
+                   System.Web.HttpContext.Current.Session["nombre"] = cl.NOMBRE_CLIENTE; 
                 return RedirectToAction("Index");
             }
             else

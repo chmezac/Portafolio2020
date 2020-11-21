@@ -22,7 +22,7 @@ namespace RestauranteWeb.Controllers
 
             var transaction = new Webpay(Configuration.ForTestingWebpayPlusNormal()).NormalTransaction;
 
-            var amount = 8990;
+            var amount = 8790;
             var buyOrder = new Random().Next(100000, 999999999).ToString();
             var sessionId = "sessionId";
 

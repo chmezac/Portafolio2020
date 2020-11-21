@@ -17,6 +17,11 @@
 
     <link rel="icon" href="~/Recursos/img/icons/favicon.ico" type="image/png" />
 
+    <link rel="manifest" href="~/manifest.json">
+    <meta name="theme-color" content="#000" />
+
+    <link rel="apple-touch-icon" href="~/Recursos/img/icons/apple-icon-180x180.png">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
@@ -98,6 +103,10 @@
     <script src="~/Recursos/js/jquery.countTo.js" language="javascript" type="text/javascript"></script>
     <script src="~/Recursos/js/jquery.waypoints.min.js" language="javascript" type="text/javascript"></script>
 
+    <!--PWA-->
+    <script src="~/index.js" language="javascript" type="text/javascript"></script>
+
+    <script type="module" src="~/pwa.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

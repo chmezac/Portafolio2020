@@ -26,7 +26,8 @@
                @minlength = "8",
                @maxlength = "9",
                @type = "text",
-               @onkeypress = "this.value = this.value.replace(/[^0-9,k,K.]/g, '');"
+               @onkeypress = "this.value = this.value.replace(/[^0-9,k,K.]/g, '');",
+               required = "required"
            }
        })
             @Html.ValidationMessageFor(model => model.RUT_USUARIO, "", new { @class = "text-danger" })
@@ -45,7 +46,8 @@
                @maxlength = "20",
                @id = "password-field",
                @name = "password",
-               @value = "secret"
+               @value = "secret",
+               required = "required"
 
            }
        })
@@ -77,8 +79,3 @@
 </div>
 
 }
-
-
-
-
-

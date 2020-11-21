@@ -144,7 +144,7 @@ input {
     input[type=checkbox], input[type=radio] {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        /*box-sizing: border-box;*/
         padding: 0
     }
 
@@ -1337,13 +1337,13 @@ td, th {
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+    /*box-sizing: border-box*/
 }
 
 :after, :before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+    /*/box-sizing: border-box*/
 }
 
 html {
@@ -2894,7 +2894,7 @@ label {
 input[type=search] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+   /* box-sizing: border-box*/
 }
 
 input[type=checkbox], input[type=radio] {
