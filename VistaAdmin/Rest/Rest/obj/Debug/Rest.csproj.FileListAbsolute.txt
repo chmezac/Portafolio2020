@@ -1,0 +1,17 @@
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\bin\Debug\Rest.exe.config
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\bin\Debug\Rest.exe
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\bin\Debug\Rest.pdb
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.csprojAssemblyReference.cache
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Form1.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Properties.Resources.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.csproj.GenerateResource.cache
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.csproj.CoreCompileInputs.cache
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.exe
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.pdb
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Form2.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Form3.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Form4.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Form5.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Form6.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.Form7.resources
+C:\Users\fenek\OneDrive\Escritorio\Rest\Rest\obj\Debug\Rest.csproj.ResolveComReference.cache
